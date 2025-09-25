@@ -7,30 +7,29 @@ execute:
   message: false
 ---
 
----
+------------------------------------------------------------------------
 
 # BBC 100 Women (2020)
+
 Source: [TidyTuesday BBC 100 Women Resource](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-12-08)
 
 > Full dataset from: BBC News. (2020). BBC 100 Women 2020. [Original BBC Feature](https://www.bbc.com/news/world-55042935)
 
 ## Introduction
+
 The BBC 100 Women 2020 dataset, featured as part of the open-source TidyTuesday project, spotlights one hundred women from around the world who have had a substantial cultural, social, or scientific impact over the past year. Compiled by BBC News, this annual list celebrates women working in leadership, science, arts, activism, and communities worldwide. Alongside basic information such as name and country, the dataset includes a brief description of each individual’s background and contributions, plus their domain of impact.
 
+## Questions Explored
 
-## Questions Explored 
+-   **Which regions of the world are most represented among the BBC’s 100 Women of 2020?**\
+    This analysis counts how many honorees are connected to each continent or large region, helping reveal global patterns of visibility and recognition.
 
-- **Which regions of the world are most represented among the BBC’s 100 Women of 2020?**  
-  This analysis counts how many honorees are connected to each continent or large region, helping reveal global patterns of visibility and recognition.
-
-- **How does the field of achievement (category) vary by region?**  
-  By grouping honorees by both region and professional or social domain (such as Leadership, Science, Arts, or Advocacy), this code examines whether certain types of achievement are especially prominent in particular areas of the world.
-
-
+-   **How does the field of achievement (category) vary by region?**\
+    By grouping honorees by both region and professional or social domain (such as Leadership, Science, Arts, or Advocacy), this code examines whether certain types of achievement are especially prominent in particular areas of the world.
 
 # Analysis & Visualization
 
----
+------------------------------------------------------------------------
 
 ```{r}
 tuesdata <- tidytuesdayR::tt_load('2020-12-08')

@@ -7,28 +7,25 @@ execute:
   message: false
 ---
 
----
+------------------------------------------------------------------------
 
 # San Francisco Trees (2020)
 
-**Source:** [TidyTuesday San Francisco Trees Resource](https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28)  
+**Source:** [TidyTuesday San Francisco Trees Resource](https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28)\
 **Original data:** City and County of San Francisco. (2020). Street Tree List. [SF Open Data Link](https://data.sfgov.org/Nature-and-Sustainability/Street-Tree-List/tkzw-k3nq)
-
 
 ## Introduction
 
 This San Francisco Trees dataset, shared via TidyTuesday, catalogs nearly 200,000 street trees with details like species, dimensions, and the agency or entity responsible for care. It provides a window onto how a major city manages its urban forestry and the division of responsibility among public, private, and institutional actors.
 
----
+------------------------------------------------------------------------
 
 ## Questions Explored
 
-- **Which caretakers/agencies are responsible for the most trees in San Francisco?**
-- **Are there dominant players, or is responsibility widely dispersed?**
+-   **Which caretakers/agencies are responsible for the most trees in San Francisco?**
+-   **Are there dominant players, or is responsibility widely dispersed?**
 
-
-## Analysis & Visualization
----
+## \## Analysis & Visualization
 
 ```{r}
 # Get the Data
