@@ -1,0 +1,25 @@
+/* css styles */
+/* Page background */
+/* Sidebar links */
+.qsb-sidebar a {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #000;
+}
+
+.qsb-sidebar a i {
+  margin-right: 6px;
+}
+
+/* Page background */
+body {
+  background-color: beige;
+  font-family: Georgia, serif;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: Helvetica, sans-serif;
+}

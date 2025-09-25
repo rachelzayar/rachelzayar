@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Undergraduate Neuroscience Major (Pre-Medical), Pomona College\n\n\n\nMay Phoo Zayar @ Rachel is an undergraduate Neuroscience major on the pre-medical track at Pomona College in Claremont, California. She is committed to advancing scientific understanding and improving health outcomes through rigorous laboratory research and informed, compassionate care.\nHer academic and research experience includes supporting electrophysiological and neuroscience research, assisting in genetics laboratory courses, and contributing to studies of neurotransmitters and brain function. In addition, she has extensive experience volunteering in hospice and cancer care, where she has played a key role in supporting both patients and families.\nRachel has collaborated on healthcare research projects focused on program development, data analysis, and the creation of culturally sensitive health interventions. She communicates fluently in Burmese and English, and converses in Korean and Japanese. She values professionalism, teamwork, and continual learning.\n\n\n\n\nConnect with me:\n| GitHub |"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Welcome",
+    "section": "",
+    "text": "May Phoo Zayar @ Rachel is an undergraduate Neuroscience major on the pre-medical track at Pomona College in Claremont, California. She is committed to advancing scientific understanding and improving health outcomes through rigorous laboratory research and informed, compassionate care.\nHer academic and research experience includes supporting electrophysiological and neuroscience research, assisting in genetics laboratory courses, and contributing to studies of neurotransmitters and brain function. In addition, she has extensive experience volunteering in hospice and cancer care, where she has played a key role in supporting both patients and families.\nRachel has collaborated on healthcare research projects focused on program development, data analysis, and the creation of culturally sensitive health interventions. She communicates fluently in Burmese and English, and converses in Korean and Japanese. She values professionalism, teamwork, and continual learning."
+  },
+  {
+    "objectID": "index.html#her-goal-is-to-build-a-career-at-the-intersection-of-neuroscience-medicine-and-public-healthbridging-research-and-real-world-impact.",
+    "href": "index.html#her-goal-is-to-build-a-career-at-the-intersection-of-neuroscience-medicine-and-public-healthbridging-research-and-real-world-impact.",
+    "title": "Welcome",
+    "section": "",
+    "text": "Connect with me:\n| GitHub |"
+  },
+  {
+    "objectID": "tidytuesday1.html#introduction",
+    "href": "tidytuesday1.html#introduction",
+    "title": "TidyTuesday Analysis 1",
+    "section": "Introduction",
+    "text": "Introduction\nThe BBC 100 Women 2020 dataset, featured as part of the open-source TidyTuesday project, spotlights one hundred women from around the world who have had a substantial cultural, social, or scientific impact over the past year. Compiled by BBC News, this annual list celebrates women working in leadership, science, arts, activism, and communities worldwide. Alongside basic information such as name and country, the dataset includes a brief description of each individual’s background and contributions, plus their domain of impact."
+  },
+  {
+    "objectID": "tidytuesday1.html#questions-explored",
+    "href": "tidytuesday1.html#questions-explored",
+    "title": "TidyTuesday Analysis 1",
+    "section": "Questions Explored",
+    "text": "Questions Explored\n\nWhich regions of the world are most represented among the BBC’s 100 Women of 2020?\nThis analysis counts how many honorees are connected to each continent or large region, helping reveal global patterns of visibility and recognition.\nHow does the field of achievement (category) vary by region?\nBy grouping honorees by both region and professional or social domain (such as Leadership, Science, Arts, or Advocacy), this code examines whether certain types of achievement are especially prominent in particular areas of the world."
+  },
+  {
+    "objectID": "tidytuesday2.html#introduction",
+    "href": "tidytuesday2.html#introduction",
+    "title": "TidyTuesday Analysis 2",
+    "section": "Introduction",
+    "text": "Introduction\nThis San Francisco Trees dataset, shared via TidyTuesday, catalogs nearly 200,000 street trees with details like species, dimensions, and the agency or entity responsible for care. It provides a window onto how a major city manages its urban forestry and the division of responsibility among public, private, and institutional actors."
+  },
+  {
+    "objectID": "tidytuesday2.html#questions-explored",
+    "href": "tidytuesday2.html#questions-explored",
+    "title": "TidyTuesday Analysis 2",
+    "section": "Questions Explored",
+    "text": "Questions Explored\n\nWhich caretakers/agencies are responsible for the most trees in San Francisco?\nAre there dominant players, or is responsibility widely dispersed?"
+  },
+  {
+    "objectID": "tidytuesday2.html#analysis-visualization",
+    "href": "tidytuesday2.html#analysis-visualization",
+    "title": "TidyTuesday Analysis 2",
+    "section": "Analysis & Visualization",
+    "text": "Analysis & Visualization"
+  }
+]

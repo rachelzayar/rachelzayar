@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome – Rachel Zayar</title>
+<title>TidyTuesday Analysis 2 – Rachel Zayar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -123,10 +123,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#may-phoo-zayar-rachel" id="toc-may-phoo-zayar-rachel" class="nav-link active" data-scroll-target="#may-phoo-zayar-rachel">May Phoo Zayar @ Rachel</a>
+  <li><a href="#san-francisco-trees-2020" id="toc-san-francisco-trees-2020" class="nav-link active" data-scroll-target="#san-francisco-trees-2020">San Francisco Trees (2020)</a>
   <ul class="collapse">
-  <li><a href="#about" id="toc-about" class="nav-link" data-scroll-target="#about">About</a></li>
-  <li><a href="#her-goal-is-to-build-a-career-at-the-intersection-of-neuroscience-medicine-and-public-healthbridging-research-and-real-world-impact." id="toc-her-goal-is-to-build-a-career-at-the-intersection-of-neuroscience-medicine-and-public-healthbridging-research-and-real-world-impact." class="nav-link" data-scroll-target="#her-goal-is-to-build-a-career-at-the-intersection-of-neuroscience-medicine-and-public-healthbridging-research-and-real-world-impact.">Her goal is to build a career at the intersection of neuroscience, medicine, and public health—bridging research and real-world impact.</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#questions-explored" id="toc-questions-explored" class="nav-link" data-scroll-target="#questions-explored">Questions Explored</a></li>
+  <li><a href="#analysis-visualization" id="toc-analysis-visualization" class="nav-link" data-scroll-target="#analysis-visualization">Analysis &amp; Visualization</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -136,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome</h1>
+<h1 class="title">TidyTuesday Analysis 2</h1>
 </div>
 
 
@@ -153,21 +154,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="may-phoo-zayar-rachel" class="level1">
-<h1>May Phoo Zayar @ Rachel</h1>
-<p>Undergraduate Neuroscience Major (Pre-Medical), Pomona College</p>
 <hr>
-<section id="about" class="level2">
-<h2 class="anchored" data-anchor-id="about">About</h2>
-<p>May Phoo Zayar @ Rachel is an undergraduate Neuroscience major on the pre-medical track at Pomona College in Claremont, California. She is committed to advancing scientific understanding and improving health outcomes through rigorous laboratory research and informed, compassionate care.</p>
-<p>Her academic and research experience includes supporting electrophysiological and neuroscience research, assisting in genetics laboratory courses, and contributing to studies of neurotransmitters and brain function. In addition, she has extensive experience volunteering in hospice and cancer care, where she has played a key role in supporting both patients and families.</p>
-<p>Rachel has collaborated on healthcare research projects focused on program development, data analysis, and the creation of culturally sensitive health interventions. She communicates fluently in Burmese and English, and converses in Korean and Japanese. She values professionalism, teamwork, and continual learning.</p>
+<section id="san-francisco-trees-2020" class="level1">
+<h1>San Francisco Trees (2020)</h1>
+<p><strong>Source:</strong> <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28">TidyTuesday San Francisco Trees Resource</a><br>
+<strong>Original data:</strong> City and County of San Francisco. (2020). Street Tree List. <a href="https://data.sfgov.org/Nature-and-Sustainability/Street-Tree-List/tkzw-k3nq">SF Open Data Link</a></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This San Francisco Trees dataset, shared via TidyTuesday, catalogs nearly 200,000 street trees with details like species, dimensions, and the agency or entity responsible for care. It provides a window onto how a major city manages its urban forestry and the division of responsibility among public, private, and institutional actors.</p>
+<hr>
 </section>
-<section id="her-goal-is-to-build-a-career-at-the-intersection-of-neuroscience-medicine-and-public-healthbridging-research-and-real-world-impact." class="level2">
-<h2 class="anchored" data-anchor-id="her-goal-is-to-build-a-career-at-the-intersection-of-neuroscience-medicine-and-public-healthbridging-research-and-real-world-impact.">Her goal is to build a career at the intersection of neuroscience, medicine, and public health—bridging research and real-world impact.</h2>
-<p><img src="profile.JPG" width="400"></p>
-<p><strong>Connect with me:</strong></p>
-<p>| <a href="https://github.com/rachelzayar/rachelzayar.git">GitHub</a> |</p>
+<section id="questions-explored" class="level2">
+<h2 class="anchored" data-anchor-id="questions-explored">Questions Explored</h2>
+<ul>
+<li><strong>Which caretakers/agencies are responsible for the most trees in San Francisco?</strong></li>
+<li><strong>Are there dominant players, or is responsibility widely dispersed?</strong></li>
+</ul>
+</section>
+<section id="analysis-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-visualization">Analysis &amp; Visualization</h2>
+<hr>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tidytuesday2_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
