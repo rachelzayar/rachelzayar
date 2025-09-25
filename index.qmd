@@ -1,11 +1,35 @@
 ---
-title: "rachelzayar"
+title: "Welcome"
+image: "profile.JPG"
+image-shape: rectangle
+image-width: 250px
+format:
+  html:
+    theme: broadside
+    css: styles.css
 ---
 
-This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
-```{r}
-1 + 1
-```
+# May Phoo Zayar @ Rachel
+
+Undergraduate Neuroscience Major (Pre-Medical), Pomona College
+
+---
+
+## About
+
+May Phoo Zayar @ Rachel is an undergraduate Neuroscience major on the pre-medical track at Pomona College in Claremont, California. She is committed to advancing scientific understanding and improving health outcomes through rigorous laboratory research and informed, compassionate care.
+
+Her academic and research experience includes supporting electrophysiological and neuroscience research, assisting in genetics laboratory courses, and contributing to studies of neurotransmitters and brain function. In addition, she has extensive experience volunteering in hospice and cancer care, where she has played a key role in supporting both patients and families.
+
+Rachel has collaborated on healthcare research projects focused on program development, data analysis, and the creation of culturally sensitive health interventions. She communicates fluently in Burmese and English, and converses in Korean and Japanese. She values professionalism, teamwork, and continual learning.
+
+Her goal is to build a career at the intersection of neuroscience, medicine, and public health—bridging research and real-world impact.
+---
+
+![](profile.JPG){width="400px" height="auto"}
+
+**Connect with me:**
+
+\| [LinkedIn](https://www.linkedin.com/in/may-phoo-zayar-1271bb228?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B29mZN%2BWYTQu4DRJ1rubYPQ%3D%3D) \| [GitHub](https://github.com/rachelzayar/rachelzayar.git) \| [Email](#0) \|

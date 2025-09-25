@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome – Rachel Zayar</title>
+<title>TidyTuesday Analysis 1 – Rachel Zayar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -123,10 +123,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#may-phoo-zayar-rachel" id="toc-may-phoo-zayar-rachel" class="nav-link active" data-scroll-target="#may-phoo-zayar-rachel">May Phoo Zayar @ Rachel</a>
+  <li><a href="#bbc-100-women-2020" id="toc-bbc-100-women-2020" class="nav-link active" data-scroll-target="#bbc-100-women-2020">BBC 100 Women (2020)</a>
   <ul class="collapse">
-  <li><a href="#about" id="toc-about" class="nav-link" data-scroll-target="#about">About</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#questions-explored" id="toc-questions-explored" class="nav-link" data-scroll-target="#questions-explored">Questions Explored</a></li>
   </ul></li>
+  <li><a href="#analysis-visualization" id="toc-analysis-visualization" class="nav-link" data-scroll-target="#analysis-visualization">Analysis &amp; Visualization</a></li>
   </ul>
 </nav>
     </div>
@@ -135,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome</h1>
+<h1 class="title">TidyTuesday Analysis 1</h1>
 </div>
 
 
@@ -152,23 +154,41 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="may-phoo-zayar-rachel" class="level1">
-<h1>May Phoo Zayar @ Rachel</h1>
-<p>Undergraduate Neuroscience Major (Pre-Medical), Pomona College</p>
 <hr>
-<section id="about" class="level2">
-<h2 class="anchored" data-anchor-id="about">About</h2>
-<p>May Phoo Zayar @ Rachel is an undergraduate Neuroscience major on the pre-medical track at Pomona College in Claremont, California. She is committed to advancing scientific understanding and improving health outcomes through rigorous laboratory research and informed, compassionate care.</p>
-<p>Her academic and research experience includes supporting electrophysiological and neuroscience research, assisting in genetics laboratory courses, and contributing to studies of neurotransmitters and brain function. In addition, she has extensive experience volunteering in hospice and cancer care, where she has played a key role in supporting both patients and families.</p>
-<p>Rachel has collaborated on healthcare research projects focused on program development, data analysis, and the creation of culturally sensitive health interventions. She communicates fluently in Burmese and English, and converses in Korean and Japanese. She values professionalism, teamwork, and continual learning.</p>
-<p>Her goal is to build a career at the intersection of neuroscience, medicine, and public health—bridging research and real-world impact.</p>
-<hr>
-<p><img src="profile.JPG" width="400"></p>
-<p><strong>Connect with me:</strong></p>
-<p>| <a href="https://www.linkedin.com/in/may-phoo-zayar-1271bb228?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B29mZN%2BWYTQu4DRJ1rubYPQ%3D%3D">LinkedIn</a> | <a href="https://github.com/rachelzayar/rachelzayar.git">GitHub</a> | <a href="#0">Email</a> |</p>
-
-
+<section id="bbc-100-women-2020" class="level1">
+<h1>BBC 100 Women (2020)</h1>
+<p>Source: <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-12-08">TidyTuesday BBC 100 Women Resource</a></p>
+<blockquote class="blockquote">
+<p>Full dataset from: BBC News. (2020). BBC 100 Women 2020. <a href="https://www.bbc.com/news/world-55042935">Original BBC Feature</a></p>
+</blockquote>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The BBC 100 Women 2020 dataset, featured as part of the open-source TidyTuesday project, spotlights one hundred women from around the world who have had a substantial cultural, social, or scientific impact over the past year. Compiled by BBC News, this annual list celebrates women working in leadership, science, arts, activism, and communities worldwide. Alongside basic information such as name and country, the dataset includes a brief description of each individual’s background and contributions, plus their domain of impact.</p>
 </section>
+<section id="questions-explored" class="level2">
+<h2 class="anchored" data-anchor-id="questions-explored">Questions Explored</h2>
+<ul>
+<li><p><strong>Which regions of the world are most represented among the BBC’s 100 Women of 2020?</strong><br>
+This analysis counts how many honorees are connected to each continent or large region, helping reveal global patterns of visibility and recognition.</p></li>
+<li><p><strong>How does the field of achievement (category) vary by region?</strong><br>
+By grouping honorees by both region and professional or social domain (such as Leadership, Science, Arts, or Advocacy), this code examines whether certain types of achievement are especially prominent in particular areas of the world.</p></li>
+</ul>
+</section>
+</section>
+<section id="analysis-visualization" class="level1">
+<h1>Analysis &amp; Visualization</h1>
+<hr>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tidytuesday1_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -1,0 +1,86 @@
+---
+title: "TidyTuesday Analysis 1"
+format: html
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+---
+
+# BBC 100 Women (2020)
+Source: [TidyTuesday BBC 100 Women Resource](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-12-08)
+
+> Full dataset from: BBC News. (2020). BBC 100 Women 2020. [Original BBC Feature](https://www.bbc.com/news/world-55042935)
+
+## Introduction
+The BBC 100 Women 2020 dataset, featured as part of the open-source TidyTuesday project, spotlights one hundred women from around the world who have had a substantial cultural, social, or scientific impact over the past year. Compiled by BBC News, this annual list celebrates women working in leadership, science, arts, activism, and communities worldwide. Alongside basic information such as name and country, the dataset includes a brief description of each individual’s background and contributions, plus their domain of impact.
+
+
+## Questions Explored 
+
+- **Which regions of the world are most represented among the BBC’s 100 Women of 2020?**  
+  This analysis counts how many honorees are connected to each continent or large region, helping reveal global patterns of visibility and recognition.
+
+- **How does the field of achievement (category) vary by region?**  
+  By grouping honorees by both region and professional or social domain (such as Leadership, Science, Arts, or Advocacy), this code examines whether certain types of achievement are especially prominent in particular areas of the world.
+
+
+
+# Analysis & Visualization
+
+---
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2020-12-08')
+tuesdata <- tidytuesdayR::tt_load(2020, week = 50)
+
+women <- tuesdata$women
+
+library(tidyverse)
+library(countrycode)
+
+df_long <- women %>%
+  separate_rows(country, sep = ",\\s*") %>%
+  filter(country != "", !is.na(country), country != "All", category != "All") %>%
+  # Assign regions using UN subregion
+  mutate(region = countrycode(country, "country.name", "un.region.name"),
+         region = case_when(
+           region == "Northern America" ~ "North America",
+           region == "South America" ~ "South America",
+           region == "Central America" ~ "North America",      # or as you prefer
+           region == "Caribbean" ~ "North America",            # optional, or use as "Caribbean"
+           is.na(region) & str_detect(country, "Wales|Northern Ireland|Scotland|England|UK") ~ "Europe",
+           is.na(region) & str_detect(country, "Somaliland") ~ "Africa",
+           is.na(region) & str_detect(country, "Yining|Ghulja|Uighur") ~ "Asia",
+           TRUE ~ region
+         ),
+         region = ifelse(is.na(region), "Other", region))
+
+# Summarize number of women per region and category
+region_counts <- df_long %>%
+  count(region, category)
+
+# Calculate totals for each region for ordering
+region_totals <- region_counts %>%
+  group_by(region) %>%
+  summarise(total = sum(n))
+
+# Merge totals and reorder region factor for plotting (descending order)
+region_counts <- region_counts %>%
+  left_join(region_totals, by = "region") %>%
+  mutate(region = fct_reorder(region, total, .desc = TRUE))
+
+# Plot: Stacked bar by region, colored by category
+ggplot(region_counts, aes(x = region, y = n, fill = category)) +
+  geom_bar(stat = "identity", position = "stack") +
+  labs(
+    title = "BBC 100 Women 2020: Count by Region and Category",
+    x = "Region (Continent)",
+    y = "Count of Women",
+    fill = "Category"
+  ) +
+  theme_minimal()
+
+```
