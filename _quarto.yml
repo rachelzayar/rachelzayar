@@ -14,7 +14,8 @@ website:
             href: tidytuesday1.qmd
           - text: "TidyTuesday 2"
             href: tidytuesday2.qmd
-
+      - text: "Project 2"
+        href: project2.qmd
 
 format:
   html:

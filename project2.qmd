@@ -1,0 +1,124 @@
+---
+title: "Project 2 – Love in Romeo & Juliet"
+format: html
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Analysis of “Love” in Romeo & Juliet
+
+## Data Source
+
+This analysis uses a version of the full text of Romeo & Juliet with scene, character, and line columns.
+
+-   **Source:** Provided via TidyTuesday (<https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-09-17/romeo_juliet.csv>), original text from [Project Gutenberg](https://www.gutenberg.org/).
+
+```{r}
+library(tidyverse)
+library(stringr)
+
+tuesdata <- tidytuesdayR::tt_load(2024, week = 38)
+
+hamlet <- tuesdata$hamlet
+macbeth <- tuesdata$macbeth
+romeo_juliet <- tuesdata$romeo_juliet
+```
+
+## How Often is “Love” Used?
+
+We use `str_detect()` to create a column marking lines that mention “love” (case-insensitive), and `str_count()` to count all "love" appearances per line.
+
+```{r}
+romeo_juliet <- romeo_juliet %>%
+  mutate(
+    has_love = str_detect(dialogue, "(?i)\\blove\\b"),
+    love_count = str_count(dialogue, "(?i)\\blove\\b")
+  )
+```
+
+## Plot 1: Number of lines mentioning “love”
+
+```{r}
+ggplot(data = romeo_juliet %>% count(has_love), aes(x = has_love, y = n, fill = has_love)) +
+  geom_col(show.legend = FALSE) +
+  scale_x_discrete(labels = c("No", "Yes")) +
+  labs(
+    title = "Lines mentioning 'love' in Romeo & Juliet",
+    x = "Mentions 'love'?",
+    y = "Number of Lines"
+  ) +
+  theme_minimal()
+```
+
+This bar plot visually quantifies the frequency of "love" references in Romeo & Juliet, allowing readers to gauge the centrality of this theme in the play. By comparing lines with and without this keyword, we observe how strongly love permeates the dialogue and structure, highlighting its narrative importance and emotional weight within the story.
+
+## Which Characters Speak of Love Most?
+
+We use `str_detect()` (previous) and now add `str_to_lower()` to standardize for character name grouping.
+
+```{r}
+top_love <- romeo_juliet %>%
+  filter(has_love) %>%
+  group_by(character = str_to_title(character)) %>%
+  tally(sort = TRUE)
+top_love <- top_love %>% filter(!is.na(character))
+```
+
+## Plot 2: Characters who mention "love"
+
+```{r}
+ggplot(data = top_love[1:8,], aes(x = reorder(character, n), y = n, fill = character)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  labs(
+    title = "Top Characters Mentioning 'Love'",
+    x = "Character",
+    y = "Count of 'love' Mentions"
+  ) +
+  theme_minimal()
+```
+
+The horizontal bar chart reveals which characters articulate the concept of "love" most often. Such a visualization clarifies not only the main speakers driving the theme, but also suggests their roles and relationships with other characters. Readers gain insight into the social and emotional dynamics of the play by seeing who gives voice to its central motif.
+
+## Contexts of “Love”
+
+We aim to examine lines with "love" at the line start . We use `str_detect(dialoguelinenumber, "^(?i)love")` to find such lines.
+
+We also want to explore lines where "love" is followed by "death" later in the line and we use `str_detect(dialoguelinenumber, "(?i)love(?=.*death)")` to identify lines combining "love" and "death".
+
+```{r}
+romeo_juliet <- romeo_juliet %>%
+  mutate(
+    starts_love = str_detect(dialogue, "^(?i)love"),
+    love_and_death = str_detect(dialogue, "(?i)love(?=.*death)")
+  )
+```
+
+## Table 1: Example lines where both "love" and "death" appear
+
+```{r}
+romeo_juliet %>%
+  filter(love_and_death) %>%
+  select(character, dialogue) %>%
+  head(8)
+```
+
+This table presents lines in which "love" and "death" appear together, offering evidence of how Shakespeare intertwines passion and mortality. By examining these dual-themed lines, one can better understand the tragic elements and the ways the playwright uses language to foreshadow pivotal events, deepening appreciation of the play’s complex emotional
+layers
+
+## Sentiment in Love Lines
+
+We use `str_replace_all()` to highlight "love" in ALL CAPS in the sample.\
+
+```{r}
+romeo_juliet_sample <- romeo_juliet %>%
+  filter(has_love) %>%
+  mutate(dialogue_highlight = str_replace_all(dialogue, "(?i)\\blove\\b", "LOVE"))
+
+romeo_juliet_sample %>% select(character, dialogue_highlight) %>% head(5)
+
+```
+
+This table illustrates how the term "love" is distributed in the dialogue by visually emphasizing its presence through capitalization. By highlighting every instance of "love" in all caps, the table draws the reader's attention to the emotional significance and repeated usage of the word in context. This approach makes it easier to observe the intensity and pattern of "love" references, deepening understanding of how the term shapes the sentiment and thematic tone of the play.

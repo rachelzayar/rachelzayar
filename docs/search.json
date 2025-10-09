@@ -52,7 +52,63 @@
     "objectID": "tidytuesday2.html#analysis-visualization",
     "href": "tidytuesday2.html#analysis-visualization",
     "title": "TidyTuesday Analysis 2",
-    "section": "Analysis & Visualization",
-    "text": "Analysis & Visualization"
+    "section": "## Analysis & Visualization",
+    "text": "## Analysis & Visualization"
+  },
+  {
+    "objectID": "project2.html#data-source",
+    "href": "project2.html#data-source",
+    "title": "Project 2 – Love in Romeo & Juliet",
+    "section": "Data Source",
+    "text": "Data Source\nThis analysis uses a version of the full text of Romeo & Juliet with scene, character, and line columns.\n\nSource: Provided via TidyTuesday (https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-09-17/romeo_juliet.csv), original text from Project Gutenberg.\n\n\nlibrary(tidyverse)\nlibrary(stringr)\n\ntuesdata &lt;- tidytuesdayR::tt_load(2024, week = 38)\n\nhamlet &lt;- tuesdata$hamlet\nmacbeth &lt;- tuesdata$macbeth\nromeo_juliet &lt;- tuesdata$romeo_juliet"
+  },
+  {
+    "objectID": "project2.html#how-often-is-love-used",
+    "href": "project2.html#how-often-is-love-used",
+    "title": "Project 2 – Love in Romeo & Juliet",
+    "section": "How Often is “Love” Used?",
+    "text": "How Often is “Love” Used?\nWe use str_detect() to create a column marking lines that mention “love” (case-insensitive), and str_count() to count all “love” appearances per line.\n\nromeo_juliet &lt;- romeo_juliet %&gt;%\n  mutate(\n    has_love = str_detect(dialogue, \"(?i)\\\\blove\\\\b\"),\n    love_count = str_count(dialogue, \"(?i)\\\\blove\\\\b\")\n  )"
+  },
+  {
+    "objectID": "project2.html#plot-1-number-of-lines-mentioning-love",
+    "href": "project2.html#plot-1-number-of-lines-mentioning-love",
+    "title": "Project 2 – Love in Romeo & Juliet",
+    "section": "Plot 1: Number of lines mentioning “love”",
+    "text": "Plot 1: Number of lines mentioning “love”\n\nggplot(data = romeo_juliet %&gt;% count(has_love), aes(x = has_love, y = n, fill = has_love)) +\n  geom_col(show.legend = FALSE) +\n  scale_x_discrete(labels = c(\"No\", \"Yes\")) +\n  labs(\n    title = \"Lines mentioning 'love' in Romeo & Juliet\",\n    x = \"Mentions 'love'?\",\n    y = \"Number of Lines\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\nThis bar plot visually quantifies the frequency of “love” references in Romeo & Juliet, allowing readers to gauge the centrality of this theme in the play. By comparing lines with and without this keyword, we observe how strongly love permeates the dialogue and structure, highlighting its narrative importance and emotional weight within the story."
+  },
+  {
+    "objectID": "project2.html#which-characters-speak-of-love-most",
+    "href": "project2.html#which-characters-speak-of-love-most",
+    "title": "Project 2 – Love in Romeo & Juliet",
+    "section": "Which Characters Speak of Love Most?",
+    "text": "Which Characters Speak of Love Most?\nWe use str_detect() (previous) and now add str_to_lower() to standardize for character name grouping.\n\ntop_love &lt;- romeo_juliet %&gt;%\n  filter(has_love) %&gt;%\n  group_by(character = str_to_title(character)) %&gt;%\n  tally(sort = TRUE)\ntop_love &lt;- top_love %&gt;% filter(!is.na(character))"
+  },
+  {
+    "objectID": "project2.html#plot-2-characters-who-mention-love",
+    "href": "project2.html#plot-2-characters-who-mention-love",
+    "title": "Project 2 – Love in Romeo & Juliet",
+    "section": "Plot 2: Characters who mention “love”",
+    "text": "Plot 2: Characters who mention “love”\n\nggplot(data = top_love[1:8,], aes(x = reorder(character, n), y = n, fill = character)) +\n  geom_col(show.legend = FALSE) +\n  coord_flip() +\n  labs(\n    title = \"Top Characters Mentioning 'Love'\",\n    x = \"Character\",\n    y = \"Count of 'love' Mentions\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\nThe horizontal bar chart reveals which characters articulate the concept of “love” most often. Such a visualization clarifies not only the main speakers driving the theme, but also suggests their roles and relationships with other characters. Readers gain insight into the social and emotional dynamics of the play by seeing who gives voice to its central motif."
+  },
+  {
+    "objectID": "project2.html#contexts-of-love",
+    "href": "project2.html#contexts-of-love",
+    "title": "Project 2 – Love in Romeo & Juliet",
+    "section": "Contexts of “Love”",
+    "text": "Contexts of “Love”\nWe aim to examine lines with “love” at the line start . We use str_detect(dialoguelinenumber, \"^(?i)love\") to find such lines.\nWe also want to explore lines where “love” is followed by “death” later in the line and we use str_detect(dialoguelinenumber, \"(?i)love(?=.*death)\") to identify lines combining “love” and “death”.\n\nromeo_juliet &lt;- romeo_juliet %&gt;%\n  mutate(\n    starts_love = str_detect(dialogue, \"^(?i)love\"),\n    love_and_death = str_detect(dialogue, \"(?i)love(?=.*death)\")\n  )"
+  },
+  {
+    "objectID": "project2.html#table-1-example-lines-where-both-love-and-death-appear",
+    "href": "project2.html#table-1-example-lines-where-both-love-and-death-appear",
+    "title": "Project 2 – Love in Romeo & Juliet",
+    "section": "Table 1: Example lines where both “love” and “death” appear",
+    "text": "Table 1: Example lines where both “love” and “death” appear\n\nromeo_juliet %&gt;%\n  filter(love_and_death) %&gt;%\n  select(character, dialogue) %&gt;%\n  head(8)\n\n# A tibble: 3 × 2\n  character dialogue                                       \n  &lt;chr&gt;     &lt;chr&gt;                                          \n1 Romeo     Then love-devouring death do what he dare;     \n2 Paris     O love! O life! not life, but love in death!   \n3 Prince    Their course of love, the tidings of her death:\n\n\nThis table presents lines in which “love” and “death” appear together, offering evidence of how Shakespeare intertwines passion and mortality. By examining these dual-themed lines, one can better understand the tragic elements and the ways the playwright uses language to foreshadow pivotal events, deepening appreciation of the play’s complex emotional layers"
+  },
+  {
+    "objectID": "project2.html#sentiment-in-love-lines",
+    "href": "project2.html#sentiment-in-love-lines",
+    "title": "Project 2 – Love in Romeo & Juliet",
+    "section": "Sentiment in Love Lines",
+    "text": "Sentiment in Love Lines\nWe use str_replace_all() to highlight “love” in ALL CAPS in the sample.\n\n\nromeo_juliet_sample &lt;- romeo_juliet %&gt;%\n  filter(has_love) %&gt;%\n  mutate(dialogue_highlight = str_replace_all(dialogue, \"(?i)\\\\blove\\\\b\", \"LOVE\"))\n\nromeo_juliet_sample %&gt;% select(character, dialogue_highlight) %&gt;% head(5)\n\n# A tibble: 5 × 2\n  character dialogue_highlight                             \n  &lt;chr&gt;     &lt;chr&gt;                                          \n1 Chorus    The fearful passage of their death-mark'd LOVE,\n2 Benvolio  In LOVE?                                       \n3 Benvolio  Of LOVE?                                       \n4 Romeo     Out of her favour, where I am in LOVE.         \n5 Benvolio  Alas, that LOVE, so gentle in his view,        \n\n\nThis table illustrates how the term “love” is distributed in the dialogue by visually emphasizing its presence through capitalization. By highlighting every instance of “love” in all caps, the table draws the reader’s attention to the emotional significance and repeated usage of the word in context. This approach makes it easier to observe the intensity and pattern of “love” references, deepening understanding of how the term shapes the sentiment and thematic tone of the play."
   }
 ]
