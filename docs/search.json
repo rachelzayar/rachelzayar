@@ -110,5 +110,68 @@
     "title": "Project 2 – Love in Romeo & Juliet",
     "section": "Sentiment in Love Lines",
     "text": "Sentiment in Love Lines\nWe use str_replace_all() to highlight “love” in ALL CAPS in the sample.\n\n\nromeo_juliet_sample &lt;- romeo_juliet %&gt;%\n  filter(has_love) %&gt;%\n  mutate(dialogue_highlight = str_replace_all(dialogue, \"(?i)\\\\blove\\\\b\", \"LOVE\"))\n\nromeo_juliet_sample %&gt;% select(character, dialogue_highlight) %&gt;% head(5)\n\n# A tibble: 5 × 2\n  character dialogue_highlight                             \n  &lt;chr&gt;     &lt;chr&gt;                                          \n1 Chorus    The fearful passage of their death-mark'd LOVE,\n2 Benvolio  In LOVE?                                       \n3 Benvolio  Of LOVE?                                       \n4 Romeo     Out of her favour, where I am in LOVE.         \n5 Benvolio  Alas, that LOVE, so gentle in his view,        \n\n\nThis table illustrates how the term “love” is distributed in the dialogue by visually emphasizing its presence through capitalization. By highlighting every instance of “love” in all caps, the table draws the reader’s attention to the emotional significance and repeated usage of the word in context. This approach makes it easier to observe the intensity and pattern of “love” references, deepening understanding of how the term shapes the sentiment and thematic tone of the play."
+  },
+  {
+    "objectID": "project3.html",
+    "href": "project3.html",
+    "title": "Project 3: A simulation study",
+    "section": "",
+    "text": "This analysis asks: Was average life expectancy in Asian countries during the COVID-19 pandemic (2020) significantly different from that in all other countries? This question is relevant because 2020 marked an unprecedented disruption in global health, with potentially unequal impacts across world regions."
+  },
+  {
+    "objectID": "project3.html#introduction",
+    "href": "project3.html#introduction",
+    "title": "Project 3: A simulation study",
+    "section": "",
+    "text": "This analysis asks: Was average life expectancy in Asian countries during the COVID-19 pandemic (2020) significantly different from that in all other countries? This question is relevant because 2020 marked an unprecedented disruption in global health, with potentially unequal impacts across world regions."
+  },
+  {
+    "objectID": "project3.html#data-sources-and-provenance",
+    "href": "project3.html#data-sources-and-provenance",
+    "title": "Project 3: A simulation study",
+    "section": "Data Sources and Provenance",
+    "text": "Data Sources and Provenance\n\nAnalysis dataset:\n\n\nThe `life_expectancy` dataset is provided by TidyTuesday ([TidyTuesday data on GitHub](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-12-05)).\nThe original data was compiled by [Gapminder](https://www.gapminder.org/data/) and curated by [Our World in Data](https://ourworldindata.org/life-expectancy).\nAsia is defined using the [Worldometers Asia countries list](https://www.worldometers.info/geography/how-many-countries-in-asia/).\n\n\n\nlibrary(tidytuesdayR)\n\n# Load life_expectancy dataset directly from Github\ntuesdata &lt;- tidytuesdayR::tt_load('2023-12-05')\nlife_expectancy &lt;- tuesdata$life_expectancy\nlife_expectancy_different_ages &lt;- tuesdata$life_expectancy_different_ages\nlife_expectancy_female_male &lt;- tuesdata$life_expectancy_female_male\n\n\n# Official list of Asian countries (UN/Worldometers, 48 total)\nasia_countries &lt;- c(\n  \"India\", \"China\", \"Indonesia\", \"Pakistan\", \"Bangladesh\", \"Japan\", \"Philippines\", \"Vietnam\",\n  \"Iran\", \"Turkey\", \"Thailand\", \"Myanmar\", \"South Korea\", \"Iraq\", \"Afghanistan\",\n  \"Yemen\", \"Uzbekistan\", \"Malaysia\", \"Saudi Arabia\", \"Nepal\", \"North Korea\", \"Syria\", \"Sri Lanka\",\n  \"Kazakhstan\", \"Cambodia\", \"Jordan\", \"United Arab Emirates\", \"Tajikistan\", \"Azerbaijan\", \"Israel\",\n  \"Laos\", \"Turkmenistan\", \"Kyrgyzstan\", \"Singapore\", \"Lebanon\", \"State of Palestine\", \"Oman\", \"Kuwait\",\n  \"Georgia\", \"Mongolia\", \"Qatar\", \"Armenia\", \"Bahrain\", \"Timor-Leste\", \"Cyprus\", \"Bhutan\", \"Maldives\", \"Brunei\"\n)"
+  },
+  {
+    "objectID": "project3.html#data-sources",
+    "href": "project3.html#data-sources",
+    "title": "Project 3: A simulation study",
+    "section": "Data Sources",
+    "text": "Data Sources\nThe `life_expectancy` dataset for this analysis comes from ’TidyTuesday’s official repository’.\nThe original raw data was compiled by ‘Gapminder’ and curated by ‘Our World in Data’.\nAsia is defined using the Worldometers Asia countries list."
+  },
+  {
+    "objectID": "project3.html#simulation-plan",
+    "href": "project3.html#simulation-plan",
+    "title": "Project 3: A simulation study",
+    "section": "Simulation Plan",
+    "text": "Simulation Plan\nWe will:\n\nFilter for 2020 life expectancy data and label each country as “Asia” or “Other.”\nCalculate the observed difference in mean life expectancy between these groups.\nWrite a function to permute group labels and return the difference, then map it over 1000 simulations.\nVisualize the observed difference and the permutation null distribution.\nInterpret the results and assess significance."
+  },
+  {
+    "objectID": "project3.html#methods",
+    "href": "project3.html#methods",
+    "title": "Project 3: A simulation study",
+    "section": "Methods",
+    "text": "Methods\nA permutation test is used to compare mean life expectancy in Asia and the rest of the world. This non-parametric approach does not assume normality and is robust to outlier or heterogeneous data at the country level.\n\nObserved statistic: The true difference in group means.\nNull distribution: Created by randomly shuffling region labels (Asia/Other) and recomputing the means, simulating the null scenario of no real difference.\nEmpirical p-value: Proportion of simulated differences as large or larger than observed."
+  },
+  {
+    "objectID": "project3.html#description-of-functions",
+    "href": "project3.html#description-of-functions",
+    "title": "Project 3: A simulation study",
+    "section": "Description of functions",
+    "text": "Description of functions\n\nA custom function, calc_group_diff(), calculates the mean difference in life expectancy between Asia and Other. This function is called across 1000 label-shuffles using map_dbl().\nThe empirical p-value is the proportion of simulated differences that are as or more extreme than the observed. This quantifies the evidence supporting or refuting the idea that Asia’s life expectancy advantage (or disadvantage) is unlikely to be due to chance."
+  },
+  {
+    "objectID": "project3.html#code",
+    "href": "project3.html#code",
+    "title": "Project 3: A simulation study",
+    "section": "Code",
+    "text": "Code\n\nlibrary(tidytuesdayR)\nlibrary(tidyverse)\n\n# Load life_expectancy dataset directly from Github\nlife_expectancy &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-12-05/life_expectancy.csv')\nlife_expectancy_different_ages &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-12-05/life_expectancy_different_ages.csv')\nlife_expectancy_female_male &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-12-05/life_expectancy_female_male.csv')\n\n\n# Official list of Asian countries (UN/Worldometers, 48 total)\nasia_countries &lt;- c(\n  \"India\", \"China\", \"Indonesia\", \"Pakistan\", \"Bangladesh\", \"Japan\", \"Philippines\", \"Vietnam\",\n  \"Iran\", \"Turkey\", \"Thailand\", \"Myanmar\", \"South Korea\", \"Iraq\", \"Afghanistan\",\n  \"Yemen\", \"Uzbekistan\", \"Malaysia\", \"Saudi Arabia\", \"Nepal\", \"North Korea\", \"Syria\", \"Sri Lanka\",\n  \"Kazakhstan\", \"Cambodia\", \"Jordan\", \"United Arab Emirates\", \"Tajikistan\", \"Azerbaijan\", \"Israel\",\n  \"Laos\", \"Turkmenistan\", \"Kyrgyzstan\", \"Singapore\", \"Lebanon\", \"State of Palestine\", \"Oman\", \"Kuwait\",\n  \"Georgia\", \"Mongolia\", \"Qatar\", \"Armenia\", \"Bahrain\", \"Timor-Leste\", \"Cyprus\", \"Bhutan\", \"Maldives\", \"Brunei\"\n)\n\n# Filter for target year and assign group\nle_dat &lt;- life_expectancy %&gt;%\n  filter(Year == 2020) %&gt;%\n  mutate(region = if_else(Entity %in% asia_countries, \"Asia\", \"Other\"))\n\n# FUNCTION: Calculate group mean difference\ncalc_group_diff &lt;- function(df, col_group = \"region\", col_value = \"LifeExpectancy\") {\n  means &lt;- df %&gt;%\n    group_by(.data[[col_group]]) %&gt;%\n    summarize(mean_val = mean(.data[[col_value]], na.rm=TRUE), .groups = \"drop\")\n  means$mean_val[means[[col_group]] == \"Asia\"] - means$mean_val[means[[col_group]] == \"Other\"]\n}\n\n# Observed statistic\nobserved_diff &lt;- calc_group_diff(le_dat)\n\n# FUNCTION: Permute group labels, calculate difference\npermute_and_diff &lt;- function(df) {\n  shuffled &lt;- df %&gt;% mutate(region = sample(region))\n  calc_group_diff(shuffled)\n}\n\n# Set seed for reproducibility\nset.seed(47)\n\n# Run simulation with purrr::map()\nB &lt;- 1000\nperm_diffs &lt;- map_dbl(1:B, ~permute_and_diff(le_dat))\n\n# Calculate empirical p-value\np_val &lt;- mean(abs(perm_diffs) &gt;= abs(observed_diff))\n\n# Calculate and print results\ncat(\"Observed mean difference (Asia - Other):\", round(observed_diff, 2), \"\\n\")\n\nObserved mean difference (Asia - Other): 1.17 \n\ncat(\"Empirical p-value:\", round(p_val, 4), \"\\n\")\n\nEmpirical p-value: 0.291"
+  },
+  {
+    "objectID": "project3.html#results-and-visualization",
+    "href": "project3.html#results-and-visualization",
+    "title": "Project 3: A simulation study",
+    "section": "Results and Visualization",
+    "text": "Results and Visualization\n\nResults Interpretation:\nThe observed mean difference in life expectancy between Asia and the rest of the world in 2020 is 1.17 years, with Asia having the higher mean. However, the empirical p-value from the permutation test is 0.291.\nSince the empirical p-value is 0.291 (much greater than 0.05), we fail to reject the null hypothesis. This means the observed difference in life expectancy between Asia and the rest of the world could easily have occurred by random chance, so we do not have strong evidence for a real difference in this year.\n\n# Plot: Boxplot of data by region\nggplot(le_dat, aes(x=region, y=LifeExpectancy, fill=region)) +\n  geom_boxplot() +\n  labs(title = \"Life Expectancy by Region, 2020\",\n       y = \"Life Expectancy (years)\", x = \"Region\",\n       fill = \"Region\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\nDescription for Boxplot: Life Expectancy by Region (2020)\nThis boxplot compares country-level life expectancy across Asia and the rest of the world for the year 2020. The median (middle line) and the central spread (interquartile range) are similar for both groups, with “Other” countries having a slightly higher median. The ranges largely overlap, suggesting that most countries, regardless of region, have comparable average life expectancies. This visual indicates no dramatic difference in life expectancy distribution between Asia and other regions for this year.\n\n# Plot: Permutation test distribution\ntibble(sim_diff = perm_diffs) %&gt;%\n  ggplot(aes(x = sim_diff)) +\n  geom_histogram(binwidth=0.2, fill=\"grey70\", color=\"black\") +\n  geom_vline(xintercept=observed_diff, color=\"red\", linetype=\"dashed\", size=1.3) +\n  labs(title = \"Permutation Test: Null Distribution (Asia minus Other, 2020)\",\n       x = \"Permuted difference in means\", y = \"Count\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\nPermutation Test Null Distribution\nThis histogram shows the distribution of mean life expectancy differences (Asia minus Other) obtained by randomly shuffling region labels 1,000 times—a simulation of what we might expect by chance. The red dashed line marks the actual observed difference between the two regions. Because this observed statistic falls well within the main cluster of the permutation distribution, it suggests that the observed difference is not unusual under the null hypothesis. Thus, we do not have strong statistical evidence to claim a genuine difference in mean life expectancy between Asia and the rest of the world in 2020."
   }
 ]

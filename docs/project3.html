@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project 2 – Love in Romeo &amp; Juliet – Rachel Zayar</title>
+<title>Project 3: A simulation study – Rachel Zayar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,11 +142,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./project2.html" aria-current="page"> 
+    <a class="nav-link" href="./project2.html"> 
 <span class="menu-text">Project 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project3.html"> 
+    <a class="nav-link active" href="./project3.html" aria-current="page"> 
 <span class="menu-text">Project 3</span></a>
   </li>  
 </ul>
@@ -165,15 +165,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#analysis-of-love-in-romeo-juliet" id="toc-analysis-of-love-in-romeo-juliet" class="nav-link active" data-scroll-target="#analysis-of-love-in-romeo-juliet">Analysis of “Love” in Romeo &amp; Juliet</a></li>
-  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">Data Source</a></li>
-  <li><a href="#how-often-is-love-used" id="toc-how-often-is-love-used" class="nav-link" data-scroll-target="#how-often-is-love-used">How Often is “Love” Used?</a></li>
-  <li><a href="#plot-1-number-of-lines-mentioning-love" id="toc-plot-1-number-of-lines-mentioning-love" class="nav-link" data-scroll-target="#plot-1-number-of-lines-mentioning-love">Plot 1: Number of lines mentioning “love”</a></li>
-  <li><a href="#which-characters-speak-of-love-most" id="toc-which-characters-speak-of-love-most" class="nav-link" data-scroll-target="#which-characters-speak-of-love-most">Which Characters Speak of Love Most?</a></li>
-  <li><a href="#plot-2-characters-who-mention-love" id="toc-plot-2-characters-who-mention-love" class="nav-link" data-scroll-target="#plot-2-characters-who-mention-love">Plot 2: Characters who mention “love”</a></li>
-  <li><a href="#contexts-of-love" id="toc-contexts-of-love" class="nav-link" data-scroll-target="#contexts-of-love">Contexts of “Love”</a></li>
-  <li><a href="#table-1-example-lines-where-both-love-and-death-appear" id="toc-table-1-example-lines-where-both-love-and-death-appear" class="nav-link" data-scroll-target="#table-1-example-lines-where-both-love-and-death-appear">Table 1: Example lines where both “love” and “death” appear</a></li>
-  <li><a href="#sentiment-in-love-lines" id="toc-sentiment-in-love-lines" class="nav-link" data-scroll-target="#sentiment-in-love-lines">Sentiment in Love Lines</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
+  <li><a href="#simulation-plan" id="toc-simulation-plan" class="nav-link" data-scroll-target="#simulation-plan">Simulation Plan</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#description-of-functions" id="toc-description-of-functions" class="nav-link" data-scroll-target="#description-of-functions">Description of functions</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#results-and-visualization" id="toc-results-and-visualization" class="nav-link" data-scroll-target="#results-and-visualization">Results and Visualization</a></li>
   </ul>
 </nav>
     </div>
@@ -182,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project 2 – Love in Romeo &amp; Juliet</h1>
+<h1 class="title">Project 3: A simulation study</h1>
 </div>
 
 
@@ -199,146 +197,158 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="analysis-of-love-in-romeo-juliet" class="level2">
-<h2 class="anchored" data-anchor-id="analysis-of-love-in-romeo-juliet">Analysis of “Love” in Romeo &amp; Juliet</h2>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This analysis asks: <em>Was average life expectancy in Asian countries during the COVID-19 pandemic (2020) significantly different from that in all other countries?</em> This question is relevant because 2020 marked an unprecedented disruption in global health, with potentially unequal impacts across world regions.</p>
 </section>
-<section id="data-source" class="level2">
-<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
-<p>This analysis uses a version of the full text of Romeo &amp; Juliet with scene, character, and line columns.</p>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
+<p>The `life_expectancy` dataset for this analysis comes from <a href="#0">’TidyTuesday’s official repository</a>’.</p>
+<p>The original raw data was compiled by ‘<a href="#0">Gapminder</a>’ and curated by ‘<a href="#0">Our World in Data</a>’.</p>
+<p>Asia is defined using the <a href="https://www.worldometers.info/geography/how-many-countries-in-asia/">Worldometers Asia countries list</a>.</p>
+</section>
+<section id="simulation-plan" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-plan">Simulation Plan</h2>
+<p>We will:</p>
+<ol type="1">
+<li><p>Filter for 2020 life expectancy data and label each country as “Asia” or “Other.”</p></li>
+<li><p>Calculate the observed difference in mean life expectancy between these groups.</p></li>
+<li><p>Write a function to permute group labels and return the difference, then map it over 1000 simulations.</p></li>
+<li><p>Visualize the observed difference and the permutation null distribution.</p></li>
+<li><p>Interpret the results and assess significance.</p></li>
+</ol>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<p>A <strong>permutation test</strong> is used to compare mean life expectancy in Asia and the rest of the world. This non-parametric approach does not assume normality and is robust to outlier or heterogeneous data at the country level.</p>
 <ul>
-<li><strong>Source:</strong> Provided via TidyTuesday (<a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-09-17/romeo_juliet.csv" class="uri">https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-09-17/romeo_juliet.csv</a>), original text from <a href="https://www.gutenberg.org/">Project Gutenberg</a>.</li>
+<li><p><strong>Observed statistic</strong>: The true difference in group means.</p></li>
+<li><p><strong>Null distribution</strong>: Created by randomly shuffling region labels (Asia/Other) and recomputing the means, simulating the null scenario of no real difference.</p></li>
+<li><p><strong>Empirical p-value</strong>: Proportion of simulated differences as large or larger than observed.</p></li>
 </ul>
+</section>
+<section id="description-of-functions" class="level2">
+<h2 class="anchored" data-anchor-id="description-of-functions">Description of functions</h2>
+<ul>
+<li><p>A custom function, <strong><code>calc_group_diff()</code></strong>, calculates the mean difference in life expectancy between Asia and Other. This function is called across 1000 label-shuffles using <strong><code>map_dbl()</code></strong>.</p></li>
+<li><p>The empirical p-value is the proportion of simulated differences that are as or more extreme than the observed. This quantifies the evidence supporting or refuting the idea that Asia’s life expectancy advantage (or disadvantage) is unlikely to be due to chance.</p></li>
+</ul>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytuesdayR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="dv">2024</span>, <span class="at">week =</span> <span class="dv">38</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>hamlet <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>hamlet</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>macbeth <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>macbeth</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>romeo_juliet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load life_expectancy dataset directly from Github</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>life_expectancy <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-12-05/life_expectancy.csv'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>life_expectancy_different_ages <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-12-05/life_expectancy_different_ages.csv'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>life_expectancy_female_male <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-12-05/life_expectancy_female_male.csv'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Official list of Asian countries (UN/Worldometers, 48 total)</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>asia_countries <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"India"</span>, <span class="st">"China"</span>, <span class="st">"Indonesia"</span>, <span class="st">"Pakistan"</span>, <span class="st">"Bangladesh"</span>, <span class="st">"Japan"</span>, <span class="st">"Philippines"</span>, <span class="st">"Vietnam"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Iran"</span>, <span class="st">"Turkey"</span>, <span class="st">"Thailand"</span>, <span class="st">"Myanmar"</span>, <span class="st">"South Korea"</span>, <span class="st">"Iraq"</span>, <span class="st">"Afghanistan"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Yemen"</span>, <span class="st">"Uzbekistan"</span>, <span class="st">"Malaysia"</span>, <span class="st">"Saudi Arabia"</span>, <span class="st">"Nepal"</span>, <span class="st">"North Korea"</span>, <span class="st">"Syria"</span>, <span class="st">"Sri Lanka"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Kazakhstan"</span>, <span class="st">"Cambodia"</span>, <span class="st">"Jordan"</span>, <span class="st">"United Arab Emirates"</span>, <span class="st">"Tajikistan"</span>, <span class="st">"Azerbaijan"</span>, <span class="st">"Israel"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Laos"</span>, <span class="st">"Turkmenistan"</span>, <span class="st">"Kyrgyzstan"</span>, <span class="st">"Singapore"</span>, <span class="st">"Lebanon"</span>, <span class="st">"State of Palestine"</span>, <span class="st">"Oman"</span>, <span class="st">"Kuwait"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Georgia"</span>, <span class="st">"Mongolia"</span>, <span class="st">"Qatar"</span>, <span class="st">"Armenia"</span>, <span class="st">"Bahrain"</span>, <span class="st">"Timor-Leste"</span>, <span class="st">"Cyprus"</span>, <span class="st">"Bhutan"</span>, <span class="st">"Maldives"</span>, <span class="st">"Brunei"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for target year and assign group</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>le_dat <span class="ot">&lt;-</span> life_expectancy <span class="sc">%&gt;%</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2020</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">if_else</span>(Entity <span class="sc">%in%</span> asia_countries, <span class="st">"Asia"</span>, <span class="st">"Other"</span>))</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTION: Calculate group mean difference</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>calc_group_diff <span class="ot">&lt;-</span> <span class="cf">function</span>(df, <span class="at">col_group =</span> <span class="st">"region"</span>, <span class="at">col_value =</span> <span class="st">"LifeExpectancy"</span>) {</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  means <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(.data[[col_group]]) <span class="sc">%&gt;%</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_val =</span> <span class="fu">mean</span>(.data[[col_value]], <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  means<span class="sc">$</span>mean_val[means[[col_group]] <span class="sc">==</span> <span class="st">"Asia"</span>] <span class="sc">-</span> means<span class="sc">$</span>mean_val[means[[col_group]] <span class="sc">==</span> <span class="st">"Other"</span>]</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Observed statistic</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>observed_diff <span class="ot">&lt;-</span> <span class="fu">calc_group_diff</span>(le_dat)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTION: Permute group labels, calculate difference</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>permute_and_diff <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  shuffled <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">sample</span>(region))</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calc_group_diff</span>(shuffled)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">47</span>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Run simulation with purrr::map()</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>perm_diffs <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span>B, <span class="sc">~</span><span class="fu">permute_and_diff</span>(le_dat))</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate empirical p-value</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>p_val <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(perm_diffs) <span class="sc">&gt;=</span> <span class="fu">abs</span>(observed_diff))</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and print results</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Observed mean difference (Asia - Other):"</span>, <span class="fu">round</span>(observed_diff, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Observed mean difference (Asia - Other): 1.17 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Empirical p-value:"</span>, <span class="fu">round</span>(p_val, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Empirical p-value: 0.291 </code></pre>
+</div>
 </div>
 </section>
-<section id="how-often-is-love-used" class="level2">
-<h2 class="anchored" data-anchor-id="how-often-is-love-used">How Often is “Love” Used?</h2>
-<p>We use <code>str_detect()</code> to create a column marking lines that mention “love” (case-insensitive), and <code>str_count()</code> to count all “love” appearances per line.</p>
+<section id="results-and-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-visualization">Results and Visualization</h2>
+<section id="results-interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="results-interpretation"><strong>Results Interpretation:</strong></h4>
+<p>The observed mean difference in life expectancy between Asia and the rest of the world in 2020 is 1.17 years, with Asia having the higher mean. However, the empirical p-value from the permutation test is 0.291.</p>
+<p>Since the empirical p-value is 0.291 (much greater than 0.05), we fail to reject the null hypothesis. This means the observed difference in life expectancy between Asia and the rest of the world could easily have occurred by random chance, so we do not have strong evidence for a real difference in this year.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_love =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">love_count =</span> <span class="fu">str_count</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="plot-1-number-of-lines-mentioning-love" class="level2">
-<h2 class="anchored" data-anchor-id="plot-1-number-of-lines-mentioning-love">Plot 1: Number of lines mentioning “love”</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> romeo_juliet <span class="sc">%&gt;%</span> <span class="fu">count</span>(has_love), <span class="fu">aes</span>(<span class="at">x =</span> has_love, <span class="at">y =</span> n, <span class="at">fill =</span> has_love)) <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Lines mentioning 'love' in Romeo &amp; Juliet"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mentions 'love'?"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Lines"</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot: Boxplot of data by region</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(le_dat, <span class="fu">aes</span>(<span class="at">x=</span>region, <span class="at">y=</span>LifeExpectancy, <span class="at">fill=</span>region)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Life Expectancy by Region, 2020"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Life Expectancy (years)"</span>, <span class="at">x =</span> <span class="st">"Region"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Region"</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="project2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="project3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>This bar plot visually quantifies the frequency of “love” references in Romeo &amp; Juliet, allowing readers to gauge the centrality of this theme in the play. By comparing lines with and without this keyword, we observe how strongly love permeates the dialogue and structure, highlighting its narrative importance and emotional weight within the story.</p>
 </section>
-<section id="which-characters-speak-of-love-most" class="level2">
-<h2 class="anchored" data-anchor-id="which-characters-speak-of-love-most">Which Characters Speak of Love Most?</h2>
-<p>We use <code>str_detect()</code> (previous) and now add <code>str_to_lower()</code> to standardize for character name grouping.</p>
+<section id="description-for-boxplot-life-expectancy-by-region-2020" class="level4">
+<h4 class="anchored" data-anchor-id="description-for-boxplot-life-expectancy-by-region-2020">Description for Boxplot: Life Expectancy by Region (2020)</h4>
+<p>This boxplot compares country-level life expectancy across Asia and the rest of the world for the year 2020. The median (middle line) and the central spread (interquartile range) are similar for both groups, with “Other” countries having a slightly higher median. The ranges largely overlap, suggesting that most countries, regardless of region, have comparable average life expectancies. This visual indicates no dramatic difference in life expectancy distribution between Asia and other regions for this year.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>top_love <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(has_love) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">character =</span> <span class="fu">str_to_title</span>(character)) <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>(<span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>top_love <span class="ot">&lt;-</span> top_love <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(character))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="plot-2-characters-who-mention-love" class="level2">
-<h2 class="anchored" data-anchor-id="plot-2-characters-who-mention-love">Plot 2: Characters who mention “love”</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> top_love[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,], <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(character, n), <span class="at">y =</span> n, <span class="at">fill =</span> character)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top Characters Mentioning 'Love'"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Character"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count of 'love' Mentions"</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot: Permutation test distribution</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">sim_diff =</span> perm_diffs) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sim_diff)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="fl">0.2</span>, <span class="at">fill=</span><span class="st">"grey70"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span>observed_diff, <span class="at">color=</span><span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>, <span class="at">size=</span><span class="fl">1.3</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Permutation Test: Null Distribution (Asia minus Other, 2020)"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Permuted difference in means"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="project2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="project3_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The horizontal bar chart reveals which characters articulate the concept of “love” most often. Such a visualization clarifies not only the main speakers driving the theme, but also suggests their roles and relationships with other characters. Readers gain insight into the social and emotional dynamics of the play by seeing who gives voice to its central motif.</p>
 </section>
-<section id="contexts-of-love" class="level2">
-<h2 class="anchored" data-anchor-id="contexts-of-love">Contexts of “Love”</h2>
-<p>We aim to examine lines with “love” at the line start . We use <code>str_detect(dialoguelinenumber, "^(?i)love")</code> to find such lines.</p>
-<p>We also want to explore lines where “love” is followed by “death” later in the line and we use <code>str_detect(dialoguelinenumber, "(?i)love(?=.*death)")</code> to identify lines combining “love” and “death”.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts_love =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"^(?i)love"</span>),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">love_and_death =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"(?i)love(?=.*death)"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="table-1-example-lines-where-both-love-and-death-appear" class="level2">
-<h2 class="anchored" data-anchor-id="table-1-example-lines-where-both-love-and-death-appear">Table 1: Example lines where both “love” and “death” appear</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(love_and_death) <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(character, dialogue) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  character dialogue                                       
-  &lt;chr&gt;     &lt;chr&gt;                                          
-1 Romeo     Then love-devouring death do what he dare;     
-2 Paris     O love! O life! not life, but love in death!   
-3 Prince    Their course of love, the tidings of her death:</code></pre>
-</div>
-</div>
-<p>This table presents lines in which “love” and “death” appear together, offering evidence of how Shakespeare intertwines passion and mortality. By examining these dual-themed lines, one can better understand the tragic elements and the ways the playwright uses language to foreshadow pivotal events, deepening appreciation of the play’s complex emotional layers</p>
-</section>
-<section id="sentiment-in-love-lines" class="level2">
-<h2 class="anchored" data-anchor-id="sentiment-in-love-lines">Sentiment in Love Lines</h2>
-<p>We use <code>str_replace_all()</code> to highlight “love” in ALL CAPS in the sample.<br>
-</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet_sample <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(has_love) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dialogue_highlight =</span> <span class="fu">str_replace_all</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"LOVE"</span>))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>romeo_juliet_sample <span class="sc">%&gt;%</span> <span class="fu">select</span>(character, dialogue_highlight) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 2
-  character dialogue_highlight                             
-  &lt;chr&gt;     &lt;chr&gt;                                          
-1 Chorus    The fearful passage of their death-mark'd LOVE,
-2 Benvolio  In LOVE?                                       
-3 Benvolio  Of LOVE?                                       
-4 Romeo     Out of her favour, where I am in LOVE.         
-5 Benvolio  Alas, that LOVE, so gentle in his view,        </code></pre>
-</div>
-</div>
-<p>This table illustrates how the term “love” is distributed in the dialogue by visually emphasizing its presence through capitalization. By highlighting every instance of “love” in all caps, the table draws the reader’s attention to the emotional significance and repeated usage of the word in context. This approach makes it easier to observe the intensity and pattern of “love” references, deepening understanding of how the term shapes the sentiment and thematic tone of the play.</p>
+<section id="permutation-test-null-distribution" class="level4">
+<h4 class="anchored" data-anchor-id="permutation-test-null-distribution">Permutation Test Null Distribution</h4>
+<p>This histogram shows the distribution of mean life expectancy differences (Asia minus Other) obtained by randomly shuffling region labels 1,000 times—a simulation of what we might expect by chance. The red dashed line marks the actual observed difference between the two regions. Because this observed statistic falls well within the main cluster of the permutation distribution, it suggests that the observed difference is not unusual under the null hypothesis. Thus, we do not have strong statistical evidence to claim a genuine difference in mean life expectancy between Asia and the rest of the world in 2020.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

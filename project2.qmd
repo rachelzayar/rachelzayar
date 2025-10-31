@@ -105,8 +105,7 @@ romeo_juliet %>%
   head(8)
 ```
 
-This table presents lines in which "love" and "death" appear together, offering evidence of how Shakespeare intertwines passion and mortality. By examining these dual-themed lines, one can better understand the tragic elements and the ways the playwright uses language to foreshadow pivotal events, deepening appreciation of the play’s complex emotional
-layers
+This table presents lines in which "love" and "death" appear together, offering evidence of how Shakespeare intertwines passion and mortality. By examining these dual-themed lines, one can better understand the tragic elements and the ways the playwright uses language to foreshadow pivotal events, deepening appreciation of the play’s complex emotional layers
 
 ## Sentiment in Love Lines
 
