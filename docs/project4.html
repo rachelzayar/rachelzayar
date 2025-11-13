@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project 2 – Love in Romeo &amp; Juliet – Rachel Zayar</title>
+<title>Project 4: AI in Healthcare: An Ethical Dilemma in Data Science – Rachel Zayar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -142,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./project2.html" aria-current="page"> 
+    <a class="nav-link" href="./project2.html"> 
 <span class="menu-text">Project 2</span></a>
   </li>  
   <li class="nav-item">
@@ -150,8 +116,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Project 3</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project4.html"> 
-<span class="menu-text">Project 3</span></a>
+    <a class="nav-link active" href="./project4.html" aria-current="page"> 
+<span class="menu-text">Project 4</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -169,15 +135,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#analysis-of-love-in-romeo-juliet" id="toc-analysis-of-love-in-romeo-juliet" class="nav-link active" data-scroll-target="#analysis-of-love-in-romeo-juliet">Analysis of “Love” in Romeo &amp; Juliet</a></li>
-  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">Data Source</a></li>
-  <li><a href="#how-often-is-love-used" id="toc-how-often-is-love-used" class="nav-link" data-scroll-target="#how-often-is-love-used">How Often is “Love” Used?</a></li>
-  <li><a href="#plot-1-number-of-lines-mentioning-love" id="toc-plot-1-number-of-lines-mentioning-love" class="nav-link" data-scroll-target="#plot-1-number-of-lines-mentioning-love">Plot 1: Number of lines mentioning “love”</a></li>
-  <li><a href="#which-characters-speak-of-love-most" id="toc-which-characters-speak-of-love-most" class="nav-link" data-scroll-target="#which-characters-speak-of-love-most">Which Characters Speak of Love Most?</a></li>
-  <li><a href="#plot-2-characters-who-mention-love" id="toc-plot-2-characters-who-mention-love" class="nav-link" data-scroll-target="#plot-2-characters-who-mention-love">Plot 2: Characters who mention “love”</a></li>
-  <li><a href="#contexts-of-love" id="toc-contexts-of-love" class="nav-link" data-scroll-target="#contexts-of-love">Contexts of “Love”</a></li>
-  <li><a href="#table-1-example-lines-where-both-love-and-death-appear" id="toc-table-1-example-lines-where-both-love-and-death-appear" class="nav-link" data-scroll-target="#table-1-example-lines-where-both-love-and-death-appear">Table 1: Example lines where both “love” and “death” appear</a></li>
-  <li><a href="#sentiment-in-love-lines" id="toc-sentiment-in-love-lines" class="nav-link" data-scroll-target="#sentiment-in-love-lines">Sentiment in Love Lines</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#consent-and-permission-structures" id="toc-consent-and-permission-structures" class="nav-link" data-scroll-target="#consent-and-permission-structures">1. Consent and Permission Structures</a></li>
+  <li><a href="#data-privacy-and-identifiability" id="toc-data-privacy-and-identifiability" class="nav-link" data-scroll-target="#data-privacy-and-identifiability">2. Data Privacy and Identifiability</a></li>
+  <li><a href="#representation-and-bias-in-algorithm-design" id="toc-representation-and-bias-in-algorithm-design" class="nav-link" data-scroll-target="#representation-and-bias-in-algorithm-design">3. Representation and Bias in Algorithm Design</a></li>
+  <li><a href="#data-use-beyond-original-intent" id="toc-data-use-beyond-original-intent" class="nav-link" data-scroll-target="#data-use-beyond-original-intent">4. Data Use Beyond Original Intent</a></li>
+  <li><a href="#why-it-matters" id="toc-why-it-matters" class="nav-link" data-scroll-target="#why-it-matters">5. Why It Matters</a></li>
+  <li><a href="#refrences" id="toc-refrences" class="nav-link" data-scroll-target="#refrences">Refrences</a></li>
   </ul>
 </nav>
     </div>
@@ -186,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project 2 – Love in Romeo &amp; Juliet</h1>
+<h1 class="title">Project 4: AI in Healthcare: An Ethical Dilemma in Data Science</h1>
 </div>
 
 
@@ -203,144 +167,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="analysis-of-love-in-romeo-juliet" class="level2">
-<h2 class="anchored" data-anchor-id="analysis-of-love-in-romeo-juliet">Analysis of “Love” in Romeo &amp; Juliet</h2>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In 2015, the Royal Free London NHS Foundation Trust partnered with Google DeepMind, a branch of Alphabet Inc., to create an artificial intelligence system called Streams. The goal was to develop a smartphone app that could alert doctors in real time if a patient showed signs of acute kidney injury. To make this possible, DeepMind received access to the medical records of 1.6 million NHS patients, including sensitive information such as HIV status, mental health history, and drug-use data (Powles &amp; Hodson, 2017).</p>
+<p>What began as a promising step forward in digital healthcare soon turned into one of the most controversial data science cases in the United Kingdom. It was revealed that patients were never told their data had been shared, nor had they given permission. In 2017, the UK’s Information Commissioner’s Office ruled that the partnership had violated data protection laws because the data were shared under the claim of “direct patient care,” even though the Streams app was still being tested (University of Cambridge, 2019).</p>
+<p>This partnership became a defining example of how ethics, power, and corporate interests intersect in artificial intelligence research. It showed that technological innovation in healthcare cannot be separated from the moral questions surrounding ownership, consent, and the use of personal data.</p>
 </section>
-<section id="data-source" class="level2">
-<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
-<p>This analysis uses a version of the full text of Romeo &amp; Juliet with scene, character, and line columns.</p>
-<ul>
-<li><strong>Source:</strong> Provided via TidyTuesday (<a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-09-17/romeo_juliet.csv" class="uri">https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-09-17/romeo_juliet.csv</a>), original text from <a href="https://www.gutenberg.org/">Project Gutenberg</a>.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="dv">2024</span>, <span class="at">week =</span> <span class="dv">38</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>hamlet <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>hamlet</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>macbeth <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>macbeth</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>romeo_juliet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="consent-and-permission-structures" class="level2">
+<h2 class="anchored" data-anchor-id="consent-and-permission-structures">1. Consent and Permission Structures</h2>
+<p>Questions addressed: “What is the permission structure for using the data? Was it followed?” and “What was the consent structure for recruiting participants? Were the participants aware of the ways their data would be used for research? Was informed consent possible? Can you provide informed consent for applications that are yet foreseen?”</p>
+<p>A major ethical issue in the DeepMind case concerns informed consent. Under the UK’s Data Protection Act, organizations must have a valid legal basis for processing personal data. The Royal Free Trust claimed that its data sharing with DeepMind was justified under the principle of “direct patient care.” However, since Streams was still in the testing phase, patients were not actually receiving care through the app, meaning this justification did not apply (Powles &amp; Hodson, 2017).</p>
+<p>In 2017, the Information Commissioner’s Office confirmed that the Royal Free Trust had failed to properly inform patients about how their data would be used (University of Cambridge, 2019). This shows that the proper permission structures were not followed. Genuine informed consent requires that individuals clearly understand how their data will be used and voluntarily agree to that use. In this case, patients were unaware that a private technology company would access their records or that their data could later contribute to commercial artificial intelligence development.</p>
+<p>This situation reveals a broader challenge within artificial intelligence research. Once data are collected, they can easily be reused for purposes that were not anticipated at the time of collection. Fan, Zhang, and Li (2025) argue that informed consent becomes almost impossible when the potential uses of data extend far beyond their original intent.</p>
 </section>
-<section id="how-often-is-love-used" class="level2">
-<h2 class="anchored" data-anchor-id="how-often-is-love-used">How Often is “Love” Used?</h2>
-<p>We use <code>str_detect()</code> to create a column marking lines that mention “love” (case-insensitive), and <code>str_count()</code> to count all “love” appearances per line.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_love =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">love_count =</span> <span class="fu">str_count</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="data-privacy-and-identifiability" class="level2">
+<h2 class="anchored" data-anchor-id="data-privacy-and-identifiability">2. Data Privacy and Identifiability</h2>
+<p>Questions addressed: “Is the data identifiable? All of it? Some of it? In what way? Are the data sufficiently anonymized or old to be free of ethical concerns? Is anonymity guaranteed?”</p>
+<p>DeepMind’s access to NHS data also created serious privacy concerns. The dataset included identifiable details such as names, addresses, and full medical histories (Powles &amp; Hodson, 2017). Although both DeepMind and the NHS stated that the data were securely processed, the Information Commissioner’s Office found that the level of identifiability went far beyond what was necessary for the algorithm’s development (University of Cambridge, 2019).</p>
+<p>Even when data are anonymized, complete anonymity in healthcare records is very difficult to achieve. Murdoch (2021) explains that health data often contain unique combinations of variables that make it possible to re-identify individuals through cross-referencing with other data sources. For instance, combining medical history with demographic details such as age and postal code can easily point to a specific person.</p>
+<p>In this case, DeepMind’s access to identifiable patient data without explicit consent represented a clear breach of privacy. It also exposed weaknesses in data governance and demonstrated the need for stronger safeguards, greater oversight, and clearer definitions of ownership and accountability in digital healthcare systems.</p>
 </section>
-<section id="plot-1-number-of-lines-mentioning-love" class="level2">
-<h2 class="anchored" data-anchor-id="plot-1-number-of-lines-mentioning-love">Plot 1: Number of lines mentioning “love”</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> romeo_juliet <span class="sc">%&gt;%</span> <span class="fu">count</span>(has_love), <span class="fu">aes</span>(<span class="at">x =</span> has_love, <span class="at">y =</span> n, <span class="at">fill =</span> has_love)) <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Lines mentioning 'love' in Romeo &amp; Juliet"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mentions 'love'?"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Lines"</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="project2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This bar plot visually quantifies the frequency of “love” references in Romeo &amp; Juliet, allowing readers to gauge the centrality of this theme in the play. By comparing lines with and without this keyword, we observe how strongly love permeates the dialogue and structure, highlighting its narrative importance and emotional weight within the story.</p>
+<section id="representation-and-bias-in-algorithm-design" class="level2">
+<h2 class="anchored" data-anchor-id="representation-and-bias-in-algorithm-design">3. Representation and Bias in Algorithm Design</h2>
+<p>Questions addressed: “Who was measured? Are those individuals representative of the people to whom we’d like to generalize or apply the algorithm? Should we analyze data if we do not know how the data were collected?”</p>
+<p>Another ethical concern in the DeepMind and NHS collaboration was representation bias. The dataset used to train Streams came from a single hospital trust in London, which limited the diversity of the data. Algorithms trained on such narrow datasets may fail to perform accurately across wider populations, especially for individuals with different ethnic, socioeconomic, or geographic backgrounds.</p>
+<p>Dankwa-Mullan et al.&nbsp;(2024) argue that when artificial intelligence systems are trained on unrepresentative data, they can reproduce and even amplify existing health inequalities. This means that technology intended to improve care might instead deepen the disparities already present in the system.</p>
+<p>This issue connects to the framework proposed by D’Ignazio and Klein (2020), which emphasizes examining inclusion and exclusion within datasets. Because the Streams model was trained using data from a limited population, it lacked diversity and fairness by design. As a result, its effectiveness and reliability in broader clinical settings were uncertain.</p>
 </section>
-<section id="which-characters-speak-of-love-most" class="level2">
-<h2 class="anchored" data-anchor-id="which-characters-speak-of-love-most">Which Characters Speak of Love Most?</h2>
-<p>We use <code>str_detect()</code> (previous) and now add <code>str_to_lower()</code> to standardize for character name grouping.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>top_love <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(has_love) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">character =</span> <span class="fu">str_to_title</span>(character)) <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>(<span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>top_love <span class="ot">&lt;-</span> top_love <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(character))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="data-use-beyond-original-intent" class="level2">
+<h2 class="anchored" data-anchor-id="data-use-beyond-original-intent">4. Data Use Beyond Original Intent</h2>
+<p>Questions addressed: “Is the data being used in unintended ways to the original study?”</p>
+<p>One of the most troubling ethical concerns in this case is the use of patient data for purposes that went beyond their original intent. The NHS collected this information to provide medical care, not to support research by a private company. Yet the same data were later used by DeepMind to develop and test an artificial intelligence system.</p>
+<p>Although DeepMind claimed the project was not commercial, its parent company, Alphabet, gained valuable expertise and intellectual property through the collaboration (Fan et al., 2025). This raises questions about fairness and transparency, especially when public data become a foundation for private technological advancement.</p>
+<p>This situation illustrates a larger pattern in data science where public institutions collect vast amounts of data, but private corporations are the ones who benefit most from it. Patients, on the other hand, have little control over how their personal information is used. From the perspective of Data Feminism, this represents an imbalance of power between public organizations and corporate entities. Public healthcare systems rely on large technology firms for innovation, while those firms gain influence and control over public data.</p>
 </section>
-<section id="plot-2-characters-who-mention-love" class="level2">
-<h2 class="anchored" data-anchor-id="plot-2-characters-who-mention-love">Plot 2: Characters who mention “love”</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> top_love[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,], <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(character, n), <span class="at">y =</span> n, <span class="at">fill =</span> character)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top Characters Mentioning 'Love'"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Character"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count of 'love' Mentions"</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="project2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The horizontal bar chart reveals which characters articulate the concept of “love” most often. Such a visualization clarifies not only the main speakers driving the theme, but also suggests their roles and relationships with other characters. Readers gain insight into the social and emotional dynamics of the play by seeing who gives voice to its central motif.</p>
+<section id="why-it-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-it-matters">5. Why It Matters</h2>
+<p>Questions addressed: “Who benefits? Who is neglected or harmed? Were the ethical violations in the interest of profit, surveillance, or power?”</p>
+<p>The DeepMind and NHS controversy shows that data science is deeply connected to ethics, governance, and power. The problems of inadequate consent, insufficient anonymization, limited representation, and the repurposing of patient data all reveal a larger issue in modern healthcare: the treatment of personal information as a commodity.</p>
+<p>Technology companies gain significant advantages from access to extensive datasets that strengthen their algorithms and market influence. Patients, however, lose control over their personal data and may face risks from biased or untested systems.</p>
+<p>As D’Ignazio and Klein (2020) argue, ethical data science is not only about legal compliance but also about fairness, accountability, and respect for human rights. The DeepMind case highlights the urgent need to center equity and transparency in the development of data-driven healthcare. Without these principles, technological progress risks reinforcing the very inequities it claims to solve.</p>
 </section>
-<section id="contexts-of-love" class="level2">
-<h2 class="anchored" data-anchor-id="contexts-of-love">Contexts of “Love”</h2>
-<p>We aim to examine lines with “love” at the line start . We use <code>str_detect(dialoguelinenumber, "^(?i)love")</code> to find such lines.</p>
-<p>We also want to explore lines where “love” is followed by “death” later in the line and we use <code>str_detect(dialoguelinenumber, "(?i)love(?=.*death)")</code> to identify lines combining “love” and “death”.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts_love =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"^(?i)love"</span>),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">love_and_death =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"(?i)love(?=.*death)"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="table-1-example-lines-where-both-love-and-death-appear" class="level2">
-<h2 class="anchored" data-anchor-id="table-1-example-lines-where-both-love-and-death-appear">Table 1: Example lines where both “love” and “death” appear</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(love_and_death) <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(character, dialogue) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  character dialogue                                       
-  &lt;chr&gt;     &lt;chr&gt;                                          
-1 Romeo     Then love-devouring death do what he dare;     
-2 Paris     O love! O life! not life, but love in death!   
-3 Prince    Their course of love, the tidings of her death:</code></pre>
-</div>
-</div>
-<p>This table presents lines in which “love” and “death” appear together, offering evidence of how Shakespeare intertwines passion and mortality. By examining these dual-themed lines, one can better understand the tragic elements and the ways the playwright uses language to foreshadow pivotal events, deepening appreciation of the play’s complex emotional layers</p>
-</section>
-<section id="sentiment-in-love-lines" class="level2">
-<h2 class="anchored" data-anchor-id="sentiment-in-love-lines">Sentiment in Love Lines</h2>
-<p>We use <code>str_replace_all()</code> to highlight “love” in ALL CAPS in the sample.<br>
-</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet_sample <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(has_love) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dialogue_highlight =</span> <span class="fu">str_replace_all</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"LOVE"</span>))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>romeo_juliet_sample <span class="sc">%&gt;%</span> <span class="fu">select</span>(character, dialogue_highlight) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 2
-  character dialogue_highlight                             
-  &lt;chr&gt;     &lt;chr&gt;                                          
-1 Chorus    The fearful passage of their death-mark'd LOVE,
-2 Benvolio  In LOVE?                                       
-3 Benvolio  Of LOVE?                                       
-4 Romeo     Out of her favour, where I am in LOVE.         
-5 Benvolio  Alas, that LOVE, so gentle in his view,        </code></pre>
-</div>
-</div>
-<p>This table illustrates how the term “love” is distributed in the dialogue by visually emphasizing its presence through capitalization. By highlighting every instance of “love” in all caps, the table draws the reader’s attention to the emotional significance and repeated usage of the word in context. This approach makes it easier to observe the intensity and pattern of “love” references, deepening understanding of how the term shapes the sentiment and thematic tone of the play.</p>
+<section id="refrences" class="level2">
+<h2 class="anchored" data-anchor-id="refrences">Refrences</h2>
+<p>Dankwa-Mullan, I., Nunez-Smith, M., &amp; Volerman, A. (2024). Health equity and ethical considerations in using artificial intelligence. Centers for Disease Control and Prevention. https://www.cdc.gov/pcd/issues/2024/24_0245.htm</p>
+<p>D’Ignazio, C., &amp; Klein, L. F. (2020). Data feminism. MIT Press.</p>
+<p>Fan, X., Zhang, L., &amp; Li, Y. (2025). Exploring the ethical issues posed by AI and big data in healthcare. Frontiers in Public Health, 13, 1585180. https://doi.org/10.3389/fpubh.2025.1585180</p>
+<p>Murdoch, B. (2021). Privacy and artificial intelligence: Challenges for protecting health data. BMC Medical Ethics, 22(122). https://doi.org/10.1186/s12910-021-00687-3</p>
+<p>Powles, J., &amp; Hodson, H. (2017). Google DeepMind and healthcare in an age of algorithms. Health and Technology, 7(4), 351–367. https://doi.org/10.1007/s12553-017-0179-1</p>
+<p>University of Cambridge. (2019, July 16). Royal Free London NHS Trust–Google DeepMind deal is “cautionary tale” for healthcare in the algorithmic age. https://www.cam.ac.uk/research/news/deepmind-royal-free-deal-is-cautionary-tale-for-healthcare-in-the-algorithmic-age</p>
 
 
 </section>

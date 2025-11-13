@@ -1,0 +1,74 @@
+---
+title: "Project 4: AI in Healthcare: An Ethical Dilemma in Data Science"
+format: html
+---
+
+## Introduction
+
+In 2015, the Royal Free London NHS Foundation Trust partnered with Google DeepMind, a branch of Alphabet Inc., to create an artificial intelligence system called Streams. The goal was to develop a smartphone app that could alert doctors in real time if a patient showed signs of acute kidney injury. To make this possible, DeepMind received access to the medical records of 1.6 million NHS patients, including sensitive information such as HIV status, mental health history, and drug-use data (Powles & Hodson, 2017).
+
+What began as a promising step forward in digital healthcare soon turned into one of the most controversial data science cases in the United Kingdom. It was revealed that patients were never told their data had been shared, nor had they given permission. In 2017, the UK’s Information Commissioner’s Office ruled that the partnership had violated data protection laws because the data were shared under the claim of “direct patient care,” even though the Streams app was still being tested (University of Cambridge, 2019).
+
+This partnership became a defining example of how ethics, power, and corporate interests intersect in artificial intelligence research. It showed that technological innovation in healthcare cannot be separated from the moral questions surrounding ownership, consent, and the use of personal data.
+
+## 1. Consent and Permission Structures
+Questions addressed: “What is the permission structure for using the data? Was it followed?” and “What was the consent structure for recruiting participants? Were the participants aware of the ways their data would be used for research? Was informed consent possible? Can you provide informed consent for applications that are yet foreseen?”
+
+A major ethical issue in the DeepMind case concerns informed consent. Under the UK’s Data Protection Act, organizations must have a valid legal basis for processing personal data. The Royal Free Trust claimed that its data sharing with DeepMind was justified under the principle of “direct patient care.” However, since Streams was still in the testing phase, patients were not actually receiving care through the app, meaning this justification did not apply (Powles & Hodson, 2017).
+
+In 2017, the Information Commissioner’s Office confirmed that the Royal Free Trust had failed to properly inform patients about how their data would be used (University of Cambridge, 2019). This shows that the proper permission structures were not followed. Genuine informed consent requires that individuals clearly understand how their data will be used and voluntarily agree to that use. In this case, patients were unaware that a private technology company would access their records or that their data could later contribute to commercial artificial intelligence development.
+
+This situation reveals a broader challenge within artificial intelligence research. Once data are collected, they can easily be reused for purposes that were not anticipated at the time of collection. Fan, Zhang, and Li (2025) argue that informed consent becomes almost impossible when the potential uses of data extend far beyond their original intent.
+
+
+## 2. Data Privacy and Identifiability
+Questions addressed: “Is the data identifiable? All of it? Some of it? In what way? Are the data sufficiently anonymized or old to be free of ethical concerns? Is anonymity guaranteed?”
+
+DeepMind’s access to NHS data also created serious privacy concerns. The dataset included identifiable details such as names, addresses, and full medical histories (Powles & Hodson, 2017). Although both DeepMind and the NHS stated that the data were securely processed, the Information Commissioner’s Office found that the level of identifiability went far beyond what was necessary for the algorithm’s development (University of Cambridge, 2019).
+
+Even when data are anonymized, complete anonymity in healthcare records is very difficult to achieve. Murdoch (2021) explains that health data often contain unique combinations of variables that make it possible to re-identify individuals through cross-referencing with other data sources. For instance, combining medical history with demographic details such as age and postal code can easily point to a specific person.
+
+In this case, DeepMind’s access to identifiable patient data without explicit consent represented a clear breach of privacy. It also exposed weaknesses in data governance and demonstrated the need for stronger safeguards, greater oversight, and clearer definitions of ownership and accountability in digital healthcare systems.
+
+## 3. Representation and Bias in Algorithm Design
+Questions addressed: “Who was measured? Are those individuals representative of the people to whom we’d like to generalize or apply the algorithm? Should we analyze data if we do not know how the data were collected?”
+
+Another ethical concern in the DeepMind and NHS collaboration was representation bias. The dataset used to train Streams came from a single hospital trust in London, which limited the diversity of the data. Algorithms trained on such narrow datasets may fail to perform accurately across wider populations, especially for individuals with different ethnic, socioeconomic, or geographic backgrounds.
+
+Dankwa-Mullan et al. (2024) argue that when artificial intelligence systems are trained on unrepresentative data, they can reproduce and even amplify existing health inequalities. This means that technology intended to improve care might instead deepen the disparities already present in the system.
+
+This issue connects to the framework proposed by D’Ignazio and Klein (2020), which emphasizes examining inclusion and exclusion within datasets. Because the Streams model was trained using data from a limited population, it lacked diversity and fairness by design. As a result, its effectiveness and reliability in broader clinical settings were uncertain.
+
+
+## 4. Data Use Beyond Original Intent
+Questions addressed: “Is the data being used in unintended ways to the original study?”
+
+One of the most troubling ethical concerns in this case is the use of patient data for purposes that went beyond their original intent. The NHS collected this information to provide medical care, not to support research by a private company. Yet the same data were later used by DeepMind to develop and test an artificial intelligence system.
+
+Although DeepMind claimed the project was not commercial, its parent company, Alphabet, gained valuable expertise and intellectual property through the collaboration (Fan et al., 2025). This raises questions about fairness and transparency, especially when public data become a foundation for private technological advancement.
+
+This situation illustrates a larger pattern in data science where public institutions collect vast amounts of data, but private corporations are the ones who benefit most from it. Patients, on the other hand, have little control over how their personal information is used. From the perspective of Data Feminism, this represents an imbalance of power between public organizations and corporate entities. Public healthcare systems rely on large technology firms for innovation, while those firms gain influence and control over public data.
+
+
+## 5. Why It Matters
+Questions addressed: “Who benefits? Who is neglected or harmed? Were the ethical violations in the interest of profit, surveillance, or power?”
+
+The DeepMind and NHS controversy shows that data science is deeply connected to ethics, governance, and power. The problems of inadequate consent, insufficient anonymization, limited representation, and the repurposing of patient data all reveal a larger issue in modern healthcare: the treatment of personal information as a commodity.
+
+Technology companies gain significant advantages from access to extensive datasets that strengthen their algorithms and market influence. Patients, however, lose control over their personal data and may face risks from biased or untested systems.
+
+As D’Ignazio and Klein (2020) argue, ethical data science is not only about legal compliance but also about fairness, accountability, and respect for human rights. The DeepMind case highlights the urgent need to center equity and transparency in the development of data-driven healthcare. Without these principles, technological progress risks reinforcing the very inequities it claims to solve.
+
+## Refrences
+
+Dankwa-Mullan, I., Nunez-Smith, M., & Volerman, A. (2024). Health equity and ethical considerations in using artificial intelligence. Centers for Disease Control and Prevention. https://www.cdc.gov/pcd/issues/2024/24_0245.htm
+
+D’Ignazio, C., & Klein, L. F. (2020). Data feminism. MIT Press.
+
+Fan, X., Zhang, L., & Li, Y. (2025). Exploring the ethical issues posed by AI and big data in healthcare. Frontiers in Public Health, 13, 1585180. https://doi.org/10.3389/fpubh.2025.1585180
+
+Murdoch, B. (2021). Privacy and artificial intelligence: Challenges for protecting health data. BMC Medical Ethics, 22(122). https://doi.org/10.1186/s12910-021-00687-3
+
+Powles, J., & Hodson, H. (2017). Google DeepMind and healthcare in an age of algorithms. Health and Technology, 7(4), 351–367. https://doi.org/10.1007/s12553-017-0179-1
+
+University of Cambridge. (2019, July 16). Royal Free London NHS Trust–Google DeepMind deal is “cautionary tale” for healthcare in the algorithmic age. https://www.cam.ac.uk/research/news/deepmind-royal-free-deal-is-cautionary-tale-for-healthcare-in-the-algorithmic-age
