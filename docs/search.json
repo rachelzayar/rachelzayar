@@ -229,5 +229,54 @@
     "title": "Project 4: AI in Healthcare: An Ethical Dilemma in Data Science",
     "section": "Refrences",
     "text": "Refrences\nDankwa-Mullan, I., Nunez-Smith, M., & Volerman, A. (2024). Health equity and ethical considerations in using artificial intelligence. Centers for Disease Control and Prevention. https://www.cdc.gov/pcd/issues/2024/24_0245.htm\nD’Ignazio, C., & Klein, L. F. (2020). Data feminism. MIT Press.\nFan, X., Zhang, L., & Li, Y. (2025). Exploring the ethical issues posed by AI and big data in healthcare. Frontiers in Public Health, 13, 1585180. https://doi.org/10.3389/fpubh.2025.1585180\nMurdoch, B. (2021). Privacy and artificial intelligence: Challenges for protecting health data. BMC Medical Ethics, 22(122). https://doi.org/10.1186/s12910-021-00687-3\nPowles, J., & Hodson, H. (2017). Google DeepMind and healthcare in an age of algorithms. Health and Technology, 7(4), 351–367. https://doi.org/10.1007/s12553-017-0179-1\nUniversity of Cambridge. (2019, July 16). Royal Free London NHS Trust–Google DeepMind deal is “cautionary tale” for healthcare in the algorithmic age. https://www.cam.ac.uk/research/news/deepmind-royal-free-deal-is-cautionary-tale-for-healthcare-in-the-algorithmic-age"
+  },
+  {
+    "objectID": "project5.html",
+    "href": "project5.html",
+    "title": "Project 5",
+    "section": "",
+    "text": "library(DBI)\nlibrary(RMariaDB)\n\ncon_traffic &lt;- DBI::dbConnect(\n  RMariaDB::MariaDB(),\n  dbname   = \"traffic\",\n  host     = Sys.getenv(\"TRAFFIC_HOST\"),\n  user     = Sys.getenv(\"TRAFFIC_USER\"),\n  password = Sys.getenv(\"TRAFFIC_PWD\")\n)"
+  },
+  {
+    "objectID": "project5.html#setting-up-connection",
+    "href": "project5.html#setting-up-connection",
+    "title": "Project 5",
+    "section": "",
+    "text": "library(DBI)\nlibrary(RMariaDB)\n\ncon_traffic &lt;- DBI::dbConnect(\n  RMariaDB::MariaDB(),\n  dbname   = \"traffic\",\n  host     = Sys.getenv(\"TRAFFIC_HOST\"),\n  user     = Sys.getenv(\"TRAFFIC_USER\"),\n  password = Sys.getenv(\"TRAFFIC_PWD\")\n)"
+  },
+  {
+    "objectID": "project5.html#introduction",
+    "href": "project5.html#introduction",
+    "title": "Project 5",
+    "section": "Introduction",
+    "text": "Introduction\nIn this project, I use the Stanford Open Policing Project SQL database to examine gender differences in traffic stops across three statewide agencies: Colorado, Connecticut, and Illinois. I focus on how both the volume of stops and the likelihood of a search differ between male and female subjects. Using SQL for all data wrangling, I aggregate the three statewide tables (co_statewide_2020_04_01, ct_statewide_2020_04_01, and il_statewide_2020_04_01) into summaries by subject sex and state, and then visualize these patterns with bar plots. The goal is to see whether gender disparities in stop volume and search rates are consistent across states or vary by location."
+  },
+  {
+    "objectID": "project5.html#data-wrangling",
+    "href": "project5.html#data-wrangling",
+    "title": "Project 5",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\n\nSELECT\n  'CO statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops\nFROM\n  co_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex\n\nUNION ALL\n\nSELECT\n  'CT statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops\nFROM\n  ct_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex\n\nUNION ALL\n\nSELECT\n  'IL statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops\nFROM\n  il_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex;\n  \n\n\nSELECT\n  'CO statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) AS n_searches,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) / COUNT(*) AS search_rate\nFROM\n  co_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex\n\nUNION ALL\n\nSELECT\n  'CT statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) AS n_searches,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) / COUNT(*) AS search_rate\nFROM\n  ct_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex\n\nUNION ALL\n\nSELECT\n  'IL statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) AS n_searches,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) / COUNT(*) AS search_rate\nFROM\n  il_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex;\n\n\nDBI::dbDisconnect(con_traffic)"
+  },
+  {
+    "objectID": "project5.html#plotting",
+    "href": "project5.html#plotting",
+    "title": "Project 5",
+    "section": "Plotting",
+    "text": "Plotting\n\nlibrary(ggplot2)\n# Plotting Figure 1 \nstops_gender &lt;- stops_gender_three_states\n\nggplot(stops_gender, aes(x = subject_sex, y = n_stops, fill = subject_sex)) +\n  geom_col() +\n  facet_wrap(~ dataset, scales = \"free_y\") +\n  labs(\n    title = \"Number of stops by subject sex in CO, CT, and IL statewide\",\n    x = \"Subject sex\",\n    y = \"Number of stops\",\n    fill = \"Subject sex\"\n  ) +\n  theme_minimal()\n\nDon't know how to automatically pick scale for object of type &lt;integer64&gt;.\nDefaulting to continuous.\n\n\n\n\n\n\n\n\n\nFigure 1 above shows the total number of traffic stops for male and female subjects in Colorado, Connecticut, and Illinois statewide. Across all three states, male subjects are stopped substantially more often than female subjects, although the size of this gap differs by state, with Illinois having especially large counts overall. This pattern suggests that men make up a larger share of recorded traffic stops in each of these statewide agencies, which could reflect differences in driving exposure, enforcement practices, or both.\n\n# Plotting Figure 2 \nggplot(search_gender_three_states,\n       aes(x = subject_sex, y = search_rate, fill = subject_sex)) +\n  geom_col() +\n  facet_wrap(~ dataset) +\n  labs(\n    title = \"Search rate by subject sex in CO, CT, and IL statewide\",\n    x = \"Subject sex\",\n    y = \"Search rate (proportion of stops with a search)\",\n    fill = \"Subject sex\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 2 above displays the search rate, defined as the proportion of stops that involve a search, for male and female subjects in the same three states. In Connecticut and Illinois, male subjects have clearly higher search rates than female subjects, indicating that once stopped, they are more likely to be searched, whereas Colorado shows much lower and more similar search rates overall. These results imply that gender disparities in search decisions are more pronounced in some states than others, highlighting the role of local policing practices in shaping outcomes after a stop."
+  },
+  {
+    "objectID": "project5.html#conclusion",
+    "href": "project5.html#conclusion",
+    "title": "Project 5",
+    "section": "Conclusion",
+    "text": "Conclusion\nOverall, the analyses provide clear evidence that traffic stop activity and search decisions differ by subject sex across Colorado, Connecticut, and Illinois statewide. Using SQL to aggregate the statewide tables, Figure 1 shows that male subjects are stopped substantially more often than female subjects in all three states, with particularly large absolute volumes in Illinois. This pattern suggests that men experience a greater level of direct contact with state-level traffic enforcement, which could reflect differences in driving exposure (e.g., more time spent driving) but may also indicate gendered patterns in enforcement focus.\nFigure 2 reveals that the likelihood of being searched once stopped is also patterned by subject sex, but in a way that varies across states. In Connecticut and Illinois, male subjects have noticeably higher search rates than female subjects, indicating that among those who are stopped, men are more likely to be subjected to a search. Colorado, by contrast, exhibits much lower overall search rates for both groups and only a small difference between male and female subjects, which implies that departmental policies or legal constraints there may limit searches more uniformly.\nTaken together, these results highlight that gender-related disparities in traffic stops are multidimensional: men face both higher exposure (more stops) and, in some jurisdictions, more intrusive outcomes (higher search rates). At the same time, the cross-state differences show that these patterns are not fixed and can vary substantially with local practices, legal standards, or training. These insights underscore the value of multi-state databases like the Stanford Open Policing Project for distinguishing between broad structural patterns (e.g., men being stopped more often) and context-specific policy effects that shape what happens during and after a stop."
+  },
+  {
+    "objectID": "project5.html#references",
+    "href": "project5.html#references",
+    "title": "Project 5",
+    "section": "References",
+    "text": "References\nPierson, E., Simoiu, C., Overgoor, J., Corbett-Davies, S., Jenson, D., Shoemaker, A., Ramachandran, V., et al. (2020). A large-scale analysis of racial disparities in police stops across the United States. Nature Human Behaviour, 4(7), 736–745."
   }
 ]
