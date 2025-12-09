@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project 3: A simulation study – Rachel Zayar</title>
+<title>A Permutation‑Based Comparison of Life Expectancy in Asian and Non‑Asian Countries in 2020 – Rachel Zayar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -147,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./project3.html" aria-current="page"> 
-<span class="menu-text">Project 3</span></a>
+<span class="menu-text">Asia vs Other: 2020 Life Expectancy</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project4.html"> 
@@ -174,12 +174,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
-  <li><a href="#simulation-plan" id="toc-simulation-plan" class="nav-link" data-scroll-target="#simulation-plan">Simulation Plan</a></li>
+  <li><a href="#hypotheses" id="toc-hypotheses" class="nav-link" data-scroll-target="#hypotheses"><strong>Hypotheses</strong></a></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
-  <li><a href="#description-of-functions" id="toc-description-of-functions" class="nav-link" data-scroll-target="#description-of-functions">Description of functions</a></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
   <li><a href="#results-and-visualization" id="toc-results-and-visualization" class="nav-link" data-scroll-target="#results-and-visualization">Results and Visualization</a></li>
+  <li><a href="#references-data-source" id="toc-references-data-source" class="nav-link" data-scroll-target="#references-data-source">References / Data Source</a></li>
   </ul>
 </nav>
     </div>
@@ -188,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project 3: A simulation study</h1>
+<h1 class="title">A Permutation‑Based Comparison of Life Expectancy in Asian and Non‑Asian Countries in 2020</h1>
 </div>
 
 
@@ -207,40 +206,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>This analysis asks: <em>Was average life expectancy in Asian countries during the COVID-19 pandemic (2020) significantly different from that in all other countries?</em> This question is relevant because 2020 marked an unprecedented disruption in global health, with potentially unequal impacts across world regions.</p>
+<p>This analysis investigates whether mean life expectancy in Asian countries in 2020 differs (either higher or lower) from that of non‑Asian countries. Because the 2020 dataset includes nearly all countries with available estimates, the observed Asia–Other gap is treated as the actual difference for this set of countries, and a permutation procedure is used as a randomization‑based simulation to evaluate how extreme this difference is under a null model where Asia/Other labels are unrelated to life expectancy. To provide context for interpreting 2020, the analysis also summarizes Asia–Other differences in several pre‑pandemic years, allowing the 2020 result to be compared against recent historical patterns.</p>
 </section>
-<section id="data-sources" class="level2">
-<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
-<p>The `life_expectancy` dataset for this analysis comes from <a href="#0">’TidyTuesday’s official repository</a>’.</p>
-<p>The original raw data was compiled by ‘<a href="#0">Gapminder</a>’ and curated by ‘<a href="#0">Our World in Data</a>’.</p>
-<p>Asia is defined using the <a href="https://www.worldometers.info/geography/how-many-countries-in-asia/">Worldometers Asia countries list</a>.</p>
-</section>
-<section id="simulation-plan" class="level2">
-<h2 class="anchored" data-anchor-id="simulation-plan">Simulation Plan</h2>
-<p>We will:</p>
-<ol type="1">
-<li><p>Filter for 2020 life expectancy data and label each country as “Asia” or “Other.”</p></li>
-<li><p>Calculate the observed difference in mean life expectancy between these groups.</p></li>
-<li><p>Write a function to permute group labels and return the difference, then map it over 1000 simulations.</p></li>
-<li><p>Visualize the observed difference and the permutation null distribution.</p></li>
-<li><p>Interpret the results and assess significance.</p></li>
-</ol>
+<section id="hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="hypotheses"><strong>Hypotheses</strong></h2>
+<p>H₀: The mean life expectancy in Asian countries in 2020 is the same as the mean life expectancy in non‑Asian countries (no difference).</p>
+<p>Hₐ: The mean life expectancy in Asian countries in 2020 is different from the mean life expectancy in non‑Asian countries (two‑sided).</p>
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<p>A <strong>permutation test</strong> is used to compare mean life expectancy in Asia and the rest of the world. This non-parametric approach does not assume normality and is robust to outlier or heterogeneous data at the country level.</p>
+<section id="simulation-plan" class="level4">
+<h4 class="anchored" data-anchor-id="simulation-plan">Simulation plan</h4>
 <ul>
-<li><p><strong>Observed statistic</strong>: The true difference in group means.</p></li>
-<li><p><strong>Null distribution</strong>: Created by randomly shuffling region labels (Asia/Other) and recomputing the means, simulating the null scenario of no real difference.</p></li>
-<li><p><strong>Empirical p-value</strong>: Proportion of simulated differences as large or larger than observed.</p></li>
+<li><p>Filter the dataset to 2020, keeping one life‑expectancy value per country and labeling each country as “Asia” or “Other.”</p></li>
+<li><p>Compute the observed Asia–Other difference in mean life expectancy; this is treated as the realized gap for the set of countries with 2020 data.</p></li>
+<li><p>Use a permutation procedure that randomly shuffles the Asia/Other labels across countries and recomputes the mean difference, repeating this 1,000 times to simulate what gaps would look like if region labels were unrelated to life expectancy.</p></li>
+<li><p>Visualize both the observed 2020 difference and the permutation‑based null distribution.</p></li>
+<li><p>Additionally, compute and summarize Asia–Other mean differences for several pre‑pandemic years (e.g., 2015–2019) to place the 2020 gap in recent historical context.</p></li>
+<li><p>Use these results to assess whether the 2020 Asia–Other gap is unusually large in absolute value under the null and how it compares with pre‑2020 patterns.</p></li>
+</ul>
+<p>A permutation test is used to evaluate whether the observed 2020 difference in mean life expectancy between Asia and the rest of the world is larger in absolute value than we would expect if region labels were unrelated to life expectancy. This non‑parametric, randomization‑based approach does not assume normality and is robust to outliers or heterogeneous country‑level data.</p>
+<ul>
+<li><p><strong>Observed quantity:</strong>The 2020 difference in group means (Asia minus Other), computed from nearly all countries with available life‑expectancy estimates; this is treated as the realized population gap for that year.</p></li>
+<li><p><strong>Null distribution:</strong> Generated by randomly shuffling the Asia/Other labels across countries and recomputing this difference 1,000 times, representing a hypothetical world in which region has no association with life expectancy and any Asia–Other gap arises purely from random label assignment.</p></li>
+<li><p><strong>Empirical p‑value:</strong> The proportion of simulated differences whose absolute value is at least as large as the absolute observed difference, corresponding to a two‑sided test of “no difference” versus “different.”</p></li>
 </ul>
 </section>
-<section id="description-of-functions" class="level2">
-<h2 class="anchored" data-anchor-id="description-of-functions">Description of functions</h2>
-<ul>
-<li><p>A custom function, <strong><code>calc_group_diff()</code></strong>, calculates the mean difference in life expectancy between Asia and Other. This function is called across 1000 label-shuffles using <strong><code>map_dbl()</code></strong>.</p></li>
-<li><p>The empirical p-value is the proportion of simulated differences that are as or more extreme than the observed. This quantifies the evidence supporting or refuting the idea that Asia’s life expectancy advantage (or disadvantage) is unlikely to be due to chance.</p></li>
-</ul>
+<section id="description-of-functions" class="level4">
+<h4 class="anchored" data-anchor-id="description-of-functions">Description of functions</h4>
+<p>A custom function, <code>diff_in_means()</code>, computes the difference in mean life expectancy between Asian and non‑Asian countries (Asia minus Other) for a given dataset. A second function, <code>perm_step()</code>, performs one permutation step by shuffling the region labels, recalculating this difference, and returning both the observed and permuted values. This permutation step is repeated 1,000 times using a mapping routine to generate a null sampling distribution of the difference in means under the assumption that region and life expectancy are unrelated.</p>
+<p>The empirical p‑value is then calculated as the proportion of permuted differences whose absolute value is at least as large as the absolute observed difference, providing a two‑sided measure of how strongly the data contradict the null hypothesis that mean life expectancy is the same in Asian and non‑Asian countries.</p>
+</section>
 </section>
 <section id="code" class="level2">
 <h2 class="anchored" data-anchor-id="code">Code</h2>
@@ -253,57 +249,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>life_expectancy_different_ages <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-12-05/life_expectancy_different_ages.csv'</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>life_expectancy_female_male <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-12-05/life_expectancy_female_male.csv'</span>)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Official list of Asian countries (UN/Worldometers, 48 total)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>asia_countries <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"India"</span>, <span class="st">"China"</span>, <span class="st">"Indonesia"</span>, <span class="st">"Pakistan"</span>, <span class="st">"Bangladesh"</span>, <span class="st">"Japan"</span>, <span class="st">"Philippines"</span>, <span class="st">"Vietnam"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Iran"</span>, <span class="st">"Turkey"</span>, <span class="st">"Thailand"</span>, <span class="st">"Myanmar"</span>, <span class="st">"South Korea"</span>, <span class="st">"Iraq"</span>, <span class="st">"Afghanistan"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Yemen"</span>, <span class="st">"Uzbekistan"</span>, <span class="st">"Malaysia"</span>, <span class="st">"Saudi Arabia"</span>, <span class="st">"Nepal"</span>, <span class="st">"North Korea"</span>, <span class="st">"Syria"</span>, <span class="st">"Sri Lanka"</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Kazakhstan"</span>, <span class="st">"Cambodia"</span>, <span class="st">"Jordan"</span>, <span class="st">"United Arab Emirates"</span>, <span class="st">"Tajikistan"</span>, <span class="st">"Azerbaijan"</span>, <span class="st">"Israel"</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Laos"</span>, <span class="st">"Turkmenistan"</span>, <span class="st">"Kyrgyzstan"</span>, <span class="st">"Singapore"</span>, <span class="st">"Lebanon"</span>, <span class="st">"State of Palestine"</span>, <span class="st">"Oman"</span>, <span class="st">"Kuwait"</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Georgia"</span>, <span class="st">"Mongolia"</span>, <span class="st">"Qatar"</span>, <span class="st">"Armenia"</span>, <span class="st">"Bahrain"</span>, <span class="st">"Timor-Leste"</span>, <span class="st">"Cyprus"</span>, <span class="st">"Bhutan"</span>, <span class="st">"Maldives"</span>, <span class="st">"Brunei"</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for target year and assign group</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>le_dat <span class="ot">&lt;-</span> life_expectancy <span class="sc">%&gt;%</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2020</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">if_else</span>(Entity <span class="sc">%in%</span> asia_countries, <span class="st">"Asia"</span>, <span class="st">"Other"</span>))</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTION: Calculate group mean difference</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>calc_group_diff <span class="ot">&lt;-</span> <span class="cf">function</span>(df, <span class="at">col_group =</span> <span class="st">"region"</span>, <span class="at">col_value =</span> <span class="st">"LifeExpectancy"</span>) {</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  means <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(.data[[col_group]]) <span class="sc">%&gt;%</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_val =</span> <span class="fu">mean</span>(.data[[col_value]], <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  means<span class="sc">$</span>mean_val[means[[col_group]] <span class="sc">==</span> <span class="st">"Asia"</span>] <span class="sc">-</span> means<span class="sc">$</span>mean_val[means[[col_group]] <span class="sc">==</span> <span class="st">"Other"</span>]</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Observed statistic</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>observed_diff <span class="ot">&lt;-</span> <span class="fu">calc_group_diff</span>(le_dat)</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTION: Permute group labels, calculate difference</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>permute_and_diff <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  shuffled <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">sample</span>(region))</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calc_group_diff</span>(shuffled)</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">47</span>)</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Run simulation with purrr::map()</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>perm_diffs <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span>B, <span class="sc">~</span><span class="fu">permute_and_diff</span>(le_dat))</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate empirical p-value</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>p_val <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(perm_diffs) <span class="sc">&gt;=</span> <span class="fu">abs</span>(observed_diff))</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and print results</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Observed mean difference (Asia - Other):"</span>, <span class="fu">round</span>(observed_diff, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Observed mean difference (Asia - Other): 1.17 </code></pre>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define Asia via Worldometer's country list (48 countries)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>asia_countries <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"India"</span>, <span class="st">"China"</span>, <span class="st">"Indonesia"</span>, <span class="st">"Pakistan"</span>, <span class="st">"Bangladesh"</span>, <span class="st">"Japan"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Philippines"</span>, <span class="st">"Vietnam"</span>, <span class="st">"Iran"</span>, <span class="st">"Turkey"</span>, <span class="st">"Thailand"</span>, <span class="st">"Myanmar"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"South Korea"</span>, <span class="st">"Iraq"</span>, <span class="st">"Afghanistan"</span>, <span class="st">"Yemen"</span>, <span class="st">"Uzbekistan"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Malaysia"</span>, <span class="st">"Saudi Arabia"</span>, <span class="st">"Nepal"</span>, <span class="st">"North Korea"</span>, <span class="st">"Syria"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Sri Lanka"</span>, <span class="st">"Kazakhstan"</span>, <span class="st">"Cambodia"</span>, <span class="st">"Jordan"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"United Arab Emirates"</span>, <span class="st">"Tajikistan"</span>, <span class="st">"Azerbaijan"</span>, <span class="st">"Israel"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Laos"</span>, <span class="st">"Turkmenistan"</span>, <span class="st">"Kyrgyzstan"</span>, <span class="st">"Singapore"</span>, <span class="st">"Lebanon"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"State of Palestine"</span>, <span class="st">"Oman"</span>, <span class="st">"Kuwait"</span>, <span class="st">"Georgia"</span>, <span class="st">"Mongolia"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Qatar"</span>, <span class="st">"Armenia"</span>, <span class="st">"Bahrain"</span>, <span class="st">"Timor-Leste"</span>, <span class="st">"Cyprus"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Bhutan"</span>, <span class="st">"Maldives"</span>, <span class="st">"Brunei"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Add region indicator to full dataset</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>life_expectancy <span class="ot">&lt;-</span> life_expectancy <span class="sc">%&gt;%</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">if_else</span>(Entity <span class="sc">%in%</span> asia_countries, <span class="st">"Asia"</span>, <span class="st">"Other"</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>le_2020 <span class="ot">&lt;-</span> life_expectancy <span class="sc">%&gt;%</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2020</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Empirical p-value:"</span>, <span class="fu">round</span>(p_val, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation test for 2020 (Asia vs Other) </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Test statistic: difference in means (Asia - Other)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>diff_in_means <span class="ot">&lt;-</span> <span class="cf">function</span>(x, g) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  x_asia  <span class="ot">&lt;-</span> x[g <span class="sc">==</span> <span class="st">"Asia"</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  x_other <span class="ot">&lt;-</span> x[g <span class="sc">==</span> <span class="st">"Other"</span>]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x_asia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">mean</span>(x_other, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Observed 2020 gap (treated as realized population difference for these countries)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>obs_diff_2020 <span class="ot">&lt;-</span> <span class="fu">with</span>(le_2020, <span class="fu">diff_in_means</span>(LifeExpectancy, region))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>obs_diff_2020</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Empirical p-value: 0.291 </code></pre>
+<pre><code>[1] 1.174771</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Single permutation step: shuffle labels, recompute difference</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>perm_step <span class="ot">&lt;-</span> <span class="cf">function</span>(rep, data) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  shuffled_region <span class="ot">&lt;-</span> <span class="fu">sample</span>(data<span class="sc">$</span>region, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">rep       =</span> rep,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">obs_diff  =</span> <span class="fu">diff_in_means</span>(data<span class="sc">$</span>LifeExpectancy, data<span class="sc">$</span>region),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">perm_diff =</span> <span class="fu">diff_in_means</span>(data<span class="sc">$</span>LifeExpectancy, shuffled_region)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Build null sampling distribution via permutation</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">47</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>perm_stats_2020 <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>, perm_step, <span class="at">data =</span> le_2020) <span class="sc">%&gt;%</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_rbind</span>()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-sided empirical p-value: |perm_diff| &gt;= |obs_diff|</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>obs_diff_2020 <span class="ot">&lt;-</span> <span class="fu">unique</span>(perm_stats_2020<span class="sc">$</span>obs_diff)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>p_val_2020 <span class="ot">&lt;-</span> perm_stats_2020 <span class="sc">%&gt;%</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_val_two_sided =</span> <span class="fu">mean</span>(<span class="fu">abs</span>(perm_diff) <span class="sc">&gt;=</span> <span class="fu">abs</span>(obs_diff_2020))</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>p_val_2020</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  p_val_two_sided
+            &lt;dbl&gt;
+1           0.291</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pre‑pandemic context (2015–2019)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Asia − Other mean difference for each year 2015–2019</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>pre_pandemic_diffs <span class="ot">&lt;-</span> life_expectancy <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2015</span>, Year <span class="sc">&lt;=</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, region) <span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_le =</span> <span class="fu">mean</span>(LifeExpectancy, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> region, <span class="at">values_from =</span> mean_le) <span class="sc">%&gt;%</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diff_Asia_Other =</span> Asia <span class="sc">-</span> Other)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>pre_pandemic_diffs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+   Year  Asia Other diff_Asia_Other
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;
+1  2015  73.6  72.3            1.31
+2  2016  73.8  72.5            1.30
+3  2017  74.1  72.7            1.41
+4  2018  74.4  72.9            1.41
+5  2019  74.6  73.1            1.46</code></pre>
 </div>
 </div>
 </section>
@@ -311,52 +349,105 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="results-and-visualization">Results and Visualization</h2>
 <section id="results-interpretation" class="level4">
 <h4 class="anchored" data-anchor-id="results-interpretation"><strong>Results Interpretation:</strong></h4>
-<p>The observed mean difference in life expectancy between Asia and the rest of the world in 2020 is 1.17 years, with Asia having the higher mean. However, the empirical p-value from the permutation test is 0.291.</p>
-<p>Since the empirical p-value is 0.291 (much greater than 0.05), we fail to reject the null hypothesis. This means the observed difference in life expectancy between Asia and the rest of the world could easily have occurred by random chance, so we do not have strong evidence for a real difference in this year.</p>
+<p>The observed difference in mean life expectancy between Asia and other regions in 2020 is about 1.17 years, with Asia having the higher average. Under the null hypothesis that region (Asia vs Other) has no effect on life expectancy, about 29.1% of the permuted datasets produced a difference in means at least as large as this observed gap in absolute value. In other words, if the labels “Asia” and “Other” were really random with respect to life expectancy, a gap as large as 1.17 years would appear in roughly 3 out of 10 permutations purely by chance. Because this two‑sided p‑value (0.291) is much larger than a typical significance level such as 0.05, the observed Asia–Other difference is not unusually large relative to the null distribution, so the permutation test provides little evidence against the null hypothesis that mean life expectancy is the same in Asian and non‑Asian countries in 2020.</p>
+<p>Looking across earlier years, Asia’s mean life expectancy from 2015 to 2019 was consistently about 1.3–1.5 years higher than that of non‑Asian countries. The 2020 gap of 1.17 years is slightly smaller but of similar magnitude, indicating that the Asia–Other difference in the first pandemic year is broadly consistent with recent pre‑pandemic patterns rather than representing a dramatic new divergence.</p>
+</section>
+<section id="figure-1.-life-expectancy-by-region-2020" class="level4">
+<h4 class="anchored" data-anchor-id="figure-1.-life-expectancy-by-region-2020"><strong>Figure 1. Life Expectancy by Region, 2020</strong></h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot: Boxplot of data by region</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(le_dat, <span class="fu">aes</span>(<span class="at">x=</span>region, <span class="at">y=</span>LifeExpectancy, <span class="at">fill=</span>region)) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Life Expectancy by Region, 2020"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Life Expectancy (years)"</span>, <span class="at">x =</span> <span class="st">"Region"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Region"</span>) <span class="sc">+</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot: Boxplot of data by region</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>le_2020 <span class="ot">&lt;-</span> life_expectancy <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2020</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(le_2020, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> LifeExpectancy, <span class="at">fill =</span> region)) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Life Expectancy by Region, 2020"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Region"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Life expectancy (years)"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Region"</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="project3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="project3_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>This boxplot shows country‑level life expectancy in 2020 for Asia and for all other regions. The medians and interquartile ranges are similar, and the ranges overlap substantially, indicating that typical life expectancy levels are comparable between Asian and non‑Asian countries rather than dramatically different in this year.</p>
 </section>
-<section id="description-for-boxplot-life-expectancy-by-region-2020" class="level4">
-<h4 class="anchored" data-anchor-id="description-for-boxplot-life-expectancy-by-region-2020">Description for Boxplot: Life Expectancy by Region (2020)</h4>
-<p>This boxplot compares country-level life expectancy across Asia and the rest of the world for the year 2020. The median (middle line) and the central spread (interquartile range) are similar for both groups, with “Other” countries having a slightly higher median. The ranges largely overlap, suggesting that most countries, regardless of region, have comparable average life expectancies. This visual indicates no dramatic difference in life expectancy distribution between Asia and other regions for this year.</p>
+<section id="figure-2.-permutation-test-null-distribution-asia-other-2020" class="level4">
+<h4 class="anchored" data-anchor-id="figure-2.-permutation-test-null-distribution-asia-other-2020"><strong>Figure 2. Permutation Test: Null Distribution (Asia − Other, 2020)</strong></h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot: Permutation test distribution</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">sim_diff =</span> perm_diffs) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sim_diff)) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="fl">0.2</span>, <span class="at">fill=</span><span class="st">"grey70"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span>observed_diff, <span class="at">color=</span><span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>, <span class="at">size=</span><span class="fl">1.3</span>) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Permutation Test: Null Distribution (Asia minus Other, 2020)"</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Permuted difference in means"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot null distribution with observed difference</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>perm_stats_2020 <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> perm_diff)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"grey70"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">xintercept =</span> obs_diff_2020),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="fl">1.2</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Permutation Test: Null Distribution (Asia − Other, 2020)"</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Permuted difference in means"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="project3_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="project3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>This histogram displays the null sampling distribution of the difference in mean life expectancy (Asia minus Other) generated by 1,000 random shuffles of the region labels. The red dashed line marks the observed 2020 gap of about 1.17 years. Because this observed value lies well inside the main bulk of the permuted differences, it is not unusually large under the null model where region is unrelated to life expectancy, consistent with a two‑sided permutation p‑value of approximately 0.29.</p>
 </section>
-<section id="permutation-test-null-distribution" class="level4">
-<h4 class="anchored" data-anchor-id="permutation-test-null-distribution">Permutation Test Null Distribution</h4>
-<p>This histogram shows the distribution of mean life expectancy differences (Asia minus Other) obtained by randomly shuffling region labels 1,000 times—a simulation of what we might expect by chance. The red dashed line marks the actual observed difference between the two regions. Because this observed statistic falls well within the main cluster of the permutation distribution, it suggests that the observed difference is not unusual under the null hypothesis. Thus, we do not have strong statistical evidence to claim a genuine difference in mean life expectancy between Asia and the rest of the world in 2020.</p>
+<section id="figure-3.-asia-other-difference-in-mean-life-expectancy-20152020" class="level4">
+<h4 class="anchored" data-anchor-id="figure-3.-asia-other-difference-in-mean-life-expectancy-20152020"><strong>Figure 3. Asia − Other Difference in Mean Life Expectancy, 2015–2020</strong></h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Line plot of Asia−Other mean difference 2015–2020</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pre_post_diffs <span class="ot">&lt;-</span> pre_pandemic_diffs <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year, diff_Asia_Other) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">Year =</span> <span class="dv">2020</span>, <span class="at">diff_Asia_Other =</span> obs_diff_2020)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pre_post_diffs, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> diff_Asia_Other)) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Asia − Other Difference in Mean Life Expectancy (2015–2020)"</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Difference in means (years, Asia − Other)"</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project3_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This line plot tracks the difference in mean life expectancy (Asia - Other) from 2015 through 2020. Asia’s average life expectancy is consistently about 1.3–1.5 years higher than that of other regions before the pandemic, and the 2020 gap of 1.17 years is slightly smaller but similar in magnitude, suggesting that the first pandemic year did not create a qualitatively new divergence between Asia and the rest of the world.</p>
+</section>
+</section>
+<section id="references-data-source" class="level2">
+<h2 class="anchored" data-anchor-id="references-data-source">References / Data Source</h2>
+<p>The data for this project come from the <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2023/2023-12-05​">TidyTuesday 2023‑12‑05</a> release on life expectancy, which republishes country‑level estimates from the <a href="https://ourworldindata.org/life-expectancy">Our World in Data <em>Life Expectancy</em> report</a>. That report’s “Key Insights” figures draw on estimates from the United Nations World Population Prospects (2022), the Human Mortality Database (2023), Zijdeman and Ribeira da Silva (2015), and Riley (2005), with minor processing by Our World in Data. TidyTuesday provides three CSV files (<code>life_expectancy</code>, <code>life_expectancy_different_ages</code>, and <code>life_expectancy_female_male</code>); this analysis uses the <code>life_expectancy</code> file and restricts to country‑level observations for the year 2020.</p>
+<p><strong>TidyTuesday dataset</strong></p>
+<p>R4DS Online Learning Community. (2023). <em>TidyTuesday: 2023‑12‑05 – Life expectancy</em> [Data set]. GitHub. <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2023/2023-12-05" class="uri">https://github.com/rfordatascience/tidytuesday/tree/main/data/2023/2023-12-05</a>​</p>
+<p><strong>Our World in Data topic page</strong></p>
+<p>Dattani, S., Rodés‑Guirao, L., Ritchie, H., Ortiz‑Ospina, E., &amp; Roser, M. (2023). <em>Life expectancy</em>. Our World in Data. <a href="https://ourworldindata.org/life-expectancy" class="uri">https://ourworldindata.org/life-expectancy</a></p>
+<p>Asia is defined using the country list provided by Worldometer’s <a href="https://www.worldometers.info/geography/how-many-countries-in-asia/">“How many countries are there in Asia?” page</a></p>
+<p>Worldometer. (n.d.). <em>How many countries are there in Asia?</em> Retrieved [Month Day, Year], from <a href="https://www.worldometers.info/geography/how-many-countries-in-asia/" class="uri">https://www.worldometers.info/geography/how-many-countries-in-asia/</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

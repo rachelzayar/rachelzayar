@@ -16,7 +16,7 @@ website:
             href: tidytuesday2.qmd
       - text: "Project 2"
         href: project2.qmd
-      - text: "Project 3"
+      - text: "Asia vs Other: 2020 Life Expectancy"
         href: project3.qmd
       - text: "Project 4"
         href: project4.qmd
