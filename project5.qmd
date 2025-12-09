@@ -1,8 +1,13 @@
 ---
 title: "Project 5"
-format:
-  html:
-    theme: cosmo
+format: html
+execute:
+
+  echo: true
+
+  warning: false
+
+  message: false
 ---
 
 ## Setting up connection

@@ -14,7 +14,7 @@ website:
             href: tidytuesday1.qmd
           - text: "TidyTuesday 2"
             href: tidytuesday2.qmd
-      - text: "Project 2"
+      - text: "Love in Romeo & Juliet"
         href: project2.qmd
       - text: "Asia vs Other: 2020 Life Expectancy"
         href: project3.qmd

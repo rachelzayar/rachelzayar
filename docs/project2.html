@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project 2 – Love in Romeo &amp; Juliet – Rachel Zayar</title>
+<title>How ‘Love’ Appears in Romeo &amp; Juliet – Rachel Zayar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -173,15 +173,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#analysis-of-love-in-romeo-juliet" id="toc-analysis-of-love-in-romeo-juliet" class="nav-link active" data-scroll-target="#analysis-of-love-in-romeo-juliet">Analysis of “Love” in Romeo &amp; Juliet</a></li>
-  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">Data Source</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-preprocessing" id="toc-data-preprocessing" class="nav-link" data-scroll-target="#data-preprocessing">Data &amp; Preprocessing</a>
+  <ul class="collapse">
   <li><a href="#how-often-is-love-used" id="toc-how-often-is-love-used" class="nav-link" data-scroll-target="#how-often-is-love-used">How Often is “Love” Used?</a></li>
-  <li><a href="#plot-1-number-of-lines-mentioning-love" id="toc-plot-1-number-of-lines-mentioning-love" class="nav-link" data-scroll-target="#plot-1-number-of-lines-mentioning-love">Plot 1: Number of lines mentioning “love”</a></li>
   <li><a href="#which-characters-speak-of-love-most" id="toc-which-characters-speak-of-love-most" class="nav-link" data-scroll-target="#which-characters-speak-of-love-most">Which Characters Speak of Love Most?</a></li>
-  <li><a href="#plot-2-characters-who-mention-love" id="toc-plot-2-characters-who-mention-love" class="nav-link" data-scroll-target="#plot-2-characters-who-mention-love">Plot 2: Characters who mention “love”</a></li>
   <li><a href="#contexts-of-love" id="toc-contexts-of-love" class="nav-link" data-scroll-target="#contexts-of-love">Contexts of “Love”</a></li>
-  <li><a href="#table-1-example-lines-where-both-love-and-death-appear" id="toc-table-1-example-lines-where-both-love-and-death-appear" class="nav-link" data-scroll-target="#table-1-example-lines-where-both-love-and-death-appear">Table 1: Example lines where both “love” and “death” appear</a></li>
   <li><a href="#sentiment-in-love-lines" id="toc-sentiment-in-love-lines" class="nav-link" data-scroll-target="#sentiment-in-love-lines">Sentiment in Love Lines</a></li>
+  <li><a href="#referencesdata-source" id="toc-referencesdata-source" class="nav-link" data-scroll-target="#referencesdata-source">References/Data Source</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -190,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project 2 – Love in Romeo &amp; Juliet</h1>
+<h1 class="title">How ‘Love’ Appears in Romeo &amp; Juliet</h1>
 </div>
 
 
@@ -207,49 +207,109 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="analysis-of-love-in-romeo-juliet" class="level2">
-<h2 class="anchored" data-anchor-id="analysis-of-love-in-romeo-juliet">Analysis of “Love” in Romeo &amp; Juliet</h2>
-</section>
-<section id="data-source" class="level2">
-<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
-<p>This analysis uses a version of the full text of Romeo &amp; Juliet with scene, character, and line columns.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>This analysis examines the frequency and distribution of the word <em>“love”</em> in the dialogue of <em>Romeo and Juliet</em>, identifying which characters use it most often and in what contexts. Its goal is to quantify the term’s explicit usage and trace patterns in how it appears across the play. The project also highlights key moments where <em>“love”</em> is paired with <em>“death,”</em> showing how Shakespeare uses this juxtaposition to reinforce the play’s tragic tone. Specifically, it addresses the following questions:</p>
 <ul>
-<li><strong>Source:</strong> Provided via TidyTuesday (<a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-09-17/romeo_juliet.csv" class="uri">https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-09-17/romeo_juliet.csv</a>), original text from <a href="https://www.gutenberg.org/">Project Gutenberg</a>.</li>
+<li><p>How many lines explicitly contain the word “love”?</p></li>
+<li><p>Which characters use the word most frequently?</p></li>
+<li><p>In which lines does Shakespeare pair “love” with “death,” and what might these instances suggest about the play’s tragic tone?</p></li>
+</ul>
+</section>
+<section id="data-preprocessing" class="level1">
+<h1>Data &amp; Preprocessing</h1>
+<p>The data come from the TidyTuesday 2024‑09‑17 release, which provides a tidy version of <em>Romeo &amp; Juliet</em> with one row per line of dialogue and columns for the scene, speaking character, and text of the line.</p>
+<p>Several new variables are created to encode whether and how “love” appears in each line:</p>
+<ul>
+<li><p><code>has_love</code>: line contains the word “love” (case‑insensitive, whole word).</p></li>
+<li><p><code>love_count</code>: number of times “love” appears in the line.</p></li>
+<li><p><code>starts_love</code>: line begins with the word “love.”</p></li>
+<li><p><code>love_and_death</code>: line contains “love” and, later in the same line, “death.”</p></li>
+</ul>
+<p>These indicators let the analysis move from raw text to counts and visual summaries.</p>
+<p>The stringr functions used in the analysis include:</p>
+<ul>
+<li><p><code>str_detect()</code> : creates logical indicators for specific patterns -</p>
+<ul>
+<li><p><code>str_detect(dialogue, "(?i)\\blove\\b")</code> checks whether a line contains the whole word “love” and is used to define <code>has_love</code>.</p></li>
+<li><p><code>str_detect(dialogue, "^(?i)love")</code> identifies lines that begin with “love” and defines <code>starts_love</code>.</p></li>
+<li><p><code>str_detect(dialogue, "(?i)love(?=.*death)")</code> detects lines where “love” appears and “death” occurs later in the same line, giving <code>love_and_death</code>.</p></li>
+</ul></li>
+<li><p><code>str_count()</code> : counts pattern occurrences -</p>
+<ul>
+<li><code>str_count(dialogue, "(?i)\\blove\\b")</code> returns the number of times “love” appears in each line, stored in <code>love_count</code>.</li>
+</ul></li>
+<li><p><code>str_replace_all()</code> is used to highlight “love” in examples -</p>
+<ul>
+<li><code>str_replace_all(dialogue, "(?i)\\blove\\b", "LOVE")</code> constructs <code>dialogue_highlight</code>, a version of each line where “love” is capitalized to stand out.</li>
+</ul></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="dv">2024</span>, <span class="at">week =</span> <span class="dv">38</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>hamlet <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>hamlet</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>macbeth <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>macbeth</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytuesdayR)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the Romeo &amp; Juliet dataset </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> <span class="fu">tt_load</span>(<span class="dv">2024</span>, <span class="at">week =</span> <span class="dv">38</span>) </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the romeo_juliet data frame from the list </span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>romeo_juliet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 <section id="how-often-is-love-used" class="level2">
 <h2 class="anchored" data-anchor-id="how-often-is-love-used">How Often is “Love” Used?</h2>
-<p>We use <code>str_detect()</code> to create a column marking lines that mention “love” (case-insensitive), and <code>str_count()</code> to count all “love” appearances per line.</p>
+<section id="figure-1-lines-mentioning-love-in-romeo-juliet" class="level4">
+<h4 class="anchored" data-anchor-id="figure-1-lines-mentioning-love-in-romeo-juliet">Figure 1 : Lines Mentioning ‘Love’ in Romeo &amp; Juliet</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_love =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">love_count =</span> <span class="fu">str_count</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add indicators and counts for the word "love"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_love   =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">love_count =</span> <span class="fu">str_count</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(has_love) <span class="sc">%&gt;%</span>                         <span class="co"># count lines by whether they contain "love"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> has_love, <span class="at">y =</span> n, <span class="at">fill =</span> has_love)) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>)) <span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Lines Mentioning 'Love' in Romeo &amp; Juliet"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Line contains the word 'love'?"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of lines"</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
+</div>
+</div>
+<p>This bar plot compares the number of lines that do and do not contain the word “love” in <em>Romeo &amp; Juliet</em>. Only a modest fraction of lines explicitly use the word, indicating that although love is a central theme, much of it is conveyed indirectly through actions, imagery, and other language rather than repeated direct mentions of “love.”</p>
 </section>
-<section id="plot-1-number-of-lines-mentioning-love" class="level2">
-<h2 class="anchored" data-anchor-id="plot-1-number-of-lines-mentioning-love">Plot 1: Number of lines mentioning “love”</h2>
+</section>
+<section id="which-characters-speak-of-love-most" class="level2">
+<h2 class="anchored" data-anchor-id="which-characters-speak-of-love-most">Which Characters Speak of Love Most?</h2>
+<p>To identify who explicitly names “love,” the data are restricted to lines where <code>has_love</code> is TRUE, and counts are computed by character.</p>
+<section id="figure-2-characters-with-the-most-love-lines" class="level4">
+<h4 class="anchored" data-anchor-id="figure-2-characters-with-the-most-love-lines">Figure 2 : Characters with the most “love” lines</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> romeo_juliet <span class="sc">%&gt;%</span> <span class="fu">count</span>(has_love), <span class="fu">aes</span>(<span class="at">x =</span> has_love, <span class="at">y =</span> n, <span class="at">fill =</span> has_love)) <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Lines mentioning 'love' in Romeo &amp; Juliet"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mentions 'love'?"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Lines"</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>top_love <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(has_love, <span class="sc">!</span><span class="fu">is.na</span>(character)) <span class="sc">%&gt;%</span>  <span class="co"># keep only "love" lines with a known speaker</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(character) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>(<span class="at">sort =</span> <span class="cn">TRUE</span>)      </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>top_love <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">8</span>) <span class="sc">%&gt;%</span>                    <span class="co"># show top 8 characters</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(character, n), <span class="at">y =</span> n, <span class="at">fill =</span> character)) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Characters with the Most 'Love' Lines"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Character"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of lines containing 'love'"</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -258,60 +318,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>This bar plot visually quantifies the frequency of “love” references in Romeo &amp; Juliet, allowing readers to gauge the centrality of this theme in the play. By comparing lines with and without this keyword, we observe how strongly love permeates the dialogue and structure, highlighting its narrative importance and emotional weight within the story.</p>
+<p>This horizontal bar chart shows the characters with the largest number of lines that include the word “love.” While the total number of such lines is limited, this plot highlights which speakers most often name “love” explicitly, providing a simple view of who voices the theme in dialogue and how strongly it is tied to particular characters.</p>
 </section>
-<section id="which-characters-speak-of-love-most" class="level2">
-<h2 class="anchored" data-anchor-id="which-characters-speak-of-love-most">Which Characters Speak of Love Most?</h2>
-<p>We use <code>str_detect()</code> (previous) and now add <code>str_to_lower()</code> to standardize for character name grouping.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>top_love <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(has_love) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">character =</span> <span class="fu">str_to_title</span>(character)) <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>(<span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>top_love <span class="ot">&lt;-</span> top_love <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(character))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="plot-2-characters-who-mention-love" class="level2">
-<h2 class="anchored" data-anchor-id="plot-2-characters-who-mention-love">Plot 2: Characters who mention “love”</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> top_love[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,], <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(character, n), <span class="at">y =</span> n, <span class="at">fill =</span> character)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top Characters Mentioning 'Love'"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Character"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count of 'love' Mentions"</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="project2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The horizontal bar chart reveals which characters articulate the concept of “love” most often. Such a visualization clarifies not only the main speakers driving the theme, but also suggests their roles and relationships with other characters. Readers gain insight into the social and emotional dynamics of the play by seeing who gives voice to its central motif.</p>
 </section>
 <section id="contexts-of-love" class="level2">
 <h2 class="anchored" data-anchor-id="contexts-of-love">Contexts of “Love”</h2>
-<p>We aim to examine lines with “love” at the line start . We use <code>str_detect(dialoguelinenumber, "^(?i)love")</code> to find such lines.</p>
-<p>We also want to explore lines where “love” is followed by “death” later in the line and we use <code>str_detect(dialoguelinenumber, "(?i)love(?=.*death)")</code> to identify lines combining “love” and “death”.</p>
+<p>The next step focuses on more specific textual contexts: lines that start with “love,” and lines that explicitly mention both “love” and “death.”</p>
+<section id="table-1-example-lines-where-both-love-and-death-appear" class="level4">
+<h4 class="anchored" data-anchor-id="table-1-example-lines-where-both-love-and-death-appear">Table 1: Example lines where both “love” and “death” appear</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts_love =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"^(?i)love"</span>),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">love_and_death =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"(?i)love(?=.*death)"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="table-1-example-lines-where-both-love-and-death-appear" class="level2">
-<h2 class="anchored" data-anchor-id="table-1-example-lines-where-both-love-and-death-appear">Table 1: Example lines where both “love” and “death” appear</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(love_and_death) <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(character, dialogue) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts_love =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"^(?i)love"</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">love_and_death =</span> <span class="fu">str_detect</span>(dialogue, <span class="st">"(?i)love(?=.*death)"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  Lines where both "love" and "death" appear</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>love_death_lines <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep only lines flagged as having both "love" and "death"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(love_and_death) <span class="sc">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Show just the speaker and the original dialogue text</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(character, dialogue)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>love_death_lines</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   character dialogue                                       
@@ -321,18 +352,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3 Prince    Their course of love, the tidings of her death:</code></pre>
 </div>
 </div>
-<p>This table presents lines in which “love” and “death” appear together, offering evidence of how Shakespeare intertwines passion and mortality. By examining these dual-themed lines, one can better understand the tragic elements and the ways the playwright uses language to foreshadow pivotal events, deepening appreciation of the play’s complex emotional layers</p>
+<p>This table lists the lines in which “love” and “death” occur in the same sentence, with “love” appearing before “death.” There are only a few such lines, but they vividly illustrate moments where Shakespeare explicitly links passion and mortality. The sparing use of this combination helps these lines stand out and supports the tragic atmosphere and foreshadowing that run through the play.</p>
+</section>
 </section>
 <section id="sentiment-in-love-lines" class="level2">
 <h2 class="anchored" data-anchor-id="sentiment-in-love-lines">Sentiment in Love Lines</h2>
-<p>We use <code>str_replace_all()</code> to highlight “love” in ALL CAPS in the sample.<br>
-</p>
+<p>To visualize “love” within its textual context, the analysis highlights each occurrence of the word in all caps.</p>
+<section id="table-2-sample-lines-highlighting-love-in-context" class="level4">
+<h4 class="anchored" data-anchor-id="table-2-sample-lines-highlighting-love-in-context"><strong>Table 2: Sample Lines Highlighting “LOVE” in Context</strong></h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet_sample <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(has_love) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dialogue_highlight =</span> <span class="fu">str_replace_all</span>(dialogue, <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"LOVE"</span>))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>romeo_juliet_sample <span class="sc">%&gt;%</span> <span class="fu">select</span>(character, dialogue_highlight) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>romeo_juliet_sample <span class="ot">&lt;-</span> romeo_juliet <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(has_love) <span class="sc">%&gt;%</span>   <span class="co"># keep lines that contain "love"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">dialogue_highlight =</span> <span class="fu">str_replace_all</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      dialogue,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"(?i)</span><span class="sc">\\</span><span class="st">blove</span><span class="sc">\\</span><span class="st">b"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"LOVE"</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>romeo_juliet_sample <span class="sc">%&gt;%</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(character, dialogue_highlight) <span class="sc">%&gt;%</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   character dialogue_highlight                             
@@ -344,9 +385,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5 Benvolio  Alas, that LOVE, so gentle in his view,        </code></pre>
 </div>
 </div>
-<p>This table illustrates how the term “love” is distributed in the dialogue by visually emphasizing its presence through capitalization. By highlighting every instance of “love” in all caps, the table draws the reader’s attention to the emotional significance and repeated usage of the word in context. This approach makes it easier to observe the intensity and pattern of “love” references, deepening understanding of how the term shapes the sentiment and thematic tone of the play.</p>
+<p>This sample table shows several lines that contain “LOVE,” with the word capitalized to draw attention to its position in each sentence. The highlighting does not alter the wording but makes it easier to see how “love” is embedded in different emotional contexts. These examples complement the earlier counts and plots by showing the actual language that underlies the summaries.</p>
+</section>
+</section>
+<section id="referencesdata-source" class="level2">
+<h2 class="anchored" data-anchor-id="referencesdata-source">References/Data Source</h2>
+<p>The analysis uses the TidyTuesday “Romeo &amp; Juliet” text dataset, which provides one row per line of dialogue with scene and character information.</p>
+<p><strong>TidyTuesday dataset</strong></p>
+<p>Rfordatascience. (2024, September 17). <em>tidytuesday/data/2024/2024-09-17/romeo_juliet.csv at main · rfordatascience/tidytuesday</em>. GitHub. https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-09-17/romeo_juliet.csv</p>
+<p><strong>Project Gutenberg</strong></p>
+<p><em>Project Gutenberg</em>. (n.d.). Project Gutenberg. <a href="https://www.gutenberg.org/" class="uri">https://www.gutenberg.org/</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
