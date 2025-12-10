@@ -1,0 +1,25 @@
+/* Colors and base */
+.reveal {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  color: #38bdf8;
+}
+
+.reveal p, .reveal li {
+  color: #cbd5e1;
+}
+
+/* Cards / callouts */
+.reveal blockquote {
+  background-color: #1e293b;
+  border-left: 4px solid #38bdf8;
+  padding: 1rem 1.5rem;
+}
+
+/* Optional: emphasize key words */
+.reveal strong {
+  color: #38bdf8;
+}

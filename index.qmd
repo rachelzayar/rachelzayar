@@ -1,19 +1,21 @@
 ---
-title: "Welcome"
+title: "Profile"
 image: "profile.JPG"
 image-shape: rectangle
-image-width: 250px
+image-width: 140px
 format:
   html:
     theme: broadside
     css: styles.css
 ---
-
+::: {style="text-align: center;"}
 # May Phoo Zayar \@ Rachel
 
 Undergraduate Neuroscience Major (Pre-Medical), Pomona College
-
+:::
 ------------------------------------------------------------------------
+
+![](profile.JPG)
 
 ## About
 
@@ -23,10 +25,11 @@ Her academic and research experience includes supporting electrophysiological an
 
 Rachel has collaborated on healthcare research projects focused on program development, data analysis, and the creation of culturally sensitive health interventions. She communicates fluently in Burmese and English, and converses in Korean and Japanese. She values professionalism, teamwork, and continual learning.
 
-## Her goal is to build a career at the intersection of neuroscience, medicine, and public health—bridging research and real-world impact.
+**Her goal is to build a career at the intersection of neuroscience, medicine, and public health—bridging research and real-world impact.**
 
-![](profile.JPG){width="400px" height="auto"}
+------------------------------------------------------------------------
 
-**Connect with me:**
-
-\| [GitHub](https://github.com/rachelzayar/rachelzayar.git) \|
+::: {style="text-align: center;"}
+**Connect with me:**\
+\| [GitHub](https://github.com/rachelzayar/rachelzayar.git) \| [LinkedIn](https://www.linkedin.com/in/may-phoo-zayar-1271bb228) \|
+:::

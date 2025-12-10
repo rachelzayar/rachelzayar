@@ -1,25 +1,92 @@
-/* css styles */
-/* Page background */
 /* Sidebar links */
 .qsb-sidebar a {
   display: block;
   margin-bottom: 10px;
   font-size: 16px;
   text-decoration: none;
-  color: #000;
+  color: #000000;
 }
 
 .qsb-sidebar a i {
   margin-right: 6px;
 }
 
-/* Page background */
+/* Page background and base font */
 body {
-  background-color: beige;
+  background-color: #f6f1e7;        /* softer beige variant */
   font-family: Georgia, serif;
+  line-height: 1.6;
 }
 
 /* Headings */
 h1, h2, h3 {
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: 0.5px;
+  color: #2c3e50;
 }
+
+/* Navbar background */
+.navbar, .navbar-dark {
+  background-color: #34495e !important;  /* dark blue-gray */
+}
+
+/* Navbar brand and top-level links */
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #fdfdfd !important;             /* white text */
+}
+
+/* Dropdown menu background and text */
+.navbar .dropdown-menu {
+  background-color: #ffffff;             /* white dropdown */
+}
+
+.navbar .dropdown-item {
+  color: #2c3e50 !important;             /* dark text so it's readable */
+}
+
+/* Hover/active states for dropdown items */
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+  background-color: #e6eef5;
+  color: #000000 !important;
+}
+
+/* Links */
+a {
+  color: #005f8f;
+}
+
+a:hover {
+  color: #003f5c;
+  text-decoration: underline;
+}
+
+/* Main content card */
+.main-container, .content {
+  background-color: #ffffff;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Figures and captions */
+.figure {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.figure-caption {
+  font-style: italic;
+  color: #555555;
+}
+
+/* Code blocks */
+pre code {
+  background-color: #f0ece4;
+  border-radius: 4px;
+  padding: 0.5rem 0.8rem;
+  display: block;
+}
+

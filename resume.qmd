@@ -1,0 +1,119 @@
+---
+title: "Resume"
+format:
+  html:
+    toc: false
+---
+
+## Contact
+
+-   Email: mzhb2023\@mymail.pomona.edu \| rachelzayar21\@gmail.com
+-   Location: Claremont, CA
+
+------------------------------------------------------------------------
+
+## Education
+
+**Pomona College, Neuroscience (Pre‑med track)**
+
+\- Undergraduate student, Pomona College, Claremont, CA
+
+\- Expected graduation: May 2027
+
+\- Interests: behavioral neuroscience, synaptic plasticity, health equity
+
+------------------------------------------------------------------------
+
+## Research Experience
+
+**Lab Assistant – Jonathan King Lab, Pomona College**\
+*September 2024 – Present*
+
+-   Investigate sex differences in anxiety‑like behavior and synaptic plasticity induced by chronic mild stress in Long Evans rats, using behavioral assays and hippocampal electrophysiological recordings.
+
+-   Analyze extracellular field potentials and relate synaptic changes to behavioral outcomes under stress paradigms.
+
+-   Co‑authoring a poster, “Chronic Mild Stress Produces Sex Differences in Anxiety‑like Behavior and Synaptic Plasticity,” to be presented at the 2025 Society for Neuroscience (SfN) annual meeting.
+
+-   Assist senior thesis projects on serotonin, nicotine, and other neurotransmitter effects on hippocampal LTP and activity, including precise electrode placement in Schaffer collaterals and CA1.
+
+**Lab Assistant – Jonathan Moore Lab, Pomona College**\
+
+*June 2024*
+
+-   Prepared and stored yeast culture agar plates for the Introduction to Genetics course to ensure smooth lab operations for Fall 2024.
+
+-   Cleaned and maintained lab equipment to support safe and efficient experiments.
+
+**Lab Assistant – Jae Hur Lab, Harvey Mudd College**\
+
+*February – April 2024*
+
+-   Performed assays, dilutions, and data collection for ClpXP aging research.
+
+-   Coordinated experiments with lab members and maintained equipment and supplies.
+
+------------------------------------------------------------------------
+
+## Selected Projects
+
+**Research proposal on alternative salts and hypertension (course project)**
+
+-   Designed a study to compare Himalayan and sea salt with table salt for reducing hypertension symptoms across diverse genders and ethnicities.
+
+-   Developed data‑collection tools and ethical safeguards based on a literature review.
+
+**Virtual Research Training Program – Seattle Children’s (chosen participant)**
+
+-   Completed a short program covering biochemistry, immunology, and global/public health with a student cohort.
+
+-   Participated in virtual lab demonstrations and discussions of current biomedical and healthcare research.
+
+------------------------------------------------------------------------
+
+## Clinical & Program Experience
+
+**Hospice Cancer Care Aide – U Hla Tun Cancer Foundation & Hospice**\
+
+*Mandalay, Myanmar - November 2020 – July 2023*
+
+-   Helped coordinate patient care by scheduling appointments, organizing medical records, and communicating with healthcare providers.
+
+-   Provided companionship and emotional support to patients and families during end‑of‑life care and bereavement.
+
+**Program / Research Intern (Better Healthcare) – Better Youth Myanmar**\
+
+*Myanmar - December 2021 – April 2022*
+
+-   Helped develop an evidence‑based, culturally sensitive 2022 healthcare program plan.
+
+-   Created educational materials using Microsoft Word, PowerPoint, and Canva, aligned with the organization’s mission
+
+-   Analyzed survey and focus‑group data to inform future healthcare programming.
+
+------------------------------------------------------------------------
+
+## Technical Skills
+
+-   **Programming:** Python, R, SQL
+
+-   **Tools:** Microsoft Office, Google Workspace, Canva, CapCut, Quarto / R Markdown
+
+-   **Methods:** behavioral analysis, electrophysiology basics, data wrangling, visualization, reproducible workflows
+
+------------------------------------------------------------------------
+
+## Awards & Presentations
+
+-   Co‑author, forthcoming poster at the **2025 Society for Neuroscience (SfN)** annual meeting:\
+    “Chronic Mild Stress Produces Sex Differences in Anxiety‑like Behavior and Synaptic Plasticity.”
+
+![“Chronic Mild Stress Produces Sex Differences in Anxiety‑like Behavior and Synaptic Plasticity.”](SURP%202025%20Poster%20PO%20dimension-1.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+## PDF Version
+
+For full details, see the PDF resume:
+
+[Download my full research resume](https://drive.google.com/file/d/1iab3_NC_7NnqcoHuqS4yKFSoPbNlriOX/view?usp=sharing)

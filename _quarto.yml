@@ -6,22 +6,27 @@ website:
   title: "Rachel Zayar"
   navbar:
     left:
-      - text: "Home"
+      - text: "Profile"
         href: index.qmd
-      - text: "Data Viz"
+      - text: "Resume"
+        href: resume.qmd
+      - text: "Presentation"
+        href: presentation.qmd
+      - text: "Data Viz Gallery"
         menu:
-          - text: "TidyTuesday 1"
+          - text: "BBC 100 Women 2020"
             href: tidytuesday1.qmd
-          - text: "TidyTuesday 2"
+          - text: "SF Street Trees"
             href: tidytuesday2.qmd
       - text: "Love in Romeo & Juliet"
         href: project2.qmd
       - text: "Asia vs Other: 2020 Life Expectancy"
         href: project3.qmd
-      - text: "Project 4"
+      - text: "DeepMind–NHS Ethics"
         href: project4.qmd
-      - text: "Project 5"
+      - text: "Sex Differences and Traffic Stops"
         href: project5.qmd
+      
 
 format:
   html:

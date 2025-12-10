@@ -12,7 +12,7 @@ execute:
   message: false
 ---
 
-# Introduction 
+# Introduction
 
 This analysis examines the frequency and distribution of the word *“love”* in the dialogue of *Romeo and Juliet*, identifying which characters use it most often and in what contexts. Its goal is to quantify the term’s explicit usage and trace patterns in how it appears across the play. The project also highlights key moments where *“love”* is paired with *“death,”* showing how Shakespeare uses this juxtaposition to reinforce the play’s tragic tone. Specifically, it addresses the following questions:
 
@@ -22,7 +22,7 @@ This analysis examines the frequency and distribution of the word *“love”* i
 
 -   In which lines does Shakespeare pair “love” with “death,” and what might these instances suggest about the play’s tragic tone?
 
-# Data & Preprocessing 
+# Data & Preprocessing
 
 The data come from the TidyTuesday 2024‑09‑17 release, which provides a tidy version of *Romeo & Juliet* with one row per line of dialogue and columns for the scene, speaking character, and text of the line.
 
@@ -171,8 +171,7 @@ romeo_juliet_sample %>%
   head(5)
 ```
 
-This sample table shows several lines that contain “LOVE,” with the word capitalized to draw attention to its position in each sentence. The highlighting does not alter the wording but makes it easier to see how “love” is embedded in different emotional contexts. These examples complement the earlier counts and plots by showing the actual
-language that underlies the summaries.
+This sample table shows several lines that contain “LOVE,” with the word capitalized to draw attention to its position in each sentence. The highlighting does not alter the wording but makes it easier to see how “love” is embedded in different emotional contexts. These examples complement the earlier counts and plots by showing the actual language that underlies the summaries.
 
 ## References/Data Source
 
@@ -180,7 +179,7 @@ The analysis uses the TidyTuesday “Romeo & Juliet” text dataset, which provi
 
 **TidyTuesday dataset**
 
-Rfordatascience. (2024, September 17). *tidytuesday/data/2024/2024-09-17/romeo_juliet.csv at main · rfordatascience/tidytuesday*. GitHub. https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-09-17/romeo_juliet.csv
+Rfordatascience. (2024, September 17). *tidytuesday/data/2024/2024-09-17/romeo_juliet.csv at main · rfordatascience/tidytuesday*. GitHub. <https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-09-17/romeo_juliet.csv>
 
 **Project Gutenberg**
 

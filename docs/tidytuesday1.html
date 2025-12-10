@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TidyTuesday Analysis 1 – Rachel Zayar</title>
+<title>Global Representation in the BBC 100 Women 2020 List – Rachel Zayar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -92,24 +126,28 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resume.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Data Viz</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz-gallery" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Viz Gallery</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-viz">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-viz-gallery">    
         <li>
     <a class="dropdown-item" href="./tidytuesday1.html">
- <span class="dropdown-text">TidyTuesday 1</span></a>
+ <span class="dropdown-text">BBC 100 Women 2020</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./tidytuesday2.html">
- <span class="dropdown-text">TidyTuesday 2</span></a>
+ <span class="dropdown-text">SF Street Trees</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="./project2.html"> 
-<span class="menu-text">Project 2</span></a>
+<span class="menu-text">Love in Romeo &amp; Juliet</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project3.html"> 
@@ -117,11 +155,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project4.html"> 
-<span class="menu-text">Project 4</span></a>
+<span class="menu-text">DeepMind–NHS Ethics</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project5.html"> 
-<span class="menu-text">Project 5</span></a>
+<span class="menu-text">Sex Differences and Traffic Stops</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -139,12 +177,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bbc-100-women-2020" id="toc-bbc-100-women-2020" class="nav-link active" data-scroll-target="#bbc-100-women-2020">BBC 100 Women (2020)</a>
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#questions-explored" id="toc-questions-explored" class="nav-link" data-scroll-target="#questions-explored">Questions Explored</a></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#analysis-visualization" id="toc-analysis-visualization" class="nav-link" data-scroll-target="#analysis-visualization">Analysis &amp; Visualization</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references-data-source" id="toc-references-data-source" class="nav-link" data-scroll-target="#references-data-source">References / Data Source</a></li>
   </ul>
 </nav>
     </div>
@@ -153,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TidyTuesday Analysis 1</h1>
+<h1 class="title">Global Representation in the BBC 100 Women 2020 List</h1>
 </div>
 
 
@@ -170,31 +206,72 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<hr>
-<section id="bbc-100-women-2020" class="level1">
-<h1>BBC 100 Women (2020)</h1>
-<p>Source: <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-12-08">TidyTuesday BBC 100 Women Resource</a></p>
-<blockquote class="blockquote">
-<p>Full dataset from: BBC News. (2020). BBC 100 Women 2020. <a href="https://www.bbc.com/news/world-55042935">Original BBC Feature</a></p>
-</blockquote>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>The BBC 100 Women 2020 dataset, featured as part of the open-source TidyTuesday project, spotlights one hundred women from around the world who have had a substantial cultural, social, or scientific impact over the past year. Compiled by BBC News, this annual list celebrates women working in leadership, science, arts, activism, and communities worldwide. Alongside basic information such as name and country, the dataset includes a brief description of each individual’s background and contributions, plus their domain of impact.</p>
-</section>
-<section id="questions-explored" class="level2">
-<h2 class="anchored" data-anchor-id="questions-explored">Questions Explored</h2>
+<section id="questions-explored" class="level4">
+<h4 class="anchored" data-anchor-id="questions-explored">Questions Explored</h4>
 <ul>
-<li><p><strong>Which regions of the world are most represented among the BBC’s 100 Women of 2020?</strong><br>
+<li><p><strong>Which regions of the world are most represented among the BBC’s 100 Women of 2020? Do any regions appear under‑represented or over‑represented?</strong><br>
 This analysis counts how many honorees are connected to each continent or large region, helping reveal global patterns of visibility and recognition.</p></li>
 <li><p><strong>How does the field of achievement (category) vary by region?</strong><br>
 By grouping honorees by both region and professional or social domain (such as Leadership, Science, Arts, or Advocacy), this code examines whether certain types of achievement are especially prominent in particular areas of the world.</p></li>
 </ul>
 </section>
 </section>
-<section id="analysis-visualization" class="level1">
-<h1>Analysis &amp; Visualization</h1>
-<hr>
+<section id="analysis-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-visualization">Analysis &amp; Visualization</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from tidytuesday </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">'2020-12-08'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="dv">2020</span>, <span class="at">week =</span> <span class="dv">50</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>women <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>women</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(countrycode)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> women <span class="sc">%&gt;%</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_rows</span>(country, <span class="at">sep =</span> <span class="st">",</span><span class="sc">\\</span><span class="st">s*"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">!=</span> <span class="st">""</span>, <span class="sc">!</span><span class="fu">is.na</span>(country), country <span class="sc">!=</span> <span class="st">"All"</span>, category <span class="sc">!=</span> <span class="st">"All"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Assign regions using UN subregion</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">countrycode</span>(country, <span class="st">"country.name"</span>, <span class="st">"un.region.name"</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">region =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>           region <span class="sc">==</span> <span class="st">"Northern America"</span> <span class="sc">~</span> <span class="st">"North America"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>           region <span class="sc">==</span> <span class="st">"South America"</span> <span class="sc">~</span> <span class="st">"South America"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>           region <span class="sc">==</span> <span class="st">"Central America"</span> <span class="sc">~</span> <span class="st">"North America"</span>,      <span class="co"># or as you prefer</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>           region <span class="sc">==</span> <span class="st">"Caribbean"</span> <span class="sc">~</span> <span class="st">"North America"</span>,            <span class="co"># optional, or use as "Caribbean"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>           <span class="fu">is.na</span>(region) <span class="sc">&amp;</span> <span class="fu">str_detect</span>(country, <span class="st">"Wales|Northern Ireland|Scotland|England|UK"</span>) <span class="sc">~</span> <span class="st">"Europe"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>           <span class="fu">is.na</span>(region) <span class="sc">&amp;</span> <span class="fu">str_detect</span>(country, <span class="st">"Somaliland"</span>) <span class="sc">~</span> <span class="st">"Africa"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>           <span class="fu">is.na</span>(region) <span class="sc">&amp;</span> <span class="fu">str_detect</span>(country, <span class="st">"Yining|Ghulja|Uighur"</span>) <span class="sc">~</span> <span class="st">"Asia"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>           <span class="cn">TRUE</span> <span class="sc">~</span> region</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>         ),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">region =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(region), <span class="st">"Other"</span>, region))</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize number of women per region and category</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>region_counts <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(region, category)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate totals for each region for ordering</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>region_totals <span class="ot">&lt;-</span> region_counts <span class="sc">%&gt;%</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(n))</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge totals and reorder region factor for plotting (descending order)</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>region_counts <span class="ot">&lt;-</span> region_counts <span class="sc">%&gt;%</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(region_totals, <span class="at">by =</span> <span class="st">"region"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">fct_reorder</span>(region, total, <span class="at">.desc =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot: Stacked bar by region, colored by category</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(region_counts, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> n, <span class="at">fill =</span> category)) <span class="sc">+</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"BBC 100 Women 2020: Count by Region and Category"</span>,</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Region (Continent)"</span>,</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count of Women"</span>,</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Category"</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -203,6 +280,25 @@ By grouping honorees by both region and professional or social domain (such as L
 </div>
 </div>
 </div>
+<section id="figure-1.-bbc-100-women-2020-by-world-region-and-category" class="level4">
+<h4 class="anchored" data-anchor-id="figure-1.-bbc-100-women-2020-by-world-region-and-category"><strong>Figure 1. BBC 100 Women 2020 by World Region and Category</strong></h4>
+<p>This stacked bar chart shows how many women from the 2020 BBC 100 Women list come from each world region, with bars broken down by the BBC’s thematic categories (such as leadership, knowledge, creativity, etc.). Each bar’s height reflects the total number of women in that region, while the colored segments reveal how representation is distributed across categories within regions.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p><strong>Which regions of the world are most represented among the BBC’s 100 Women of 2020?</strong><br>
+</p>
+<p>Asia has the largest number of women on the list, followed by Europe, Africa, and the Americas, while Oceania is represented by only a small number of women. Compared with the other regions, Oceania appears strongly under‑represented, with only a small bar composed solely of “Knowledge” entries. Asia, by contrast, appears over‑represented relative to other regions in raw counts, raising questions about how selection, coverage, and BBC editorial choices shape which women and regions receive global recognition.</p>
+<p><strong>How does the field of achievement (category) vary by region?</strong></p>
+<p>In every region except Oceania, women are spread across all four BBC categories (Leadership, Knowledge, Identity, Creativity), but the mix differs by region. Asia and Africa have particularly large “Knowledge” and “Leadership” segments, whereas the Americas show a more even balance between Leadership, Knowledge, and Identity, with a smaller Creativity segment.</p>
+</section>
+<section id="references-data-source" class="level2">
+<h2 class="anchored" data-anchor-id="references-data-source">References / Data Source</h2>
+<p><strong>Source</strong>: <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-12-08">TidyTuesday BBC 100 Women Resource</a></p>
+<p>Rfordatascience. (2020, December 8). <em>tidytuesday/data/2020/2020-12-08 at main · rfordatascience/tidytuesday</em>. GitHub. <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-12-08" class="uri">https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-12-08</a></p>
+<p><strong>Original data from</strong>: BBC News. (2020). BBC 100 Women 2020. <a href="https://www.bbc.com/news/world-55042935">Original BBC Feature</a></p>
+<p>BBC News. (2020, November 23). <em>BBC 100 Women 2020: Who is on the list this year?</em> <a href="https://www.bbc.com/news/world-55042935" class="uri">https://www.bbc.com/news/world-55042935</a></p>
 
 
 </section>

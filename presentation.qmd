@@ -1,0 +1,103 @@
+---
+title: "When AI Meets Healthcare"
+subtitle: "Ethics, Power, and Patient Data: The DeepMind Case"
+author: "Rachel Zayar"
+date: "December 10, 2025"
+format:
+  revealjs:
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+    theme: simple
+    css: custom.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## The Case: DeepMind & Royal Free (2015)
+
+::: columns
+::: {.column width="33%"}
+### 1.6 Million
+Patient records shared without consent
+:::
+
+::: {.column width="33%"}
+### Streams App
+AI to detect acute kidney injury
+:::
+
+::: {.column width="33%"}
+### 2017: ICO Ruling
+Violated UK data-protection law
+:::
+:::
+
+## What Went Wrong?
+
+- **Sensitive data:** HIV status, mental health, drug use
+- **No consent:** Patients never told, never given opt-out
+- **Wrong legal basis:** Claimed "direct patient care"—but Streams was still being tested
+- **Private company:** Data shared with Alphabet subsidiary, not NHS-only research
+
+## Problem 1: Consent & Permission
+
+> **"Direct patient care"** was the claimed legal basis—but Streams was in testing phase, not routine clinical use.
+
+- Patients never knew a **private AI lab** would access their records
+- No meaningful opt-in or opt-out opportunity
+- Future AI uses are impossible to foresee at point of data collection
+
+## Problem 2: Privacy & Identifiability
+
+> Rich, **line-level records** with names, addresses, dates, detailed medical histories.
+
+- Claims of "secure storage" don't eliminate privacy risk
+- Quasi-identifiers (age, postcode, rare diagnoses) enable **re-identification**
+- Weak data minimization and oversight left patients exposed
+
+## Problem 3: Representation & Bias
+
+> Trained on **one London hospital**—yet promoted as a model for national AI in healthcare.
+
+- Limited demographic and clinical diversity in training data
+- May not perform well for **other NHS regions or populations**
+- Risk of amplifying health inequities when deployed at scale
+
+## Problem 4: Data Beyond Original Purpose
+
+> Clinical data collected for treatment became **R&D assets for a private tech firm.**
+
+- Public institution provided data; **private actor captured value** (IP, know-how, products)
+- Patients rarely participate in reuse decisions
+- Structural power imbalance: NHS depends on tech firms; firms gain control of public infrastructure
+
+## Why This Matters
+
+:::: columns
+::: {.column width="50%"}
+### Potential Benefit
+Earlier detection of kidney injury → better patient outcomes
+:::
+
+::: {.column width="50%"}
+### Actual Cost
+1.6M patients lost data control; unequal distribution of risk and benefit
+:::
+::::
+
+## The Four Ethical Failures
+
+- **✗ Inadequate consent:** Patients never informed or given meaningful choice
+- **✗ Insufficient anonymization:** Identifiable data without safeguards
+- **✗ Narrow training data:** Single trust → poor generalization, equity risks
+- **✗ Data misuse:** Clinical records repurposed for corporate R&D
+
+## The Lesson: A Cautionary Tale
+
+Technological innovation cannot be separated from ethical accountability.
+
+Without robust consent, transparent governance, representative data, and fair benefit-sharing, **AI in healthcare risks reproducing power imbalances and health inequities.**

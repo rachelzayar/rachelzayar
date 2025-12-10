@@ -1,37 +1,28 @@
 ---
-title: "TidyTuesday Analysis 1"
+title: "Global Representation in the BBC 100 Women 2020 List"
 format: html
 execute:
-  echo: false
+  echo: true
   warning: false
   message: false
 ---
-
-------------------------------------------------------------------------
-
-# BBC 100 Women (2020)
-
-Source: [TidyTuesday BBC 100 Women Resource](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-12-08)
-
-> Full dataset from: BBC News. (2020). BBC 100 Women 2020. [Original BBC Feature](https://www.bbc.com/news/world-55042935)
 
 ## Introduction
 
 The BBC 100 Women 2020 dataset, featured as part of the open-source TidyTuesday project, spotlights one hundred women from around the world who have had a substantial cultural, social, or scientific impact over the past year. Compiled by BBC News, this annual list celebrates women working in leadership, science, arts, activism, and communities worldwide. Alongside basic information such as name and country, the dataset includes a brief description of each individual’s background and contributions, plus their domain of impact.
 
-## Questions Explored
+#### Questions Explored
 
--   **Which regions of the world are most represented among the BBC’s 100 Women of 2020?**\
+-   **Which regions of the world are most represented among the BBC’s 100 Women of 2020? Do any regions appear under‑represented or over‑represented?**\
     This analysis counts how many honorees are connected to each continent or large region, helping reveal global patterns of visibility and recognition.
 
 -   **How does the field of achievement (category) vary by region?**\
     By grouping honorees by both region and professional or social domain (such as Leadership, Science, Arts, or Advocacy), this code examines whether certain types of achievement are especially prominent in particular areas of the world.
 
-# Analysis & Visualization
-
-------------------------------------------------------------------------
+## Analysis & Visualization
 
 ```{r}
+# Load data from tidytuesday 
 tuesdata <- tidytuesdayR::tt_load('2020-12-08')
 tuesdata <- tidytuesdayR::tt_load(2020, week = 50)
 
@@ -83,3 +74,27 @@ ggplot(region_counts, aes(x = region, y = n, fill = category)) +
   theme_minimal()
 
 ```
+
+#### **Figure 1. BBC 100 Women 2020 by World Region and Category**
+
+This stacked bar chart shows how many women from the 2020 BBC 100 Women list come from each world region, with bars broken down by the BBC’s thematic categories (such as leadership, knowledge, creativity, etc.). Each bar’s height reflects the total number of women in that region, while the colored segments reveal how representation is distributed across categories within regions.
+
+## Conclusion
+
+**Which regions of the world are most represented among the BBC’s 100 Women of 2020?**\
+
+Asia has the largest number of women on the list, followed by Europe, Africa, and the Americas, while Oceania is represented by only a small number of women. Compared with the other regions, Oceania appears strongly under‑represented, with only a small bar composed solely of “Knowledge” entries. Asia, by contrast, appears over‑represented relative to other regions in raw counts, raising questions about how selection, coverage, and BBC editorial choices shape which women and regions receive global recognition.
+
+**How does the field of achievement (category) vary by region?**
+
+In every region except Oceania, women are spread across all four BBC categories (Leadership, Knowledge, Identity, Creativity), but the mix differs by region. Asia and Africa have particularly large “Knowledge” and “Leadership” segments, whereas the Americas show a more even balance between Leadership, Knowledge, and Identity, with a smaller Creativity segment.
+
+## References / Data Source 
+
+**Source**: [TidyTuesday BBC 100 Women Resource](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-12-08)
+
+Rfordatascience. (2020, December 8). *tidytuesday/data/2020/2020-12-08 at main · rfordatascience/tidytuesday*. GitHub. <https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-12-08>
+
+**Original data from**: BBC News. (2020). BBC 100 Women 2020. [Original BBC Feature](https://www.bbc.com/news/world-55042935)
+
+BBC News. (2020, November 23). *BBC 100 Women 2020: Who is on the list this year?* <https://www.bbc.com/news/world-55042935>

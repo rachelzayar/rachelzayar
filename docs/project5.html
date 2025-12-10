@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project 5 – Rachel Zayar</title>
+<title>Sex Differences in Traffic Stops and Searches Across Three States – Rachel Zayar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,24 +126,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resume.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Data Viz</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz-gallery" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Viz Gallery</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-viz">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-viz-gallery">    
         <li>
     <a class="dropdown-item" href="./tidytuesday1.html">
- <span class="dropdown-text">TidyTuesday 1</span></a>
+ <span class="dropdown-text">BBC 100 Women 2020</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./tidytuesday2.html">
- <span class="dropdown-text">TidyTuesday 2</span></a>
+ <span class="dropdown-text">SF Street Trees</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="./project2.html"> 
-<span class="menu-text">Project 2</span></a>
+<span class="menu-text">Love in Romeo &amp; Juliet</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project3.html"> 
@@ -151,11 +155,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project4.html"> 
-<span class="menu-text">Project 4</span></a>
+<span class="menu-text">DeepMind–NHS Ethics</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./project5.html" aria-current="page"> 
-<span class="menu-text">Project 5</span></a>
+<span class="menu-text">Sex Differences and Traffic Stops</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -175,8 +179,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#setting-up-connection" id="toc-setting-up-connection" class="nav-link active" data-scroll-target="#setting-up-connection">Setting up connection</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
-  <li><a href="#plotting" id="toc-plotting" class="nav-link" data-scroll-target="#plotting">Plotting</a></li>
+  <li><a href="#data-wrangling-sql" id="toc-data-wrangling-sql" class="nav-link" data-scroll-target="#data-wrangling-sql">Data wrangling (SQL)</a></li>
+  <li><a href="#results-and-figures" id="toc-results-and-figures" class="nav-link" data-scroll-target="#results-and-figures">Results and Figures</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -187,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project 5</h1>
+<h1 class="title">Sex Differences in Traffic Stops and Searches Across Three States</h1>
 </div>
 
 
@@ -221,11 +225,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In this project, I use the Stanford Open Policing Project SQL database to examine gender differences in traffic stops across three statewide agencies: Colorado, Connecticut, and Illinois. I focus on how both the volume of stops and the likelihood of a search differ between male and female subjects. Using SQL for all data wrangling, I aggregate the three statewide tables (co_statewide_2020_04_01, ct_statewide_2020_04_01, and il_statewide_2020_04_01) into summaries by subject sex and state, and then visualize these patterns with bar plots. The goal is to see whether gender disparities in stop volume and search rates are consistent across states or vary by location.</p>
+<p>This analysis uses the Stanford Open Policing Project SQL database to examine sex differences in traffic stops across three statewide agencies: Colorado, Connecticut, and Illinois. The focus is on two related questions:</p>
+<ol type="1">
+<li><p>How do the numbers of stops differ between male and female drivers?</p></li>
+<li><p>Among stopped drivers, how does the probability of a search differ by sex, and does this pattern vary by state?</p></li>
+</ol>
+<p>All data wrangling is performed in SQL by aggregating three statewide tables (<code>co_statewide_2020_04_01</code>, <code>ct_statewide_2020_04_01</code>, and <code>il_statewide_2020_04_01</code>) into summaries by subject sex and state. The resulting summaries are then visualized in R with bar plots to compare stop volumes and search rates across states.</p>
 </section>
-<section id="data-wrangling" class="level2">
-<h2 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h2>
-<div class="cell" data-output.var="stops_gender_three_states">
+<section id="data-wrangling-sql" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling-sql">Data wrangling (SQL)</h2>
+<p>Total stops by sex and state stored as <code>stops_sex_three_states</code>.</p>
+<div class="cell" data-output.var="stops_sex_three_states">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CO statewide'</span> <span class="kw">AS</span> dataset,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  subject_sex,</span>
@@ -264,7 +274,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  subject_sex;</span>
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-output.var="search_gender_three_states">
+<p>Search counts and rates by sex and state stored as <code>search_sex_three_states</code>.)</p>
+<div class="cell" data-output.var="search_sex_three_states">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CO statewide'</span> <span class="kw">AS</span> dataset,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  subject_sex,</span>
@@ -289,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  ct_statewide_2020_04_01</span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  subject_sex <span class="kw">IN</span> (<span class="st">'male'</span>, <span class="st">'female'</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  subject_sex <span class="kw">IN</span> (<span class="st">'male'</span>, <span class="st">'female'</span>) </span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  subject_sex</span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
@@ -312,14 +323,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbDisconnect</span>(con_traffic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="plotting" class="level2">
-<h2 class="anchored" data-anchor-id="plotting">Plotting</h2>
+<section id="results-and-figures" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-figures">Results and Figures</h2>
+<section id="figure-1.-number-of-traffic-stops-by-subject-sex-in-colorado-connecticut-and-illinois-statewide" class="level4">
+<h4 class="anchored" data-anchor-id="figure-1.-number-of-traffic-stops-by-subject-sex-in-colorado-connecticut-and-illinois-statewide"><strong>Figure 1. Number of Traffic Stops by Subject Sex in Colorado, Connecticut, and Illinois (Statewide)</strong></h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting Figure 1 </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>stops_gender <span class="ot">&lt;-</span> stops_gender_three_states</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting Figure 1 </span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(stops_gender, <span class="fu">aes</span>(<span class="at">x =</span> subject_sex, <span class="at">y =</span> n_stops, <span class="at">fill =</span> subject_sex)) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(stops_sex_three_states, <span class="fu">aes</span>(<span class="at">x =</span> subject_sex, <span class="at">y =</span> n_stops, <span class="at">fill =</span> subject_sex)) <span class="sc">+</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> dataset, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
@@ -337,10 +350,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Figure 1 above shows the total number of traffic stops for male and female subjects in Colorado, Connecticut, and Illinois statewide. Across all three states, male subjects are stopped substantially more often than female subjects, although the size of this gap differs by state, with Illinois having especially large counts overall. This pattern suggests that men make up a larger share of recorded traffic stops in each of these statewide agencies, which could reflect differences in driving exposure, enforcement practices, or both.</p>
+<p>Figure 1 shows the total number of traffic stops for male and female subjects in Colorado, Connecticut, and Illinois statewide. In all three states, male drivers are stopped more often than female drivers, though the magnitude of the difference varies, with Illinois showing especially large absolute counts. These patterns suggest that men account for a larger share of documented stops in each jurisdiction, which could reflect differences in driving exposure, differences in enforcement priorities, or both; this analysis cannot distinguish between those explanations.</p>
+</section>
+<section id="figure-2.-search-rates-by-subject-sex-in-colorado-connecticut-and-illinois-statewide" class="level4">
+<h4 class="anchored" data-anchor-id="figure-2.-search-rates-by-subject-sex-in-colorado-connecticut-and-illinois-statewide"><strong>Figure 2. Search Rates by Subject Sex in Colorado, Connecticut, and Illinois (Statewide)</strong></h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting Figure 2 </span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(search_gender_three_states,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(search_sex_three_states,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> subject_sex, <span class="at">y =</span> search_rate, <span class="at">fill =</span> subject_sex)) <span class="sc">+</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> dataset) <span class="sc">+</span></span>
@@ -359,13 +375,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Figure 2 above displays the search rate, defined as the proportion of stops that involve a search, for male and female subjects in the same three states. In Connecticut and Illinois, male subjects have clearly higher search rates than female subjects, indicating that once stopped, they are more likely to be searched, whereas Colorado shows much lower and more similar search rates overall. These results imply that gender disparities in search decisions are more pronounced in some states than others, highlighting the role of local policing practices in shaping outcomes after a stop.</p>
+<p>Figure 2 displays the search rate, defined as the proportion of stops that involve a search, for male and female drivers in each statewide agency. In Connecticut and Illinois, male subjects have noticeably higher search rates than female subjects, indicating that once stopped, men are more likely to be searched in these states. Colorado shows much lower search rates overall and only a small difference between sexes, suggesting that search practices there may be more restrictive or more uniform across male and female drivers.</p>
+</section>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Overall, the analyses provide clear evidence that traffic stop activity and search decisions differ by subject sex across Colorado, Connecticut, and Illinois statewide. Using SQL to aggregate the statewide tables, Figure 1 shows that male subjects are stopped substantially more often than female subjects in all three states, with particularly large absolute volumes in Illinois. This pattern suggests that men experience a greater level of direct contact with state-level traffic enforcement, which could reflect differences in driving exposure (e.g., more time spent driving) but may also indicate gendered patterns in enforcement focus.</p>
-<p>Figure 2 reveals that the likelihood of being searched once stopped is also patterned by subject sex, but in a way that varies across states. In Connecticut and Illinois, male subjects have noticeably higher search rates than female subjects, indicating that among those who are stopped, men are more likely to be subjected to a search. Colorado, by contrast, exhibits much lower overall search rates for both groups and only a small difference between male and female subjects, which implies that departmental policies or legal constraints there may limit searches more uniformly.</p>
-<p>Taken together, these results highlight that gender-related disparities in traffic stops are multidimensional: men face both higher exposure (more stops) and, in some jurisdictions, more intrusive outcomes (higher search rates). At the same time, the cross-state differences show that these patterns are not fixed and can vary substantially with local practices, legal standards, or training. These insights underscore the value of multi-state databases like the Stanford Open Policing Project for distinguishing between broad structural patterns (e.g., men being stopped more often) and context-specific policy effects that shape what happens during and after a stop.</p>
+<p>Using SQL to aggregate the Stanford Open Policing Project statewide tables for Colorado, Connecticut, and Illinois, this analysis compares both the volume of stops and the likelihood of searches by subject sex.</p>
+<ul>
+<li><p><strong>Stop volume:</strong> Across all three states, male drivers are stopped substantially more often than female drivers, with particularly large absolute numbers in Illinois. This implies that men experience more direct contact with traffic enforcement, which could stem from greater time spent driving, differences in vehicle use, or sex-focused patterns in enforcement focus.</p></li>
+<li><p><strong>Search rates:</strong> In Connecticut and Illinois, male drivers also have higher search rates than female drivers, meaning that conditional on being stopped, men are more likely to be searched. Colorado, in contrast, has low search rates for both groups and only a slight sex difference, consistent with state‑specific policies or practices that limit searches.</p></li>
+</ul>
+<p>Together, these results indicate that sex differences in traffic stops are multidimensional: men in these data face both higher exposure (more stops) and, in some states, more intrusive outcomes (higher search rates). At the same time, the differences across states highlight that these patterns are shaped by local practices and legal environments, underscoring the value of multi‑state data for separating broad structural trends from jurisdiction‑specific policies.</p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>

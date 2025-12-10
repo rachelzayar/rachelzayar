@@ -1,53 +1,47 @@
 ---
-title: "TidyTuesday Analysis 2"
+title: "Who Cares for San Francisco’s Street Trees?"
 format: html
 execute:
-  echo: false
+  echo: true
   warning: false
   message: false
 ---
 
 ------------------------------------------------------------------------
 
-# San Francisco Trees (2020)
-
-**Source:** [TidyTuesday San Francisco Trees Resource](https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28)\
-**Original data:** City and County of San Francisco. (2020). Street Tree List. [SF Open Data Link](https://data.sfgov.org/Nature-and-Sustainability/Street-Tree-List/tkzw-k3nq)
-
 ## Introduction
 
 This San Francisco Trees dataset, shared via TidyTuesday, catalogs nearly 200,000 street trees with details like species, dimensions, and the agency or entity responsible for care. It provides a window onto how a major city manages its urban forestry and the division of responsibility among public, private, and institutional actors.
 
-------------------------------------------------------------------------
-
 ## Questions Explored
 
 -   **Which caretakers/agencies are responsible for the most trees in San Francisco?**
+
 -   **Are there dominant players, or is responsibility widely dispersed?**
 
-## \## Analysis & Visualization
+## Analysis & Visualization
 
 ```{r}
-# Get the Data
 
-sf_trees <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-01-28/sf_trees.csv')
-
-
+# Load the San Francisco trees dataset from the TidyTuesday repo via the tidytuesdayR helper
 tuesdata <- tidytuesdayR::tt_load('2020-01-28') 
 tuesdata <- tidytuesdayR::tt_load(2020, week = 5)
 
-
+# Extract the sf_trees table from the tidytuesdayR list
 sf_trees <- tuesdata$sf_trees
 
 library(tidyverse)
 
+# Summarize caretaker counts 
 top_caretakers <- sf_trees %>%
-  filter(!is.na(caretaker)) %>%
-  count(caretaker, sort = TRUE) %>%
-  slice_max(n, n = 10)
+  filter(!is.na(caretaker)) %>%  # keep only rows where a caretaker is recorded
+  count(caretaker, sort = TRUE) %>% # count trees per caretaker, sorted by frequency
+  slice_max(n, n = 10)    # keep the 10 caretakers with the most trees
+
+# Plot: Top 10 caretakers/agencies
 
 ggplot(top_caretakers, aes(x = reorder(caretaker, n), y = n)) +
-  geom_col(fill = "forestgreen") +
+  geom_col(fill = "forestgreen") +  # bar chart showing number of trees per caretaker
   coord_flip() +
   labs(
     title = "Top 10 Tree Caretakers/Agencies in San Francisco",
@@ -57,3 +51,22 @@ ggplot(top_caretakers, aes(x = reorder(caretaker, n), y = n)) +
   theme_minimal(base_size = 14)
 
 ```
+
+#### **Figure 1. Top 10 Tree Caretakers and Agencies in San Francisco**
+
+This bar chart shows the ten caretakers or agencies responsible for the largest numbers of recorded street trees in San Francisco, based on the `sf_trees`dataset. Each bar’s length corresponds to the number of trees associated with that caretaker, highlighting which organizations carry the greatest share of tree‑maintenance responsibility in the city.
+
+## Conclusion
+
+The plot indicates that a small set of caretakers and agencies are responsible for the largest numbers of recorded trees in San Francisco, with the top few bars substantially taller than the others. This shows that responsibility is not widely dispersed; instead, there are clear dominant players that manage a disproportionately large share of the city’s street trees. This means changes at these dominant agencies could have a large impact on the overall health and management of San Francisco’s urban forest.\
+
+## References / Data Source
+
+**Source:** [TidyTuesday San Francisco Trees Resource](https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28)
+
+Rfordatascience. (2020a, January 28). *tidytuesday/data/2020/2020-01-28 at main · rfordatascience/tidytuesday*. GitHub. <https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28>
+
+\
+**Original data:** City and County of San Francisco. (2020). Street Tree List. [SF Open Data Link](https://data.sfgov.org/Nature-and-Sustainability/Street-Tree-List/tkzw-k3nq)
+
+*Street Tree List \| DataSF*. (2025, December 8). <https://data.sfgov.org/City-Infrastructure/Street-Tree-List/tkzw-k3nq>

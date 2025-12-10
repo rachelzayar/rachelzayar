@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TidyTuesday Analysis 2 – Rachel Zayar</title>
+<title>Who Cares for San Francisco’s Street Trees? – Rachel Zayar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -93,23 +127,23 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Data Viz</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz-gallery" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Viz Gallery</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-viz">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-viz-gallery">    
         <li>
     <a class="dropdown-item" href="./tidytuesday1.html">
- <span class="dropdown-text">TidyTuesday 1</span></a>
+ <span class="dropdown-text">BBC 100 Women 2020</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./tidytuesday2.html">
- <span class="dropdown-text">TidyTuesday 2</span></a>
+ <span class="dropdown-text">SF Street Trees</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="./project2.html"> 
-<span class="menu-text">Project 2</span></a>
+<span class="menu-text">Love in Romeo &amp; Juliet</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project3.html"> 
@@ -117,11 +151,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project4.html"> 
-<span class="menu-text">Project 4</span></a>
+<span class="menu-text">DeepMind–NHS Ethics</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project5.html"> 
-<span class="menu-text">Project 5</span></a>
+<span class="menu-text">Sex Differences and Traffic Stops</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -139,12 +173,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#san-francisco-trees-2020" id="toc-san-francisco-trees-2020" class="nav-link active" data-scroll-target="#san-francisco-trees-2020">San Francisco Trees (2020)</a>
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#questions-explored" id="toc-questions-explored" class="nav-link" data-scroll-target="#questions-explored">Questions Explored</a></li>
-  <li><a href="#analysis-visualization" id="toc-analysis-visualization" class="nav-link" data-scroll-target="#analysis-visualization">## Analysis &amp; Visualization</a></li>
-  </ul></li>
+  <li><a href="#analysis-visualization" id="toc-analysis-visualization" class="nav-link" data-scroll-target="#analysis-visualization">Analysis &amp; Visualization</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references-data-source" id="toc-references-data-source" class="nav-link" data-scroll-target="#references-data-source">References / Data Source</a></li>
   </ul>
 </nav>
     </div>
@@ -153,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TidyTuesday Analysis 2</h1>
+<h1 class="title">Who Cares for San Francisco’s Street Trees?</h1>
 </div>
 
 
@@ -171,25 +204,46 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
-<section id="san-francisco-trees-2020" class="level1">
-<h1>San Francisco Trees (2020)</h1>
-<p><strong>Source:</strong> <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28">TidyTuesday San Francisco Trees Resource</a><br>
-<strong>Original data:</strong> City and County of San Francisco. (2020). Street Tree List. <a href="https://data.sfgov.org/Nature-and-Sustainability/Street-Tree-List/tkzw-k3nq">SF Open Data Link</a></p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This San Francisco Trees dataset, shared via TidyTuesday, catalogs nearly 200,000 street trees with details like species, dimensions, and the agency or entity responsible for care. It provides a window onto how a major city manages its urban forestry and the division of responsibility among public, private, and institutional actors.</p>
-<hr>
 </section>
 <section id="questions-explored" class="level2">
 <h2 class="anchored" data-anchor-id="questions-explored">Questions Explored</h2>
 <ul>
-<li><strong>Which caretakers/agencies are responsible for the most trees in San Francisco?</strong></li>
-<li><strong>Are there dominant players, or is responsibility widely dispersed?</strong></li>
+<li><p><strong>Which caretakers/agencies are responsible for the most trees in San Francisco?</strong></p></li>
+<li><p><strong>Are there dominant players, or is responsibility widely dispersed?</strong></p></li>
 </ul>
 </section>
 <section id="analysis-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="analysis-visualization">## Analysis &amp; Visualization</h2>
+<h2 class="anchored" data-anchor-id="analysis-visualization">Analysis &amp; Visualization</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the San Francisco trees dataset from the TidyTuesday repo via the tidytuesdayR helper</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">'2020-01-28'</span>) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="dv">2020</span>, <span class="at">week =</span> <span class="dv">5</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the sf_trees table from the tidytuesdayR list</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sf_trees <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>sf_trees</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize caretaker counts </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>top_caretakers <span class="ot">&lt;-</span> sf_trees <span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(caretaker)) <span class="sc">%&gt;%</span>  <span class="co"># keep only rows where a caretaker is recorded</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(caretaker, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> <span class="co"># count trees per caretaker, sorted by frequency</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">10</span>)    <span class="co"># keep the 10 caretakers with the most trees</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot: Top 10 caretakers/agencies</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_caretakers, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(caretaker, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"forestgreen"</span>) <span class="sc">+</span>  <span class="co"># bar chart showing number of trees per caretaker</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 10 Tree Caretakers/Agencies in San Francisco"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Caretaker/Agency"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Trees"</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -198,9 +252,25 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-
-
+<section id="figure-1.-top-10-tree-caretakers-and-agencies-in-san-francisco" class="level4">
+<h4 class="anchored" data-anchor-id="figure-1.-top-10-tree-caretakers-and-agencies-in-san-francisco"><strong>Figure 1. Top 10 Tree Caretakers and Agencies in San Francisco</strong></h4>
+<p>This bar chart shows the ten caretakers or agencies responsible for the largest numbers of recorded street trees in San Francisco, based on the <code>sf_trees</code>dataset. Each bar’s length corresponds to the number of trees associated with that caretaker, highlighting which organizations carry the greatest share of tree‑maintenance responsibility in the city.</p>
 </section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The plot indicates that a small set of caretakers and agencies are responsible for the largest numbers of recorded trees in San Francisco, with the top few bars substantially taller than the others. This shows that responsibility is not widely dispersed; instead, there are clear dominant players that manage a disproportionately large share of the city’s street trees. This means changes at these dominant agencies could have a large impact on the overall health and management of San Francisco’s urban forest.<br>
+</p>
+</section>
+<section id="references-data-source" class="level2">
+<h2 class="anchored" data-anchor-id="references-data-source">References / Data Source</h2>
+<p><strong>Source:</strong> <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28">TidyTuesday San Francisco Trees Resource</a></p>
+<p>Rfordatascience. (2020a, January 28). <em>tidytuesday/data/2020/2020-01-28 at main · rfordatascience/tidytuesday</em>. GitHub. <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28" class="uri">https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28</a></p>
+<p><br>
+<strong>Original data:</strong> City and County of San Francisco. (2020). Street Tree List. <a href="https://data.sfgov.org/Nature-and-Sustainability/Street-Tree-List/tkzw-k3nq">SF Open Data Link</a></p>
+<p><em>Street Tree List | DataSF</em>. (2025, December 8). <a href="https://data.sfgov.org/City-Infrastructure/Street-Tree-List/tkzw-k3nq" class="uri">https://data.sfgov.org/City-Infrastructure/Street-Tree-List/tkzw-k3nq</a></p>
+
+
 </section>
 
 </main> <!-- /main -->

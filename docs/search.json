@@ -2,30 +2,30 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome",
+    "title": "Profile",
     "section": "",
-    "text": "Undergraduate Neuroscience Major (Pre-Medical), Pomona College\n\n\n\nMay Phoo Zayar @ Rachel is an undergraduate Neuroscience major on the pre-medical track at Pomona College in Claremont, California. She is committed to advancing scientific understanding and improving health outcomes through rigorous laboratory research and informed, compassionate care.\nHer academic and research experience includes supporting electrophysiological and neuroscience research, assisting in genetics laboratory courses, and contributing to studies of neurotransmitters and brain function. In addition, she has extensive experience volunteering in hospice and cancer care, where she has played a key role in supporting both patients and families.\nRachel has collaborated on healthcare research projects focused on program development, data analysis, and the creation of culturally sensitive health interventions. She communicates fluently in Burmese and English, and converses in Korean and Japanese. She values professionalism, teamwork, and continual learning.\n\n\n\n\nConnect with me:\n| GitHub |"
+    "text": "Undergraduate Neuroscience Major (Pre-Medical), Pomona College"
   },
   {
     "objectID": "index.html#about",
     "href": "index.html#about",
-    "title": "Welcome",
-    "section": "",
-    "text": "May Phoo Zayar @ Rachel is an undergraduate Neuroscience major on the pre-medical track at Pomona College in Claremont, California. She is committed to advancing scientific understanding and improving health outcomes through rigorous laboratory research and informed, compassionate care.\nHer academic and research experience includes supporting electrophysiological and neuroscience research, assisting in genetics laboratory courses, and contributing to studies of neurotransmitters and brain function. In addition, she has extensive experience volunteering in hospice and cancer care, where she has played a key role in supporting both patients and families.\nRachel has collaborated on healthcare research projects focused on program development, data analysis, and the creation of culturally sensitive health interventions. She communicates fluently in Burmese and English, and converses in Korean and Japanese. She values professionalism, teamwork, and continual learning."
+    "title": "Profile",
+    "section": "About",
+    "text": "About\nMay Phoo Zayar @ Rachel is an undergraduate Neuroscience major on the pre-medical track at Pomona College in Claremont, California. She is committed to advancing scientific understanding and improving health outcomes through rigorous laboratory research and informed, compassionate care.\nHer academic and research experience includes supporting electrophysiological and neuroscience research, assisting in genetics laboratory courses, and contributing to studies of neurotransmitters and brain function. In addition, she has extensive experience volunteering in hospice and cancer care, where she has played a key role in supporting both patients and families.\nRachel has collaborated on healthcare research projects focused on program development, data analysis, and the creation of culturally sensitive health interventions. She communicates fluently in Burmese and English, and converses in Korean and Japanese. She values professionalism, teamwork, and continual learning.\nHer goal is to build a career at the intersection of neuroscience, medicine, and public health—bridging research and real-world impact.\n\n\nConnect with me:\n| GitHub | LinkedIn |"
   },
   {
     "objectID": "index.html#her-goal-is-to-build-a-career-at-the-intersection-of-neuroscience-medicine-and-public-healthbridging-research-and-real-world-impact.",
     "href": "index.html#her-goal-is-to-build-a-career-at-the-intersection-of-neuroscience-medicine-and-public-healthbridging-research-and-real-world-impact.",
     "title": "Welcome",
     "section": "",
-    "text": "Connect with me:\n| GitHub |"
+    "text": "Profile \nConnect with me:\n| GitHub | Linkedin"
   },
   {
     "objectID": "tidytuesday1.html#introduction",
     "href": "tidytuesday1.html#introduction",
-    "title": "TidyTuesday Analysis 1",
-    "section": "Introduction",
-    "text": "Introduction\nThe BBC 100 Women 2020 dataset, featured as part of the open-source TidyTuesday project, spotlights one hundred women from around the world who have had a substantial cultural, social, or scientific impact over the past year. Compiled by BBC News, this annual list celebrates women working in leadership, science, arts, activism, and communities worldwide. Alongside basic information such as name and country, the dataset includes a brief description of each individual’s background and contributions, plus their domain of impact."
+    "title": "Global Representation in the BBC 100 Women 2020 List",
+    "section": "",
+    "text": "The BBC 100 Women 2020 dataset, featured as part of the open-source TidyTuesday project, spotlights one hundred women from around the world who have had a substantial cultural, social, or scientific impact over the past year. Compiled by BBC News, this annual list celebrates women working in leadership, science, arts, activism, and communities worldwide. Alongside basic information such as name and country, the dataset includes a brief description of each individual’s background and contributions, plus their domain of impact.\n\n\n\nWhich regions of the world are most represented among the BBC’s 100 Women of 2020? Do any regions appear under‑represented or over‑represented?\nThis analysis counts how many honorees are connected to each continent or large region, helping reveal global patterns of visibility and recognition.\nHow does the field of achievement (category) vary by region?\nBy grouping honorees by both region and professional or social domain (such as Leadership, Science, Arts, or Advocacy), this code examines whether certain types of achievement are especially prominent in particular areas of the world."
   },
   {
     "objectID": "tidytuesday1.html#questions-explored",
@@ -37,23 +37,23 @@
   {
     "objectID": "tidytuesday2.html#introduction",
     "href": "tidytuesday2.html#introduction",
-    "title": "TidyTuesday Analysis 2",
+    "title": "Who Cares for San Francisco’s Street Trees?",
     "section": "Introduction",
     "text": "Introduction\nThis San Francisco Trees dataset, shared via TidyTuesday, catalogs nearly 200,000 street trees with details like species, dimensions, and the agency or entity responsible for care. It provides a window onto how a major city manages its urban forestry and the division of responsibility among public, private, and institutional actors."
   },
   {
     "objectID": "tidytuesday2.html#questions-explored",
     "href": "tidytuesday2.html#questions-explored",
-    "title": "TidyTuesday Analysis 2",
+    "title": "Who Cares for San Francisco’s Street Trees?",
     "section": "Questions Explored",
     "text": "Questions Explored\n\nWhich caretakers/agencies are responsible for the most trees in San Francisco?\nAre there dominant players, or is responsibility widely dispersed?"
   },
   {
     "objectID": "tidytuesday2.html#analysis-visualization",
     "href": "tidytuesday2.html#analysis-visualization",
-    "title": "TidyTuesday Analysis 2",
-    "section": "## Analysis & Visualization",
-    "text": "## Analysis & Visualization"
+    "title": "Who Cares for San Francisco’s Street Trees?",
+    "section": "Analysis & Visualization",
+    "text": "Analysis & Visualization\n\n# Load the San Francisco trees dataset from the TidyTuesday repo via the tidytuesdayR helper\ntuesdata &lt;- tidytuesdayR::tt_load('2020-01-28') \ntuesdata &lt;- tidytuesdayR::tt_load(2020, week = 5)\n\n# Extract the sf_trees table from the tidytuesdayR list\nsf_trees &lt;- tuesdata$sf_trees\n\nlibrary(tidyverse)\n\n# Summarize caretaker counts \ntop_caretakers &lt;- sf_trees %&gt;%\n  filter(!is.na(caretaker)) %&gt;%  # keep only rows where a caretaker is recorded\n  count(caretaker, sort = TRUE) %&gt;% # count trees per caretaker, sorted by frequency\n  slice_max(n, n = 10)    # keep the 10 caretakers with the most trees\n\n# Plot: Top 10 caretakers/agencies\n\nggplot(top_caretakers, aes(x = reorder(caretaker, n), y = n)) +\n  geom_col(fill = \"forestgreen\") +  # bar chart showing number of trees per caretaker\n  coord_flip() +\n  labs(\n    title = \"Top 10 Tree Caretakers/Agencies in San Francisco\",\n    x = \"Caretaker/Agency\",\n    y = \"Number of Trees\"\n  ) +\n  theme_minimal(base_size = 14)\n\n\n\n\n\n\n\n\n\nFigure 1. Top 10 Tree Caretakers and Agencies in San Francisco\nThis bar chart shows the ten caretakers or agencies responsible for the largest numbers of recorded street trees in San Francisco, based on the sf_treesdataset. Each bar’s length corresponds to the number of trees associated with that caretaker, highlighting which organizations carry the greatest share of tree‑maintenance responsibility in the city."
   },
   {
     "objectID": "project2.html#data-source",
@@ -177,51 +177,51 @@
   {
     "objectID": "project4.html",
     "href": "project4.html",
-    "title": "Project 4: AI in Healthcare: An Ethical Dilemma in Data Science",
+    "title": "Data, Power, and Consent in the DeepMind–NHS Streams Partnership",
     "section": "",
-    "text": "In 2015, the Royal Free London NHS Foundation Trust partnered with Google DeepMind, a branch of Alphabet Inc., to create an artificial intelligence system called Streams. The goal was to develop a smartphone app that could alert doctors in real time if a patient showed signs of acute kidney injury. To make this possible, DeepMind received access to the medical records of 1.6 million NHS patients, including sensitive information such as HIV status, mental health history, and drug-use data (Powles & Hodson, 2017).\nWhat began as a promising step forward in digital healthcare soon turned into one of the most controversial data science cases in the United Kingdom. It was revealed that patients were never told their data had been shared, nor had they given permission. In 2017, the UK’s Information Commissioner’s Office ruled that the partnership had violated data protection laws because the data were shared under the claim of “direct patient care,” even though the Streams app was still being tested (University of Cambridge, 2019).\nThis partnership became a defining example of how ethics, power, and corporate interests intersect in artificial intelligence research. It showed that technological innovation in healthcare cannot be separated from the moral questions surrounding ownership, consent, and the use of personal data."
+    "text": "In 2015, the Royal Free London NHS Foundation Trust, a large public hospital group within the United Kingdom’s tax‑funded National Health Service (NHS), partnered with Google DeepMind, an artificial‑intelligence lab owned by Alphabet, to develop Streams, a smartphone app intended to alert clinicians in real time when patients showed signs of acute kidney injury. To build and test Streams, DeepMind received access to the medical records of approximately 1.6 million NHS patients, including highly sensitive information such as HIV status, mental health history, and drug‑use data. (Powles & Hodson, 2017).\nWhat began as a promising digital‑health initiative quickly became one of the UK’s most controversial data‑science collaborations when it emerged that patients had not been told their records would be shared with a private company and had not consented to this use. In 2017, the UK’s Information Commissioner’s Office (ICO), the national regulator for data‑protection and privacy, concluded that the partnership violated data‑protection law because the data had been shared under the justification of “direct patient care,” even though Streams was still being tested and was not yet part of routine care.(University of Cambridge, 2019).\nThis partnership became a defining example of how ethics, power, and corporate interests intersect in artificial intelligence research. It showed that technological innovation in healthcare cannot be separated from the moral questions surrounding ownership, consent, and the use of personal data."
   },
   {
     "objectID": "project4.html#consent-and-permission-structures",
     "href": "project4.html#consent-and-permission-structures",
-    "title": "Project 4: AI in Healthcare: An Ethical Dilemma in Data Science",
+    "title": "Data, Power, and Consent in the DeepMind–NHS Streams Partnership",
     "section": "1. Consent and Permission Structures",
-    "text": "1. Consent and Permission Structures\nQuestions addressed: “What is the permission structure for using the data? Was it followed?” and “What was the consent structure for recruiting participants? Were the participants aware of the ways their data would be used for research? Was informed consent possible? Can you provide informed consent for applications that are yet foreseen?”\nA major ethical issue in the DeepMind case concerns informed consent. Under the UK’s Data Protection Act, organizations must have a valid legal basis for processing personal data. The Royal Free Trust claimed that its data sharing with DeepMind was justified under the principle of “direct patient care.” However, since Streams was still in the testing phase, patients were not actually receiving care through the app, meaning this justification did not apply (Powles & Hodson, 2017).\nIn 2017, the Information Commissioner’s Office confirmed that the Royal Free Trust had failed to properly inform patients about how their data would be used (University of Cambridge, 2019). This shows that the proper permission structures were not followed. Genuine informed consent requires that individuals clearly understand how their data will be used and voluntarily agree to that use. In this case, patients were unaware that a private technology company would access their records or that their data could later contribute to commercial artificial intelligence development.\nThis situation reveals a broader challenge within artificial intelligence research. Once data are collected, they can easily be reused for purposes that were not anticipated at the time of collection. Fan, Zhang, and Li (2025) argue that informed consent becomes almost impossible when the potential uses of data extend far beyond their original intent."
+    "text": "1. Consent and Permission Structures\nQuestions addressed: What was the permission structure for using the data? Was it followed? What was the consent structure for patients? Were they aware of how their data would be used? Is informed consent possible for unforeseen future applications?\nUnder the UK Data Protection Act, organizations must have a valid legal basis for processing personal data. The Royal Free Trust argued that sharing data with DeepMind was justified under “direct patient care,” the same basis that allows clinicians to access records to diagnose and treat individuals. However, Streams was in a research and testing phase; patients were not yet receiving care through the app, so this legal justification did not apply.\nIn 2017, the ICO found that the Royal Free Trust had failed to adequately inform patients about the partnership or the ways their data would be processed. Patients were not told that a private AI lab would receive their records, nor were they given a meaningful chance to opt in or out. Genuine informed consent requires that people know who will access their data, for what purposes, and with what potential consequences. In this case, patients had no realistic way to understand that their records might support algorithm development, later products, or broader commercial AI strategies.\nMore broadly, the case highlights the limits of conventional consent models in big‑data healthcare. Fan, Zhang, and Li (2025) argue that when AI enables open‑ended reuse of data, future applications are often impossible to foresee at the point of collection. The DeepMind collaboration demonstrates how quickly clinical data, obtained for treatment and operations, can be repurposed for research and development far beyond what patients initially understood."
   },
   {
     "objectID": "project4.html#data-privacy-and-identifiability",
     "href": "project4.html#data-privacy-and-identifiability",
-    "title": "Project 4: AI in Healthcare: An Ethical Dilemma in Data Science",
+    "title": "Data, Power, and Consent in the DeepMind–NHS Streams Partnership",
     "section": "2. Data Privacy and Identifiability",
-    "text": "2. Data Privacy and Identifiability\nQuestions addressed: “Is the data identifiable? All of it? Some of it? In what way? Are the data sufficiently anonymized or old to be free of ethical concerns? Is anonymity guaranteed?”\nDeepMind’s access to NHS data also created serious privacy concerns. The dataset included identifiable details such as names, addresses, and full medical histories (Powles & Hodson, 2017). Although both DeepMind and the NHS stated that the data were securely processed, the Information Commissioner’s Office found that the level of identifiability went far beyond what was necessary for the algorithm’s development (University of Cambridge, 2019).\nEven when data are anonymized, complete anonymity in healthcare records is very difficult to achieve. Murdoch (2021) explains that health data often contain unique combinations of variables that make it possible to re-identify individuals through cross-referencing with other data sources. For instance, combining medical history with demographic details such as age and postal code can easily point to a specific person.\nIn this case, DeepMind’s access to identifiable patient data without explicit consent represented a clear breach of privacy. It also exposed weaknesses in data governance and demonstrated the need for stronger safeguards, greater oversight, and clearer definitions of ownership and accountability in digital healthcare systems."
+    "text": "2. Data Privacy and Identifiability\nQuestions addressed: Is the data identifiable? Are parts of it sufficiently anonymized to avoid ethical concerns? Is anonymity realistically guaranteed?\nDeepMind received rich, line‑level health records from the Royal Free, including names, addresses, dates, and detailed medical histories. Although the organizations stressed that the data were stored and processed securely, the ICO concluded that the scale and identifiability of the dataset went well beyond what was necessary for testing Streams.\nEven where explicit identifiers are removed, true anonymity in health data is difficult to achieve. Murdoch (2021) notes that combinations of diagnoses, dates, demographics, and geography can re‑identify individuals when linked with other datasets. A small set of quasi‑identifiers, such as age, postcode, and rare conditions, can be enough to single out a person.\nIn the Streams case, DeepMind’s access to identifiable or easily re‑identifiable records without explicit patient consent represented a clear privacy risk. It exposed weaknesses in data‑governance processes around data minimization (only using what is strictly necessary), independent oversight, and clarity about who is accountable when public providers share health records with private AI developers."
   },
   {
     "objectID": "project4.html#representation-and-bias-in-algorithm-design",
     "href": "project4.html#representation-and-bias-in-algorithm-design",
-    "title": "Project 4: AI in Healthcare: An Ethical Dilemma in Data Science",
+    "title": "Data, Power, and Consent in the DeepMind–NHS Streams Partnership",
     "section": "3. Representation and Bias in Algorithm Design",
-    "text": "3. Representation and Bias in Algorithm Design\nQuestions addressed: “Who was measured? Are those individuals representative of the people to whom we’d like to generalize or apply the algorithm? Should we analyze data if we do not know how the data were collected?”\nAnother ethical concern in the DeepMind and NHS collaboration was representation bias. The dataset used to train Streams came from a single hospital trust in London, which limited the diversity of the data. Algorithms trained on such narrow datasets may fail to perform accurately across wider populations, especially for individuals with different ethnic, socioeconomic, or geographic backgrounds.\nDankwa-Mullan et al. (2024) argue that when artificial intelligence systems are trained on unrepresentative data, they can reproduce and even amplify existing health inequalities. This means that technology intended to improve care might instead deepen the disparities already present in the system.\nThis issue connects to the framework proposed by D’Ignazio and Klein (2020), which emphasizes examining inclusion and exclusion within datasets. Because the Streams model was trained using data from a limited population, it lacked diversity and fairness by design. As a result, its effectiveness and reliability in broader clinical settings were uncertain."
+    "text": "3. Representation and Bias in Algorithm Design\nQuestions addressed: Who was measured? Are these patients representative of the broader populations where the algorithm might be used? Should we analyze data if we know the sample is narrow?\nThe training data for Streams came from a single hospital trust in London, which limited the demographic and clinical diversity of the dataset. Algorithms built on such a narrow population may not perform well for patients in other regions, health‑system contexts, or with different ethnic and socioeconomic backgrounds.\nDankwa‑Mullan et al. (2024) emphasize that AI tools trained on unrepresentative data can reproduce and intensify existing health inequities, especially when they are deployed at scale without rigorous external validation. D’Ignazio and Klein’s (2020) Data Feminism framework similarly stresses examining who is included and excluded in a dataset, and how those choices reflect existing power structures and systemic bias.\nBecause Streams was trained primarily on patients from one trust, its fairness and reliability for other NHS populations were uncertain from the outset. Yet the project attracted national and international attention as a model of “AI for healthcare,” illustrating how quickly tools based on local data can be implicitly generalized to much broader contexts."
   },
   {
     "objectID": "project4.html#data-use-beyond-original-intent",
     "href": "project4.html#data-use-beyond-original-intent",
-    "title": "Project 4: AI in Healthcare: An Ethical Dilemma in Data Science",
+    "title": "Data, Power, and Consent in the DeepMind–NHS Streams Partnership",
     "section": "4. Data Use Beyond Original Intent",
-    "text": "4. Data Use Beyond Original Intent\nQuestions addressed: “Is the data being used in unintended ways to the original study?”\nOne of the most troubling ethical concerns in this case is the use of patient data for purposes that went beyond their original intent. The NHS collected this information to provide medical care, not to support research by a private company. Yet the same data were later used by DeepMind to develop and test an artificial intelligence system.\nAlthough DeepMind claimed the project was not commercial, its parent company, Alphabet, gained valuable expertise and intellectual property through the collaboration (Fan et al., 2025). This raises questions about fairness and transparency, especially when public data become a foundation for private technological advancement.\nThis situation illustrates a larger pattern in data science where public institutions collect vast amounts of data, but private corporations are the ones who benefit most from it. Patients, on the other hand, have little control over how their personal information is used. From the perspective of Data Feminism, this represents an imbalance of power between public organizations and corporate entities. Public healthcare systems rely on large technology firms for innovation, while those firms gain influence and control over public data."
+    "text": "4. Data Use Beyond Original Intent\nQuestion addressed: Is the data being used in ways that go beyond the purposes for which it was originally collected?\nThe NHS collects patient records to deliver care, manage services, and meet legal obligations, not to provide a general data resource for private AI labs. In the DeepMind partnership, however, information originally gathered for clinical purposes was repurposed to develop and test a machine‑learning system owned by a subsidiary of a large technology company.\nDeepMind described Streams as a non‑commercial patient‑safety project, but Alphabet nonetheless benefited from technical expertise, infrastructure, and potential intellectual property generated through the collaboration. Fan et al. (2025) argue that in such arrangements, public institutions often provide the data while private firms capture most of the long‑term value in the form of algorithms, know‑how, and future products. Patients whose data made the work possible rarely participate in decisions about reuse and typically do not share in any commercial benefits.\nFrom a Data Feminism perspective, this reflects a structural power imbalance between public healthcare systems and corporate technology actors. Public providers depend on large technology firms for AI tools and infrastructure, while those firms gain influence over public infrastructure through control of data and models. The Streams case shows how easily public health data can be drawn into private research agendas once consent and governance safeguards fail."
   },
   {
     "objectID": "project4.html#why-it-matters",
     "href": "project4.html#why-it-matters",
-    "title": "Project 4: AI in Healthcare: An Ethical Dilemma in Data Science",
+    "title": "Data, Power, and Consent in the DeepMind–NHS Streams Partnership",
     "section": "5. Why It Matters",
-    "text": "5. Why It Matters\nQuestions addressed: “Who benefits? Who is neglected or harmed? Were the ethical violations in the interest of profit, surveillance, or power?”\nThe DeepMind and NHS controversy shows that data science is deeply connected to ethics, governance, and power. The problems of inadequate consent, insufficient anonymization, limited representation, and the repurposing of patient data all reveal a larger issue in modern healthcare: the treatment of personal information as a commodity.\nTechnology companies gain significant advantages from access to extensive datasets that strengthen their algorithms and market influence. Patients, however, lose control over their personal data and may face risks from biased or untested systems.\nAs D’Ignazio and Klein (2020) argue, ethical data science is not only about legal compliance but also about fairness, accountability, and respect for human rights. The DeepMind case highlights the urgent need to center equity and transparency in the development of data-driven healthcare. Without these principles, technological progress risks reinforcing the very inequities it claims to solve."
+    "text": "5. Why It Matters\nQuestions addressed: “Who benefits? Who is neglected or harmed? Were the ethical violations in the interest of profit, surveillance, or power?”\nIn principle, tools like Streams can improve patient outcomes by flagging kidney injury earlier and helping clinicians intervene more quickly. In practice, the way this collaboration was structured concentrated benefits and risks unevenly. Alphabet gained access to a large, high‑quality dataset and an opportunity to develop AI capabilities in a high‑profile clinical setting. Patients, by contrast, lost control over sensitive information and were exposed to privacy risks without their knowledge or consent.\nBecause the data came from one trust and patients had no role in governance, the project also risked reinforcing inequities; improving care for some groups while leaving others unserved or mis‑served. As D’Ignazio and Klein (2020) argue, ethical data science is not only about meeting legal requirements; it also demands attention to fairness, accountability, and the protection of those with the least power.\nThe DeepMind–Royal Free case ultimately serves as a cautionary tale. Inadequate consent, insufficient anonymization, narrow training data, and repurposing of patient records for corporate AI development all reveal how easily technological innovation can outpace ethical and regulatory safeguards. Without stronger consent mechanisms, transparent governance, more representative data, and fair sharing of benefits, AI in healthcare risks reproducing the very power imbalances and inequities it claims to address."
   },
   {
     "objectID": "project4.html#introduction",
     "href": "project4.html#introduction",
-    "title": "Project 4: AI in Healthcare: An Ethical Dilemma in Data Science",
+    "title": "Data, Power, and Consent in the DeepMind–NHS Streams Partnership",
     "section": "",
-    "text": "In 2015, the Royal Free London NHS Foundation Trust partnered with Google DeepMind, a branch of Alphabet Inc., to create an artificial intelligence system called Streams. The goal was to develop a smartphone app that could alert doctors in real time if a patient showed signs of acute kidney injury. To make this possible, DeepMind received access to the medical records of 1.6 million NHS patients, including sensitive information such as HIV status, mental health history, and drug-use data (Powles & Hodson, 2017).\nWhat began as a promising step forward in digital healthcare soon turned into one of the most controversial data science cases in the United Kingdom. It was revealed that patients were never told their data had been shared, nor had they given permission. In 2017, the UK’s Information Commissioner’s Office ruled that the partnership had violated data protection laws because the data were shared under the claim of “direct patient care,” even though the Streams app was still being tested (University of Cambridge, 2019).\nThis partnership became a defining example of how ethics, power, and corporate interests intersect in artificial intelligence research. It showed that technological innovation in healthcare cannot be separated from the moral questions surrounding ownership, consent, and the use of personal data."
+    "text": "In 2015, the Royal Free London NHS Foundation Trust, a large public hospital group within the United Kingdom’s tax‑funded National Health Service (NHS), partnered with Google DeepMind, an artificial‑intelligence lab owned by Alphabet, to develop Streams, a smartphone app intended to alert clinicians in real time when patients showed signs of acute kidney injury. To build and test Streams, DeepMind received access to the medical records of approximately 1.6 million NHS patients, including highly sensitive information such as HIV status, mental health history, and drug‑use data. (Powles & Hodson, 2017).\nWhat began as a promising digital‑health initiative quickly became one of the UK’s most controversial data‑science collaborations when it emerged that patients had not been told their records would be shared with a private company and had not consented to this use. In 2017, the UK’s Information Commissioner’s Office (ICO), the national regulator for data‑protection and privacy, concluded that the partnership violated data‑protection law because the data had been shared under the justification of “direct patient care,” even though Streams was still being tested and was not yet part of routine care.(University of Cambridge, 2019).\nThis partnership became a defining example of how ethics, power, and corporate interests intersect in artificial intelligence research. It showed that technological innovation in healthcare cannot be separated from the moral questions surrounding ownership, consent, and the use of personal data."
   },
   {
     "objectID": "project4.html#refrences",
@@ -233,23 +233,23 @@
   {
     "objectID": "project5.html",
     "href": "project5.html",
-    "title": "Project 5",
+    "title": "Sex Differences in Traffic Stops and Searches Across Three States",
     "section": "",
     "text": "library(DBI)\nlibrary(RMariaDB)\n\ncon_traffic &lt;- DBI::dbConnect(\n  RMariaDB::MariaDB(),\n  dbname   = \"traffic\",\n  host     = Sys.getenv(\"TRAFFIC_HOST\"),\n  user     = Sys.getenv(\"TRAFFIC_USER\"),\n  password = Sys.getenv(\"TRAFFIC_PWD\")\n)"
   },
   {
     "objectID": "project5.html#setting-up-connection",
     "href": "project5.html#setting-up-connection",
-    "title": "Project 5",
+    "title": "Sex Differences in Traffic Stops and Searches Across Three States",
     "section": "",
     "text": "library(DBI)\nlibrary(RMariaDB)\n\ncon_traffic &lt;- DBI::dbConnect(\n  RMariaDB::MariaDB(),\n  dbname   = \"traffic\",\n  host     = Sys.getenv(\"TRAFFIC_HOST\"),\n  user     = Sys.getenv(\"TRAFFIC_USER\"),\n  password = Sys.getenv(\"TRAFFIC_PWD\")\n)"
   },
   {
     "objectID": "project5.html#introduction",
     "href": "project5.html#introduction",
-    "title": "Project 5",
+    "title": "Sex Differences in Traffic Stops and Searches Across Three States",
     "section": "Introduction",
-    "text": "Introduction\nIn this project, I use the Stanford Open Policing Project SQL database to examine gender differences in traffic stops across three statewide agencies: Colorado, Connecticut, and Illinois. I focus on how both the volume of stops and the likelihood of a search differ between male and female subjects. Using SQL for all data wrangling, I aggregate the three statewide tables (co_statewide_2020_04_01, ct_statewide_2020_04_01, and il_statewide_2020_04_01) into summaries by subject sex and state, and then visualize these patterns with bar plots. The goal is to see whether gender disparities in stop volume and search rates are consistent across states or vary by location."
+    "text": "Introduction\nThis analysis uses the Stanford Open Policing Project SQL database to examine sex differences in traffic stops across three statewide agencies: Colorado, Connecticut, and Illinois. The focus is on two related questions:\n\nHow do the numbers of stops differ between male and female drivers?\nAmong stopped drivers, how does the probability of a search differ by sex, and does this pattern vary by state?\n\nAll data wrangling is performed in SQL by aggregating three statewide tables (co_statewide_2020_04_01, ct_statewide_2020_04_01, and il_statewide_2020_04_01) into summaries by subject sex and state. The resulting summaries are then visualized in R with bar plots to compare stop volumes and search rates across states."
   },
   {
     "objectID": "project5.html#data-wrangling",
@@ -268,14 +268,14 @@
   {
     "objectID": "project5.html#conclusion",
     "href": "project5.html#conclusion",
-    "title": "Project 5",
+    "title": "Sex Differences in Traffic Stops and Searches Across Three States",
     "section": "Conclusion",
-    "text": "Conclusion\nOverall, the analyses provide clear evidence that traffic stop activity and search decisions differ by subject sex across Colorado, Connecticut, and Illinois statewide. Using SQL to aggregate the statewide tables, Figure 1 shows that male subjects are stopped substantially more often than female subjects in all three states, with particularly large absolute volumes in Illinois. This pattern suggests that men experience a greater level of direct contact with state-level traffic enforcement, which could reflect differences in driving exposure (e.g., more time spent driving) but may also indicate gendered patterns in enforcement focus.\nFigure 2 reveals that the likelihood of being searched once stopped is also patterned by subject sex, but in a way that varies across states. In Connecticut and Illinois, male subjects have noticeably higher search rates than female subjects, indicating that among those who are stopped, men are more likely to be subjected to a search. Colorado, by contrast, exhibits much lower overall search rates for both groups and only a small difference between male and female subjects, which implies that departmental policies or legal constraints there may limit searches more uniformly.\nTaken together, these results highlight that gender-related disparities in traffic stops are multidimensional: men face both higher exposure (more stops) and, in some jurisdictions, more intrusive outcomes (higher search rates). At the same time, the cross-state differences show that these patterns are not fixed and can vary substantially with local practices, legal standards, or training. These insights underscore the value of multi-state databases like the Stanford Open Policing Project for distinguishing between broad structural patterns (e.g., men being stopped more often) and context-specific policy effects that shape what happens during and after a stop."
+    "text": "Conclusion\nUsing SQL to aggregate the Stanford Open Policing Project statewide tables for Colorado, Connecticut, and Illinois, this analysis compares both the volume of stops and the likelihood of searches by subject sex.\n\nStop volume: Across all three states, male drivers are stopped substantially more often than female drivers, with particularly large absolute numbers in Illinois. This implies that men experience more direct contact with traffic enforcement, which could stem from greater time spent driving, differences in vehicle use, or sex-focused patterns in enforcement focus.\nSearch rates: In Connecticut and Illinois, male drivers also have higher search rates than female drivers, meaning that conditional on being stopped, men are more likely to be searched. Colorado, in contrast, has low search rates for both groups and only a slight sex difference, consistent with state‑specific policies or practices that limit searches.\n\nTogether, these results indicate that sex differences in traffic stops are multidimensional: men in these data face both higher exposure (more stops) and, in some states, more intrusive outcomes (higher search rates). At the same time, the differences across states highlight that these patterns are shaped by local practices and legal environments, underscoring the value of multi‑state data for separating broad structural trends from jurisdiction‑specific policies."
   },
   {
     "objectID": "project5.html#references",
     "href": "project5.html#references",
-    "title": "Project 5",
+    "title": "Sex Differences in Traffic Stops and Searches Across Three States",
     "section": "References",
     "text": "References\nPierson, E., Simoiu, C., Overgoor, J., Corbett-Davies, S., Jenson, D., Shoemaker, A., Ramachandran, V., et al. (2020). A large-scale analysis of racial disparities in police stops across the United States. Nature Human Behaviour, 4(7), 736–745."
   },
@@ -306,5 +306,278 @@
     "title": "How ‘Love’ Appears in Romeo & Juliet",
     "section": "References/Data Source",
     "text": "References/Data Source\nThe analysis uses the TidyTuesday “Romeo & Juliet” text dataset, which provides one row per line of dialogue with scene and character information.\nTidyTuesday dataset\nRfordatascience. (2024, September 17). tidytuesday/data/2024/2024-09-17/romeo_juliet.csv at main · rfordatascience/tidytuesday. GitHub. https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-09-17/romeo_juliet.csv\nProject Gutenberg\nProject Gutenberg. (n.d.). Project Gutenberg. https://www.gutenberg.org/"
+  },
+  {
+    "objectID": "project5.html#data-wrangling-sql",
+    "href": "project5.html#data-wrangling-sql",
+    "title": "Sex Differences in Traffic Stops and Searches Across Three States",
+    "section": "Data wrangling (SQL)",
+    "text": "Data wrangling (SQL)\nTotal stops by sex and state stored as stops_sex_three_states.\n\nSELECT\n  'CO statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops\nFROM\n  co_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex\n\nUNION ALL\n\nSELECT\n  'CT statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops\nFROM\n  ct_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex\n\nUNION ALL\n\nSELECT\n  'IL statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops\nFROM\n  il_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex;\n  \n\nSearch counts and rates by sex and state stored as search_sex_three_states.)\n\nSELECT\n  'CO statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) AS n_searches,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) / COUNT(*) AS search_rate\nFROM\n  co_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex\n\nUNION ALL\n\nSELECT\n  'CT statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) AS n_searches,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) / COUNT(*) AS search_rate\nFROM\n  ct_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female') \nGROUP BY\n  subject_sex\n\nUNION ALL\n\nSELECT\n  'IL statewide' AS dataset,\n  subject_sex,\n  COUNT(*) AS n_stops,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) AS n_searches,\n  SUM(CASE WHEN search_conducted = TRUE THEN 1 ELSE 0 END) / COUNT(*) AS search_rate\nFROM\n  il_statewide_2020_04_01\nWHERE\n  subject_sex IN ('male', 'female')\nGROUP BY\n  subject_sex;\n\n\nDBI::dbDisconnect(con_traffic)"
+  },
+  {
+    "objectID": "project5.html#results-and-figures",
+    "href": "project5.html#results-and-figures",
+    "title": "Sex Differences in Traffic Stops and Searches Across Three States",
+    "section": "Results and Figures",
+    "text": "Results and Figures\n\nFigure 1. Number of Traffic Stops by Subject Sex in Colorado, Connecticut, and Illinois (Statewide)\n\nlibrary(ggplot2)\n\n# Plotting Figure 1 \n\nggplot(stops_sex_three_states, aes(x = subject_sex, y = n_stops, fill = subject_sex)) +\n  geom_col() +\n  facet_wrap(~ dataset, scales = \"free_y\") +\n  labs(\n    title = \"Number of stops by subject sex in CO, CT, and IL statewide\",\n    x = \"Subject sex\",\n    y = \"Number of stops\",\n    fill = \"Subject sex\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 1 shows the total number of traffic stops for male and female subjects in Colorado, Connecticut, and Illinois statewide. In all three states, male drivers are stopped more often than female drivers, though the magnitude of the difference varies, with Illinois showing especially large absolute counts. These patterns suggest that men account for a larger share of documented stops in each jurisdiction, which could reflect differences in driving exposure, differences in enforcement priorities, or both; this analysis cannot distinguish between those explanations.\n\n\nFigure 2. Search Rates by Subject Sex in Colorado, Connecticut, and Illinois (Statewide)\n\n# Plotting Figure 2 \nggplot(search_sex_three_states,\n       aes(x = subject_sex, y = search_rate, fill = subject_sex)) +\n  geom_col() +\n  facet_wrap(~ dataset) +\n  labs(\n    title = \"Search rate by subject sex in CO, CT, and IL statewide\",\n    x = \"Subject sex\",\n    y = \"Search rate (proportion of stops with a search)\",\n    fill = \"Subject sex\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 2 displays the search rate, defined as the proportion of stops that involve a search, for male and female drivers in each statewide agency. In Connecticut and Illinois, male subjects have noticeably higher search rates than female subjects, indicating that once stopped, men are more likely to be searched in these states. Colorado shows much lower search rates overall and only a small difference between sexes, suggesting that search practices there may be more restrictive or more uniform across male and female drivers."
+  },
+  {
+    "objectID": "project4.html#section",
+    "href": "project4.html#section",
+    "title": "Data, Power, and Consent in the DeepMind–NHS Streams Partnership",
+    "section": "",
+    "text": "References\nDankwa-Mullan, I., Nunez-Smith, M., & Volerman, A. (2024). Health equity and ethical considerations in using artificial intelligence. Centers for Disease Control and Prevention. https://www.cdc.gov/pcd/issues/2024/24_0245.htm\nD’Ignazio, C., & Klein, L. F. (2020). Data feminism. MIT Press.\nFan, X., Zhang, L., & Li, Y. (2025). Exploring the ethical issues posed by AI and big data in healthcare. Frontiers in Public Health, 13, 1585180. https://doi.org/10.3389/fpubh.2025.1585180\nMurdoch, B. (2021). Privacy and artificial intelligence: Challenges for protecting health data. BMC Medical Ethics, 22(122). https://doi.org/10.1186/s12910-021-00687-3\nPowles, J., & Hodson, H. (2017). Google DeepMind and healthcare in an age of algorithms. Health and Technology, 7(4), 351–367. https://doi.org/10.1007/s12553-017-0179-1\nUniversity of Cambridge. (2019, July 16). Royal Free London NHS Trust–Google DeepMind deal is “cautionary tale” for healthcare in the algorithmic age. https://www.cam.ac.uk/research/news/deepmind-royal-free-deal-is-cautionary-tale-for-healthcare-in-the-algorithmic-age"
+  },
+  {
+    "objectID": "tidytuesday1.html#analysis-visualization",
+    "href": "tidytuesday1.html#analysis-visualization",
+    "title": "Global Representation in the BBC 100 Women 2020 List",
+    "section": "Analysis & Visualization",
+    "text": "Analysis & Visualization\n\n# Load data from tidytuesday \ntuesdata &lt;- tidytuesdayR::tt_load('2020-12-08')\ntuesdata &lt;- tidytuesdayR::tt_load(2020, week = 50)\n\nwomen &lt;- tuesdata$women\n\nlibrary(tidyverse)\nlibrary(countrycode)\n\ndf_long &lt;- women %&gt;%\n  separate_rows(country, sep = \",\\\\s*\") %&gt;%\n  filter(country != \"\", !is.na(country), country != \"All\", category != \"All\") %&gt;%\n  # Assign regions using UN subregion\n  mutate(region = countrycode(country, \"country.name\", \"un.region.name\"),\n         region = case_when(\n           region == \"Northern America\" ~ \"North America\",\n           region == \"South America\" ~ \"South America\",\n           region == \"Central America\" ~ \"North America\",      # or as you prefer\n           region == \"Caribbean\" ~ \"North America\",            # optional, or use as \"Caribbean\"\n           is.na(region) & str_detect(country, \"Wales|Northern Ireland|Scotland|England|UK\") ~ \"Europe\",\n           is.na(region) & str_detect(country, \"Somaliland\") ~ \"Africa\",\n           is.na(region) & str_detect(country, \"Yining|Ghulja|Uighur\") ~ \"Asia\",\n           TRUE ~ region\n         ),\n         region = ifelse(is.na(region), \"Other\", region))\n\n# Summarize number of women per region and category\nregion_counts &lt;- df_long %&gt;%\n  count(region, category)\n\n# Calculate totals for each region for ordering\nregion_totals &lt;- region_counts %&gt;%\n  group_by(region) %&gt;%\n  summarise(total = sum(n))\n\n# Merge totals and reorder region factor for plotting (descending order)\nregion_counts &lt;- region_counts %&gt;%\n  left_join(region_totals, by = \"region\") %&gt;%\n  mutate(region = fct_reorder(region, total, .desc = TRUE))\n\n# Plot: Stacked bar by region, colored by category\nggplot(region_counts, aes(x = region, y = n, fill = category)) +\n  geom_bar(stat = \"identity\", position = \"stack\") +\n  labs(\n    title = \"BBC 100 Women 2020: Count by Region and Category\",\n    x = \"Region (Continent)\",\n    y = \"Count of Women\",\n    fill = \"Category\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nFigure 1. BBC 100 Women 2020 by World Region and Category\nThis stacked bar chart shows how many women from the 2020 BBC 100 Women list come from each world region, with bars broken down by the BBC’s thematic categories (such as leadership, knowledge, creativity, etc.). Each bar’s height reflects the total number of women in that region, while the colored segments reveal how representation is distributed across categories within regions."
+  },
+  {
+    "objectID": "tidytuesday1.html#conclusion",
+    "href": "tidytuesday1.html#conclusion",
+    "title": "Global Representation in the BBC 100 Women 2020 List",
+    "section": "Conclusion",
+    "text": "Conclusion\nWhich regions of the world are most represented among the BBC’s 100 Women of 2020?\n\nAsia has the largest number of women on the list, followed by Europe, Africa, and the Americas, while Oceania is represented by only a small number of women. Compared with the other regions, Oceania appears strongly under‑represented, with only a small bar composed solely of “Knowledge” entries. Asia, by contrast, appears over‑represented relative to other regions in raw counts, raising questions about how selection, coverage, and BBC editorial choices shape which women and regions receive global recognition.\nHow does the field of achievement (category) vary by region?\nIn every region except Oceania, women are spread across all four BBC categories (Leadership, Knowledge, Identity, Creativity), but the mix differs by region. Asia and Africa have particularly large “Knowledge” and “Leadership” segments, whereas the Americas show a more even balance between Leadership, Knowledge, and Identity, with a smaller Creativity segment."
+  },
+  {
+    "objectID": "tidytuesday1.html#references-data-source",
+    "href": "tidytuesday1.html#references-data-source",
+    "title": "Global Representation in the BBC 100 Women 2020 List",
+    "section": "References / Data Source",
+    "text": "References / Data Source\nSource: TidyTuesday BBC 100 Women Resource\nRfordatascience. (2020, December 8). tidytuesday/data/2020/2020-12-08 at main · rfordatascience/tidytuesday. GitHub. https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-12-08\nOriginal data from: BBC News. (2020). BBC 100 Women 2020. Original BBC Feature\nBBC News. (2020, November 23). BBC 100 Women 2020: Who is on the list this year? https://www.bbc.com/news/world-55042935"
+  },
+  {
+    "objectID": "tidytuesday2.html#conclusion",
+    "href": "tidytuesday2.html#conclusion",
+    "title": "Who Cares for San Francisco’s Street Trees?",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe plot indicates that a small set of caretakers and agencies are responsible for the largest numbers of recorded trees in San Francisco, with the top few bars substantially taller than the others. This shows that responsibility is not widely dispersed; instead, there are clear dominant players that manage a disproportionately large share of the city’s street trees. This means changes at these dominant agencies could have a large impact on the overall health and management of San Francisco’s urban forest."
+  },
+  {
+    "objectID": "tidytuesday2.html#references-data-source",
+    "href": "tidytuesday2.html#references-data-source",
+    "title": "Who Cares for San Francisco’s Street Trees?",
+    "section": "References / Data Source",
+    "text": "References / Data Source\nSource: TidyTuesday San Francisco Trees Resource\nRfordatascience. (2020a, January 28). tidytuesday/data/2020/2020-01-28 at main · rfordatascience/tidytuesday. GitHub. https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-28\n\nOriginal data: City and County of San Francisco. (2020). Street Tree List. SF Open Data Link\nStreet Tree List | DataSF. (2025, December 8). https://data.sfgov.org/City-Infrastructure/Street-Tree-List/tkzw-k3nq"
+  },
+  {
+    "objectID": "tidytuesday1.html",
+    "href": "tidytuesday1.html",
+    "title": "Global Representation in the BBC 100 Women 2020 List",
+    "section": "",
+    "text": "The BBC 100 Women 2020 dataset, featured as part of the open-source TidyTuesday project, spotlights one hundred women from around the world who have had a substantial cultural, social, or scientific impact over the past year. Compiled by BBC News, this annual list celebrates women working in leadership, science, arts, activism, and communities worldwide. Alongside basic information such as name and country, the dataset includes a brief description of each individual’s background and contributions, plus their domain of impact.\n\n\n\nWhich regions of the world are most represented among the BBC’s 100 Women of 2020? Do any regions appear under‑represented or over‑represented?\nThis analysis counts how many honorees are connected to each continent or large region, helping reveal global patterns of visibility and recognition.\nHow does the field of achievement (category) vary by region?\nBy grouping honorees by both region and professional or social domain (such as Leadership, Science, Arts, or Advocacy), this code examines whether certain types of achievement are especially prominent in particular areas of the world."
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
+    "section": "",
+    "text": "Email: mzhb2023@mymail.pomona.edu | rachelzayar21@gmail.com\nLocation: Claremont, CA"
+  },
+  {
+    "objectID": "resume.html#contact",
+    "href": "resume.html#contact",
+    "title": "Resume",
+    "section": "",
+    "text": "Email: mzhb2023@mymail.pomona.edu | rachelzayar21@gmail.com\nLocation: Claremont, CA"
+  },
+  {
+    "objectID": "resume.html#education",
+    "href": "resume.html#education",
+    "title": "Resume",
+    "section": "Education",
+    "text": "Education\nPomona College, Neuroscience (Pre‑med track)\n- Undergraduate student, Pomona College, Claremont, CA\n- Expected graduation: May 2027\n- Interests: behavioral neuroscience, synaptic plasticity, health equity"
+  },
+  {
+    "objectID": "resume.html#research-experience",
+    "href": "resume.html#research-experience",
+    "title": "Resume",
+    "section": "Research Experience",
+    "text": "Research Experience\nLab Assistant – Jonathan King Lab, Pomona College\nSeptember 2024 – Present\n\nInvestigate sex differences in anxiety‑like behavior and synaptic plasticity induced by chronic mild stress in Long Evans rats, using behavioral assays and hippocampal electrophysiological recordings.\nAnalyze extracellular field potentials and relate synaptic changes to behavioral outcomes under stress paradigms.\nCo‑authoring a poster, “Chronic Mild Stress Produces Sex Differences in Anxiety‑like Behavior and Synaptic Plasticity,” to be presented at the 2025 Society for Neuroscience (SfN) annual meeting.\nAssist senior thesis projects on serotonin, nicotine, and other neurotransmitter effects on hippocampal LTP and activity, including precise electrode placement in Schaffer collaterals and CA1.\n\nLab Assistant – Jonathan Moore Lab, Pomona College\n\nJune 2024\n\nPrepared and stored yeast culture agar plates for the Introduction to Genetics course to ensure smooth lab operations for Fall 2024.\nCleaned and maintained lab equipment to support safe and efficient experiments.\n\nLab Assistant – Jae Hur Lab, Harvey Mudd College\n\nFebruary – April 2024\n\nPerformed assays, dilutions, and data collection for ClpXP aging research.\nCoordinated experiments with lab members and maintained equipment and supplies."
+  },
+  {
+    "objectID": "resume.html#selected-projects",
+    "href": "resume.html#selected-projects",
+    "title": "Resume",
+    "section": "Selected Projects",
+    "text": "Selected Projects\nResearch proposal on alternative salts and hypertension (course project)\n\nDesigned a study to compare Himalayan and sea salt with table salt for reducing hypertension symptoms across diverse genders and ethnicities.\nDeveloped data‑collection tools and ethical safeguards based on a literature review.\n\nVirtual Research Training Program – Seattle Children’s (chosen participant)\n\nCompleted a short program covering biochemistry, immunology, and global/public health with a student cohort.\nParticipated in virtual lab demonstrations and discussions of current biomedical and healthcare research."
+  },
+  {
+    "objectID": "resume.html#technical-skills",
+    "href": "resume.html#technical-skills",
+    "title": "Resume",
+    "section": "Technical Skills",
+    "text": "Technical Skills\n\nProgramming: Python, R, SQL\nTools: Microsoft Office, Google Workspace, Canva, CapCut, Quarto / R Markdown\nMethods: behavioral analysis, electrophysiology basics, data wrangling, visualization, reproducible workflows"
+  },
+  {
+    "objectID": "resume.html#awards-presentations",
+    "href": "resume.html#awards-presentations",
+    "title": "Resume",
+    "section": "Awards & Presentations",
+    "text": "Awards & Presentations\n\nCo‑author, forthcoming poster at the 2025 Society for Neuroscience (SfN) annual meeting:\n“Chronic Mild Stress Produces Sex Differences in Anxiety‑like Behavior and Synaptic Plasticity.”\n\n\n\n\n“Chronic Mild Stress Produces Sex Differences in Anxiety‑like Behavior and Synaptic Plasticity.”"
+  },
+  {
+    "objectID": "resume.html#pdf-version",
+    "href": "resume.html#pdf-version",
+    "title": "Resume",
+    "section": "PDF Version",
+    "text": "PDF Version\nFor full details, see the PDF resume:\nDownload my full research resume"
+  },
+  {
+    "objectID": "resume.html#clinical-program-experience",
+    "href": "resume.html#clinical-program-experience",
+    "title": "Resume",
+    "section": "Clinical & Program Experience",
+    "text": "Clinical & Program Experience\nHospice Cancer Care Aide – U Hla Tun Cancer Foundation & Hospice\n\nMandalay, Myanmar - November 2020 – July 2023\n\nHelped coordinate patient care by scheduling appointments, organizing medical records, and communicating with healthcare providers.\nProvided companionship and emotional support to patients and families during end‑of‑life care and bereavement.\n\nProgram / Research Intern (Better Healthcare) – Better Youth Myanmar\n\nMyanmar - December 2021 – April 2022\n\nHelped develop an evidence‑based, culturally sensitive 2022 healthcare program plan.\nCreated educational materials using Microsoft Word, PowerPoint, and Canva, aligned with the organization’s mission\nAnalyzed survey and focus‑group data to inform future healthcare programming."
+  },
+  {
+    "objectID": "index.html#profile",
+    "href": "index.html#profile",
+    "title": "Welcome",
+    "section": "",
+    "text": "Connect with me:\n| GitHub | Linkedin"
+  },
+  {
+    "objectID": "presentation.html#the-case-deepmind-royal-free",
+    "href": "presentation.html#the-case-deepmind-royal-free",
+    "title": "Streams, DeepMind, and NHS Data",
+    "section": "The Case: DeepMind & Royal Free",
+    "text": "The Case: DeepMind & Royal Free\n\n\n2015: Royal Free NHS Trust partners with Google DeepMind to build Streams\n\nApp designed to alert clinicians of acute kidney injury in real time\n\nData shared: Records of ~1.6 million NHS patients\n\nIncludes sensitive information: HIV status, mental health history, drug use\n\nThe problem (2017): UK Information Commissioner’s Office (ICO) ruled the deal violated data-protection law"
+  },
+  {
+    "objectID": "presentation.html#problem-1-consent-permission",
+    "href": "presentation.html#problem-1-consent-permission",
+    "title": "When AI Meets Healthcare",
+    "section": "Problem 1: Consent & Permission",
+    "text": "Problem 1: Consent & Permission\n\n“Direct patient care” was the claimed legal basis—but Streams was in testing phase, not routine clinical use.\n\n\nPatients never knew a private AI lab would access their records\nNo meaningful opt-in or opt-out opportunity\nFuture AI uses are impossible to foresee at point of data collection"
+  },
+  {
+    "objectID": "presentation.html#problem-2-privacy-identifiability",
+    "href": "presentation.html#problem-2-privacy-identifiability",
+    "title": "When AI Meets Healthcare",
+    "section": "Problem 2: Privacy & Identifiability",
+    "text": "Problem 2: Privacy & Identifiability\n\nRich, line-level records with names, addresses, dates, detailed medical histories.\n\n\nClaims of “secure storage” don’t eliminate privacy risk\nQuasi-identifiers (age, postcode, rare diagnoses) enable re-identification\nWeak data minimization and oversight left patients exposed"
+  },
+  {
+    "objectID": "presentation.html#problem-3-representation-bias",
+    "href": "presentation.html#problem-3-representation-bias",
+    "title": "When AI Meets Healthcare",
+    "section": "Problem 3: Representation & Bias",
+    "text": "Problem 3: Representation & Bias\n\nTrained on one London hospital—yet promoted as a model for national AI in healthcare.\n\n\nLimited demographic and clinical diversity in training data\nMay not perform well for other NHS regions or populations\nRisk of amplifying health inequities when deployed at scale"
+  },
+  {
+    "objectID": "presentation.html#problem-4-data-repurposing",
+    "href": "presentation.html#problem-4-data-repurposing",
+    "title": "Streams, DeepMind, and NHS Data",
+    "section": "Problem 4: Data Repurposing",
+    "text": "Problem 4: Data Repurposing\n\n“Clinical data for treatment became R&D assets for a private tech firm”\n\n\n\nNHS collects records to deliver care, not as a general AI training resource\nData intended for direct clinical use were repurposed for algorithm development\nPower imbalance: Public institutions provide data; private actors capture long-term value (IP, know-how, products)\nPatients rarely participate in reuse decisions and don’t share benefits"
+  },
+  {
+    "objectID": "presentation.html#why-it-matters",
+    "href": "presentation.html#why-it-matters",
+    "title": "Streams, DeepMind, and NHS Data",
+    "section": "Why It Matters",
+    "text": "Why It Matters\n\n\nUnequal distribution: Alphabet gains access to data and technical capability; patients lose control over sensitive information\nStructural power: Public healthcare systems depend on tech firms; firms gain influence over public infrastructure\nEquity risk: Without stronger governance, AI in healthcare reproduces existing power imbalances and health inequities\nLesson: Technological innovation cannot be separated from ethical accountability"
+  },
+  {
+    "objectID": "presentation.html#takeaway",
+    "href": "presentation.html#takeaway",
+    "title": "When AI Meets Healthcare",
+    "section": "Takeaway",
+    "text": "Takeaway\nThis collaboration has become a frequently cited example in discussions of AI, health data, and governance.\nIt suggests that future systems may require: - Clearer and more accessible patient information and consent mechanisms - Stronger and more transparent data‑governance structures - Attention to representativeness and equity when training and deploying models - Careful design of public–private arrangements so that benefits and responsibilities are more clearly aligned with patient and public interests."
+  },
+  {
+    "objectID": "presentation.html#the-case-deepmind-royal-free-2015",
+    "href": "presentation.html#the-case-deepmind-royal-free-2015",
+    "title": "When AI Meets Healthcare",
+    "section": "The Case: DeepMind & Royal Free (2015)",
+    "text": "The Case: DeepMind & Royal Free (2015)\n\n\n1.6 Million\nPatient records shared without consent\n\nStreams App\nAI to detect acute kidney injury\n\n2017: ICO Ruling\nViolated UK data-protection law"
+  },
+  {
+    "objectID": "presentation.html#what-went-wrong",
+    "href": "presentation.html#what-went-wrong",
+    "title": "When AI Meets Healthcare",
+    "section": "What Went Wrong?",
+    "text": "What Went Wrong?\n\nSensitive data: HIV status, mental health, drug use\nNo consent: Patients never told, never given opt-out\nWrong legal basis: Claimed “direct patient care”—but Streams was still being tested\nPrivate company: Data shared with Alphabet subsidiary, not NHS-only research"
+  },
+  {
+    "objectID": "presentation.html#problem-4-data-beyond-original-purpose",
+    "href": "presentation.html#problem-4-data-beyond-original-purpose",
+    "title": "When AI Meets Healthcare",
+    "section": "Problem 4: Data Beyond Original Purpose",
+    "text": "Problem 4: Data Beyond Original Purpose\n\nClinical data collected for treatment became R&D assets for a private tech firm.\n\n\nPublic institution provided data; private actor captured value (IP, know-how, products)\nPatients rarely participate in reuse decisions\nStructural power imbalance: NHS depends on tech firms; firms gain control of public infrastructure"
+  },
+  {
+    "objectID": "presentation.html#why-this-matters",
+    "href": "presentation.html#why-this-matters",
+    "title": "When AI Meets Healthcare",
+    "section": "Why This Matters",
+    "text": "Why This Matters\n\n\nPotential Benefit\nEarlier detection of kidney injury → better patient outcomes\n\nActual Cost\n1.6M patients lost data control; unequal distribution of risk and benefit"
+  },
+  {
+    "objectID": "presentation.html#the-four-ethical-failures",
+    "href": "presentation.html#the-four-ethical-failures",
+    "title": "When AI Meets Healthcare",
+    "section": "The Four Ethical Failures",
+    "text": "The Four Ethical Failures\n\n✗ Inadequate consent: Patients never informed or given meaningful choice\n✗ Insufficient anonymization: Identifiable data without safeguards\n✗ Narrow training data: Single trust → poor generalization, equity risks\n✗ Data misuse: Clinical records repurposed for corporate R&D"
+  },
+  {
+    "objectID": "presentation.html#the-lesson-a-cautionary-tale",
+    "href": "presentation.html#the-lesson-a-cautionary-tale",
+    "title": "When AI Meets Healthcare",
+    "section": "The Lesson: A Cautionary Tale",
+    "text": "The Lesson: A Cautionary Tale\nTechnological innovation cannot be separated from ethical accountability.\nWithout robust consent, transparent governance, representative data, and fair benefit-sharing, AI in healthcare risks reproducing power imbalances and health inequities."
+  },
+  {
+    "objectID": "presentation.html#what-happened",
+    "href": "presentation.html#what-happened",
+    "title": "When AI Meets Healthcare",
+    "section": "What Happened?",
+    "text": "What Happened?\n\nRoyal Free London NHS Foundation Trust partnered with Google DeepMind to develop Streams for acute kidney injury alerts\nDeepMind received access to a large volume of historical patient records, including sensitive information\nThe data sharing was justified by the Trust as being for “direct patient care”\nSubsequent investigation by the ICO found this justification was not appropriate for how the data were used"
+  },
+  {
+    "objectID": "presentation.html#issue-1-consent-permission",
+    "href": "presentation.html#issue-1-consent-permission",
+    "title": "When AI Meets Healthcare",
+    "section": "Issue 1: Consent & Permission",
+    "text": "Issue 1: Consent & Permission\n\nThe ICO concluded that patients “would not have reasonably expected” their data to be used in this way.\n\n\nPatients were not directly informed that their records would be shared with a private AI lab\nThere was no explicit opt‑in mechanism and limited practical opportunity to opt out\nCommentators argue that conventional consent frameworks struggle when future AI uses of data are open‑ended"
+  },
+  {
+    "objectID": "presentation.html#issue-2-privacy-identifiability",
+    "href": "presentation.html#issue-2-privacy-identifiability",
+    "title": "When AI Meets Healthcare",
+    "section": "Issue 2: Privacy & Identifiability",
+    "text": "Issue 2: Privacy & Identifiability\n\nHealth‑data privacy researchers note that rich clinical records are hard to anonymize in practice.\n\n\nDeepMind obtained detailed, line‑level records (diagnoses, dates, demographics)\nEven when explicit identifiers are removed, combinations of variables can allow re‑identification, especially when linked with other datasets\nThe case raised questions about whether data minimization and proportionality requirements were met"
+  },
+  {
+    "objectID": "presentation.html#issue-3-representation-bias",
+    "href": "presentation.html#issue-3-representation-bias",
+    "title": "When AI Meets Healthcare",
+    "section": "Issue 3: Representation & Bias",
+    "text": "Issue 3: Representation & Bias\n\nStreams was developed using data from a single hospital trust in London.\n\n\nTraining data reflected the patient population and practices of one NHS organization\nPerformance on other populations (different regions, demographics, comorbidities) was uncertain without broader validation\nScholars in health‑equity and data‑feminist frameworks highlight how such sampling decisions can reproduce existing inequities if systems are deployed more widely"
+  },
+  {
+    "objectID": "presentation.html#issue-4-data-use-beyond-original-purpose",
+    "href": "presentation.html#issue-4-data-use-beyond-original-purpose",
+    "title": "When AI Meets Healthcare",
+    "section": "Issue 4: Data Use Beyond Original Purpose",
+    "text": "Issue 4: Data Use Beyond Original Purpose\n\nNHS records are primarily collected to deliver and manage care, not to serve as a general resource for private R&D.\n\n\nIn this collaboration, data originally collected for clinical care were used to develop and test a system owned by a corporate subsidiary\nAnalyses of public–private health‑data partnerships note that public institutions often supply data, while private firms may capture a substantial share of long‑term value (IP, technical know‑how, future products)\nThe case has been discussed as illustrating structural power imbalances between public health systems and large technology companies"
+  },
+  {
+    "objectID": "presentation.html#why-this-case-matters",
+    "href": "presentation.html#why-this-case-matters",
+    "title": "When AI Meets Healthcare",
+    "section": "Why This Case Matters",
+    "text": "Why This Case Matters\n\n\n\nPotential benefits (project aims)\n\nSupport earlier detection of acute kidney injury\nProvide clinicians with timely alerts at the bedside\n\n\n\n\nRisks and concerns (identified later)\n\nLarge‑scale use of sensitive data without direct patient notification\nLegal non‑compliance found by the data‑protection regulator\nUnclear distribution of long‑term benefits between patients, the NHS, and the company"
+  },
+  {
+    "objectID": "presentation.html#summary-of-ethical-points",
+    "href": "presentation.html#summary-of-ethical-points",
+    "title": "When AI Meets Healthcare",
+    "section": "Summary of Ethical Points",
+    "text": "Summary of Ethical Points\n\nConsent and expectation: Patients were not clearly informed; regulators judged that reasonable expectations were not met\nPrivacy and identifiability: Rich clinical data are difficult to fully anonymize in realistic settings\nRepresentation and generalizability: Development on a single‑trust dataset raises questions about wider deployment\nPublic–private governance: The case highlights tensions over control, oversight, and benefit‑sharing in health‑data collaborations"
   }
 ]
