@@ -89,7 +89,7 @@ Asia has the largest number of women on the list, followed by Europe, Africa, an
 
 In every region except Oceania, women are spread across all four BBC categories (Leadership, Knowledge, Identity, Creativity), but the mix differs by region. Asia and Africa have particularly large “Knowledge” and “Leadership” segments, whereas the Americas show a more even balance between Leadership, Knowledge, and Identity, with a smaller Creativity segment.
 
-## References / Data Source 
+## References / Data Source
 
 **Source**: [TidyTuesday BBC 100 Women Resource](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-12-08)
 

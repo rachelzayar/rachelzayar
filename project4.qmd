@@ -24,8 +24,7 @@ This partnership became a defining example of how ethics, power, and corporate i
 
 Under the UK Data Protection Act, organizations must have a valid legal basis for processing personal data. The Royal Free Trust argued that sharing data with DeepMind was justified under “direct patient care,” the same basis that allows clinicians to access records to diagnose and treat individuals. However, Streams was in a research and testing phase; patients were not yet receiving care through the app, so this legal justification did not apply.
 
-In 2017, the ICO found that the Royal Free Trust had failed to adequately inform patients about the partnership or the ways their data would be processed. Patients were not told that a private AI lab would receive their records, nor were they given a meaningful chance to opt in or out. Genuine informed consent requires that people know who will access their data, for what purposes, and with what potential consequences. In this case, patients had no realistic way to understand that their
-records might support algorithm development, later products, or broader commercial AI strategies.
+In 2017, the ICO found that the Royal Free Trust had failed to adequately inform patients about the partnership or the ways their data would be processed. Patients were not told that a private AI lab would receive their records, nor were they given a meaningful chance to opt in or out. Genuine informed consent requires that people know who will access their data, for what purposes, and with what potential consequences. In this case, patients had no realistic way to understand that their records might support algorithm development, later products, or broader commercial AI strategies.
 
 More broadly, the case highlights the limits of conventional consent models in big‑data healthcare. Fan, Zhang, and Li (2025) argue that when AI enables open‑ended reuse of data, future applications are often impossible to foresee at the point of collection. The DeepMind collaboration demonstrates how quickly clinical data, obtained for treatment and operations, can be repurposed for research and development far beyond what patients initially understood.
 
@@ -55,8 +54,7 @@ Because Streams was trained primarily on patients from one trust, its fairness a
 
 The NHS collects patient records to deliver care, manage services, and meet legal obligations, not to provide a general data resource for private AI labs. In the DeepMind partnership, however, information originally gathered for clinical purposes was repurposed to develop and test a machine‑learning system owned by a subsidiary of a large technology company.
 
-DeepMind described Streams as a non‑commercial patient‑safety project, but Alphabet nonetheless benefited from technical expertise, infrastructure, and potential intellectual property generated through the collaboration. Fan et al. (2025) argue that in such arrangements, public institutions often provide the data while private firms capture most of the long‑term value in the form of algorithms, know‑how, and future products. Patients whose data made the work possible rarely participate
-in decisions about reuse and typically do not share in any commercial benefits.
+DeepMind described Streams as a non‑commercial patient‑safety project, but Alphabet nonetheless benefited from technical expertise, infrastructure, and potential intellectual property generated through the collaboration. Fan et al. (2025) argue that in such arrangements, public institutions often provide the data while private firms capture most of the long‑term value in the form of algorithms, know‑how, and future products. Patients whose data made the work possible rarely participate in decisions about reuse and typically do not share in any commercial benefits.
 
 From a Data Feminism perspective, this reflects a structural power imbalance between public healthcare systems and corporate technology actors. Public providers depend on large technology firms for AI tools and infrastructure, while those firms gain influence over public infrastructure through control of data and models. The Streams case shows how easily public health data can be drawn into private research agendas once consent and governance safeguards fail.
 
@@ -71,6 +69,7 @@ Because the data came from one trust and patients had no role in governance, the
 The DeepMind–Royal Free case ultimately serves as a cautionary tale. Inadequate consent, insufficient anonymization, narrow training data, and repurposing of patient records for corporate AI development all reveal how easily technological innovation can outpace ethical and regulatory safeguards. Without stronger consent mechanisms, transparent governance, more representative data, and fair sharing of benefits, AI in healthcare risks reproducing the very power imbalances and inequities it claims to address.
 
 ## 
+
 References
 
 Dankwa-Mullan, I., Nunez-Smith, M., & Volerman, A. (2024). Health equity and ethical considerations in using artificial intelligence. Centers for Disease Control and Prevention. https://www.cdc.gov/pcd/issues/2024/24_0245.htm
