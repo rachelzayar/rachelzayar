@@ -25,8 +25,7 @@ website:
       - text: "DeepMind–NHS Ethics"
         href: project4.qmd
       - text: "Sex Differences and Traffic Stops"
-        href: project5.qmd
-      
+        href: project5.qmd      
 
 format:
   html:
@@ -35,4 +34,3 @@ format:
     toc: true
 
 editor: visual
-
