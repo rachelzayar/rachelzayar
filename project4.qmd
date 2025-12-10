@@ -65,7 +65,7 @@ Because the data came from one trust and patients had no role in governance, the
 
 The DeepMind–Royal Free case ultimately serves as a cautionary tale. Inadequate consent, insufficient anonymization, narrow training data, and repurposing of patient records for corporate AI development all reveal how easily technological innovation can outpace ethical and regulatory safeguards. Without stronger consent mechanisms, transparent governance, more representative data, and fair sharing of benefits, AI in healthcare risks reproducing the very power imbalances and inequities it claims to address.
 
-## References
+## References / Data source
 
 Dankwa-Mullan, I., Nunez-Smith, M., & Volerman, A. (2024). Health equity and ethical considerations in using artificial intelligence. Centers for Disease Control and Prevention. https://www.cdc.gov/pcd/issues/2024/24_0245.htm
 
