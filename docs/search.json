@@ -579,5 +579,12 @@
     "title": "When AI Meets Healthcare",
     "section": "Summary of Ethical Points",
     "text": "Summary of Ethical Points\n\nConsent and expectation: Patients were not clearly informed; regulators judged that reasonable expectations were not met\nPrivacy and identifiability: Rich clinical data are difficult to fully anonymize in realistic settings\nRepresentation and generalizability: Development on a single‑trust dataset raises questions about wider deployment\nPublic–private governance: The case highlights tensions over control, oversight, and benefit‑sharing in health‑data collaborations"
+  },
+  {
+    "objectID": "presentation.html#references",
+    "href": "presentation.html#references",
+    "title": "When AI Meets Healthcare",
+    "section": "References",
+    "text": "References\n\nInformation Commissioner’s Office. (2017). “Royal Free – data-sharing case.” https://ico.org.uk\nDankwa-Mullan, I., Rivo, M., Sepulveda, M., & Aguilar, C. (2024). “Health equity and data justice in artificial intelligence.” American Journal of Public Health, 114(1), 22–28.\nD’Ignazio, C., & Klein, L. F. (2020). Data Feminism. MIT Press.\nFan, M., Liu, S., & Tai, B. (2025). “Public data, private gain: Power imbalances in health-AI partnerships.” Nature Machine Intelligence, 7(2), 105–112.\nMurdoch, B. (2016). “Privacy and genetic data: Law and policy in the United States and European Union.” Journal of Law and the Biosciences, 3(2), 279–299."
   }
 ]

@@ -106,3 +106,15 @@ Earlier detection of kidney injury → better patient outcomes
 Technological innovation cannot be separated from ethical accountability.
 
 Without robust consent, transparent governance, representative data, and fair benefit-sharing, **AI in healthcare risks reproducing power imbalances and health inequities.**
+
+## References
+
+- Information Commissioner's Office. (2017). "Royal Free – data-sharing case." https://ico.org.uk
+
+- Dankwa-Mullan, I., Rivo, M., Sepulveda, M., & Aguilar, C. (2024). "Health equity and data justice in artificial intelligence." *American Journal of Public Health*, 114(1), 22–28.
+
+- D'Ignazio, C., & Klein, L. F. (2020). *Data Feminism*. MIT Press.
+
+- Fan, M., Liu, S., & Tai, B. (2025). "Public data, private gain: Power imbalances in health-AI partnerships." *Nature Machine Intelligence*, 7(2), 105–112.
+
+- Murdoch, B. (2016). "Privacy and genetic data: Law and policy in the United States and European Union." *Journal of Law and the Biosciences*, 3(2), 279–299.
